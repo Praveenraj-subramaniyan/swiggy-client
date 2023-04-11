@@ -84,6 +84,38 @@ function App() {
           </div>
         </div>
       </div>
+      <div class="row lastdiv">
+  <div class="col-sm-3">
+    <h6>COMPANY</h6>
+    <p>About us</p>
+    <p>Team</p>
+    <p>Careers</p>
+    <p>Swiggy Blog</p>
+    <p>Bug Bounty</p>
+    <p>Swiggy One</p>
+    <p>Swiggy Corporate</p>
+    <p>Swiggy Instamart</p>
+    <p>Swiggy Genie</p>
+  </div>
+  <div class="col-sm-3">
+  <h6>CONTACT</h6>
+    <p>Help & Support</p>
+    <p>Partner with us</p>
+    <p>Ride with us</p>
+  </div>
+  <div class="col-sm-3">
+  <h6>LEGAL</h6>
+    <p>Terms & Conditions</p>
+    <p>Refund & Cancellation</p>
+    <p>Privacy Policy</p>
+    <p>Cookie Policy</p>
+    <p>Offer Terms</p>
+    <p>Phishing & Fraud</p>
+    <p>Corporate – Swiggy Money Codes Terms and Conditions</p>
+    <p>Corporate - Swiggy Discount Voucher Terms and Conditions</p>
+  </div>
+  <div class="col-sm-3">.col-sm-3</div>
+</div>
     </div>
   );
 }
