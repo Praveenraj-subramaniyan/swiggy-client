@@ -40,7 +40,7 @@ function App() {
                     <div class="search-bar">
                       <input
                         type="text"
-                        placeholder="Enter your delivery location"
+                        placeholder="Enter delivery location"
                       ></input>
                       <button type="submit">Find Food</button>
                     </div>
