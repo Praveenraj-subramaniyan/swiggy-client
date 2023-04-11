@@ -12,10 +12,10 @@ function App() {
   // }, 5000)
   return (
     <div>
-      <div className="container-fluid">
-        <div className="row ">
-          <div className="col-sm-7 firstrow pr-5">
-            <div className="container mx-5 my-5">
+      <div className="container-fluid firstrow">
+        <div className="row =">
+          <div className="container col-sm-7  pr-5">
+            <div className="container firstrow mx-5 my-5">
               <div className="row ">
                 <div className="col-6">
                   <img className="logo" src={logo} />
@@ -31,7 +31,9 @@ function App() {
                 </div>
                 <div className="col-sm-12 mt-5">
                   <h1>Hungry!!!</h1>
-                  <h4 className="greyColour">Order food from favourite restaurants near you.</h4>
+                  <h4 className="greyColour">
+                    Order food from favourite restaurants near you.
+                  </h4>
                 </div>
                 <div className="row">
                   <div className="col-sm-10 mt-5 ">
@@ -40,9 +42,7 @@ function App() {
                         type="text"
                         placeholder="Enter your delivery location"
                       ></input>
-                      <button type="submit">
-                        Find Food
-                      </button>
+                      <button type="submit">Find Food</button>
                     </div>
                   </div>
                 </div>

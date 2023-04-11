@@ -7,15 +7,15 @@
 }
 .imagefirstDiv {
   height: 550px;
+  width: 38%;
 }
 .firstrow {
   padding: 0px;
-
 }
-.logo{
- width: 18%;
+.logo {
+  width: 18%;
 }
-.Swiggycolour{
+.Swiggycolour {
   color: #fc8019;
   font-weight: bolder;
   font-size: 32px;
@@ -50,7 +50,7 @@
   width: 64px;
   border: none;
   outline: none;
-  background-color:#fc8019;
+  background-color: #fc8019;
   color: white;
   font-size: 16px;
   font-weight: 500;
@@ -61,6 +61,6 @@
 .search-bar button[type="submit"] i {
   margin-right: 4px;
 }
-.greyColour{
+.greyColour {
   color: grey;
 }
