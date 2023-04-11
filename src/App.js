@@ -12,7 +12,7 @@ function App() {
      if (currentIndex === 5)
       currentIndex = 0;
   
-  }, 3000)
+  }, 5000)
   return (
     <div>
       <div className="container-fluid firstrow">
