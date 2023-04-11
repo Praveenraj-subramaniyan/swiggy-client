@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/swiggy-client/static/css/main.24cabafc.css",
-    "main.js": "/swiggy-client/static/js/main.d2cd5bc6.js",
+    "main.js": "/swiggy-client/static/js/main.b4cd1bea.js",
     "static/js/787.948b38c5.chunk.js": "/swiggy-client/static/js/787.948b38c5.chunk.js",
     "static/media/swiggy.svg": "/swiggy-client/static/media/swiggy.c4605f3e17fa65c19d31cef6fd6b0530.svg",
     "index.html": "/swiggy-client/index.html",
     "static/media/location.svg": "/swiggy-client/static/media/location.fd69c51208b37107574beec527d0b654.svg",
     "main.24cabafc.css.map": "/swiggy-client/static/css/main.24cabafc.css.map",
-    "main.d2cd5bc6.js.map": "/swiggy-client/static/js/main.d2cd5bc6.js.map",
+    "main.b4cd1bea.js.map": "/swiggy-client/static/js/main.b4cd1bea.js.map",
     "787.948b38c5.chunk.js.map": "/swiggy-client/static/js/787.948b38c5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.24cabafc.css",
-    "static/js/main.d2cd5bc6.js"
+    "static/js/main.b4cd1bea.js"
   ]
 }
