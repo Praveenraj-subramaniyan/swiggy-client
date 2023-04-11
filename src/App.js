@@ -11,7 +11,7 @@ function App() {
               <div className="row">
                 <div className="col-sm-6">
                   <img className="logo" src={logo} />
-                  <span>swiggy</span>
+                  <span className="Swiggycolour">swiggy</span>
                 </div>
                 <div className="col-sm-6">.col-sm-3</div>
                 <div className="col-sm-6">.col-sm-3</div>
