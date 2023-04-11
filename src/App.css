@@ -4,6 +4,7 @@
   background-size: cover;
   background-position: 100%;
   padding: 0px;
+  width: 100%;
 }
 .imagefirstDiv {
   height: 550px;
@@ -32,7 +33,9 @@
   overflow: hidden;
   width: 100%;
 }
-
+.search-bar:hover{
+  border: 1px solid #fc8019;
+}
 .search-bar input[type="text"] {
   flex-grow: 1;
   height: 100%;
@@ -63,4 +66,13 @@
 }
 .greyColour {
   color: grey;
+}
+.cities{
+  font-weight: bold;
+  color: #535353;
+}
+.brownColour{
+  background-color: #2b1e16;
+  color: white;
+  text-align: center;
 }
