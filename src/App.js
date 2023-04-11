@@ -5,11 +5,11 @@ import "./App.css";
 function App() {
   let currentIndex = 0;
   setInterval(() => {
-    let titles = ['Hungry?', 'Late night at office?','Movie marathon?' ,'Game night?'];
+    let titles = ['Hungry?', 'Late night at office?','Movie marathon?' ,'Game night?', 'Cooking gone wrong?'];
    let element = document.getElementById('ChangingElement');
     element.innerHTML= titles[currentIndex];   
      currentIndex++;
-     if (currentIndex === 4)
+     if (currentIndex === 5)
       currentIndex = 0;
   
   }, 3000)
