@@ -14,9 +14,9 @@ function App() {
     <div>
       <div className="container-fluid">
         <div className="row ">
-          <div className="col-sm-7 firstrow">
+          <div className="col-sm-7 firstrow pr-5">
             <div className="container mx-5 my-5">
-              <div className="row">
+              <div className="row ">
                 <div className="col-6">
                   <img className="logo" src={logo} />
                   <span className="Swiggycolour">swiggy</span>
@@ -46,10 +46,11 @@ function App() {
                     </div>
                   </div>
                 </div>
+                <p className="mt-5 greyColour">POPULAR CITIES IN INDIA</p>
               </div>
             </div>
           </div>
-          <div className="col-sm-5 imagefirstDiv firstrow">
+          <div className="col-sm-5 imagefirstDiv ">
             <img
               className="firstImage"
               src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_1340/Lunch1_vlksgq"
