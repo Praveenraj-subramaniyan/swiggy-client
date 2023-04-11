@@ -3,13 +3,16 @@ import location from "./images/location.svg";
 import "./App.css";
 
 function App() {
-  // setTimeout(function() {
-  //   var texts = ["Text 2", "Text 3", "Text 4"];
-  //   var textElements = document.querySelectorAll("#my-text");
-  //   for (var i = 0; i < textElements.length; i++) {
-  //     textElements[i].innerHTML = texts[i];
-  //   }
-  // }, 5000)
+  let currentIndex = 0;
+  setInterval(() => {
+    let titles = ['Hungry?', 'Late night at office?','Movie marathon?' ,'Game night?'];
+   let element = document.getElementById('ChangingElement');
+    element.innerHTML= titles[currentIndex];   
+     currentIndex++;
+     if (currentIndex === 4)
+      currentIndex = 0;
+  
+  }, 3000)
   return (
     <div>
       <div className="container-fluid firstrow">
@@ -30,7 +33,7 @@ function App() {
                   </button>
                 </div>
                 <div className="col-sm-12 mt-5">
-                  <h1>Hungry!!!</h1>
+                  <h1 id="ChangingElement"></h1>
                   <h4 className="greyColour">
                     Order food from favourite restaurants near you.
                   </h4>
