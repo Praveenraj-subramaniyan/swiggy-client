@@ -13,10 +13,10 @@ function App() {
   return (
     <div>
       <div className="container-fluid firstrow">
-        <div className="row ">
-          <div className="container col-sm-7 ">
-            <div className="container firstrow mx-5 my-5">
-              <div className="row col-12 firstrow">
+        <div className="row firstrow row1 ml-5">
+          <div className="container col-sm-7 ml-5">
+            <div className="container firstrow mt-5 ml-5">
+              <div className="row col-12 firstrow  ">
                 <div className="col-6">
                   <img className="logo" src={logo} />
                   <span className="Swiggycolour">swiggy</span>
@@ -68,7 +68,7 @@ function App() {
       <div className="container-fluid brownColour">
         <div className="row">
           <div className="col-sm-4">
-          <img className="" width="35%" height="199" src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_210,h_398/4x_-_No_min_order_x0bxuf"/>
+          <img className="" width="104" height="199" src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_210,h_398/4x_-_No_min_order_x0bxuf"/>
           <h6 className="mt-3">No Minimum Order</h6>
           <p>Order in for yourself or for the group,<br/> with no restrictions on order value</p>
           </div>

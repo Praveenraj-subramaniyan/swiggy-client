@@ -6,9 +6,11 @@
   padding: 0px;
   width: 100%;
 }
+.row1{
+  margin-right: 0px;
+}
 .imagefirstDiv {
   height: 550px;
-  width: 38%;
 }
 .firstrow {
   padding: 0px;
