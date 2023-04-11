@@ -84,7 +84,7 @@ function App() {
           </div>
         </div>
       </div>
-      <div class="row lastdiv">
+      <div class="row lastdiv mr-0">
   <div class="col-sm-3">
     <h6>COMPANY</h6>
     <p>About us</p>
