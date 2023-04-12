@@ -25,7 +25,7 @@ function App() {
                   <span className="Swiggycolour">swiggy</span>
                 </div>
                 <div className="col-6 mt-3">
-                  <button type="button" class="btn text-dark mx-2">
+                  <button type="button" class="btn mx-2 loginButton">
                     <b>Login</b>
                   </button>
                   <button type="button" class="btn btn-dark">

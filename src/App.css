@@ -97,3 +97,6 @@
   position: relative;
   width: auto;
 }
+.loginButton :hover{
+  color: #fc8019;
+}
