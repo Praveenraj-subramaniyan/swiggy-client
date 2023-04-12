@@ -93,3 +93,7 @@
 .lastdiv p:hover{
   font-size: 17px;
 }
+.playstore{
+  position: relative;
+  width: auto;
+}

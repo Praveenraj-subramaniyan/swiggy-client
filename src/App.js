@@ -141,7 +141,7 @@ function App() {
           <p>Corporate – Swiggy Money Codes Terms and Conditions</p>
           <p>Corporate - Swiggy Discount Voucher Terms and Conditions</p>
         </div>
-        <div className="col-sm-3 ">
+        <div className="col-sm-3 playstore">
           <br/><br/>
           <a className="m-5" href="https://itunes.apple.com/in/app/id989540920?referrer=utm_source%3Dswiggy%26utm_medium%3Dhomepage">
             <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_200,h_65/icon-AppStore_lg30tv" />
