@@ -5,14 +5,20 @@ import "./App.css";
 function App() {
   let currentIndex = 0;
   setInterval(() => {
-    let titles = ['Hungry?', 'Late night at office?','Movie marathon?' ,'Game night?', 'Cooking gone wrong?'];
-   let element = document.getElementById('ChangingElement');
-    element.innerHTML= titles[currentIndex];   
-     currentIndex++;
-     if (currentIndex === 5)
+    let titles = [
+      "Hungry?",
+      "Late night at office?",
+      "Movie marathon?",
+      "Game night?",
+      "Cooking gone wrong?",
+    ];
+    let element = document.getElementById("ChangingElement");
+    element.innerHTML = titles[currentIndex];
+    currentIndex++;
+    if (currentIndex === 5) {
       currentIndex = 0;
-  
-  }, 5000)
+    }
+  }, 5000);
   return (
     <div>
       <div className="container-fluid firstrow">
@@ -142,14 +148,39 @@ function App() {
           <p>Corporate - Swiggy Discount Voucher Terms and Conditions</p>
         </div>
         <div className="col-sm-3 playstore">
-          <br/><br/>
-          <a className="m-5" href="https://itunes.apple.com/in/app/id989540920?referrer=utm_source%3Dswiggy%26utm_medium%3Dhomepage">
+          <br />
+          <br />
+          <a
+            className="m-5"
+            href="https://itunes.apple.com/in/app/id989540920?referrer=utm_source%3Dswiggy%26utm_medium%3Dhomepage"
+          >
             <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_200,h_65/icon-AppStore_lg30tv" />
           </a>
-          <br/><br/>
-          <a className="m-5" href="https://play.google.com/store/apps/details?id=in.swiggy.android&amp;referrer=utm_source%3Dswiggy%26utm_medium%3Dheader">
+          <br />
+          <br />
+          <a
+            className="m-5"
+            href="https://play.google.com/store/apps/details?id=in.swiggy.android&amp;referrer=utm_source%3Dswiggy%26utm_medium%3Dheader"
+          >
             <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_200,h_65/icon-GooglePlay_1_zixjxl" />
           </a>
+        </div>
+      </div>
+      <div className="container-fluid loginDiv">
+        <div className="row">
+          <div className="col-8 loginleftDiv"></div>
+          <div className="col-4 loginrighttDiv">
+            <button className="btn "><i className="fas fa-times"></i></button>
+            <div className="row">
+              <div className="col-6">
+                <h4>Login</h4>
+                <p>
+                  Or <span>Create an account</span>
+                </p>
+              </div>
+              <div className="col-6"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

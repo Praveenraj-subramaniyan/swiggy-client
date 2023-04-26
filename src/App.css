@@ -100,3 +100,15 @@
 .loginButton :hover{
   color: #fc8019;
 }
+.loginDiv{
+  position: fixed;
+  top: 0;
+  height: auto;
+}
+.loginleftDiv{
+  opacity: 0.1;
+  background-color: grey;
+}
+.loginrighttDiv{
+  background-color: white;
+}
