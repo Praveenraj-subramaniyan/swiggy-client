@@ -12,13 +12,13 @@ function App() {
       "Game night?",
       "Cooking gone wrong?",
     ];
-    let element = document.getElementById("ChangingElement");
+    var element = document.getElementById("ChangingElement");
     element.innerHTML = titles[currentIndex];
     currentIndex++;
     if (currentIndex === 5) {
       currentIndex = 0;
     }
-  }, 5000);
+  }, 4000);
   return (
     <div>
       <div className="container-fluid firstrow">
@@ -30,11 +30,11 @@ function App() {
                   <img className="logo" src={logo} />
                   <span className="Swiggycolour">swiggy</span>
                 </div>
-                <div className="col-6 mt-3">
-                  <button type="button" class="btn mx-2 loginButton">
+                <div className="col-6 mt-2 " id="loginsign">
+                  <button type="button" className="btn mx-2 loginButton">
                     <b>Login</b>
                   </button>
-                  <button type="button" class="btn btn-dark">
+                  <button type="button" className="btn btn-dark">
                     Sign Up
                   </button>
                 </div>
@@ -46,7 +46,7 @@ function App() {
                 </div>
                 <div className="row">
                   <div className="col-sm-10 mt-5 ">
-                    <div class="search-bar">
+                    <div className="search-bar">
                       <input
                         type="text"
                         placeholder="Enter delivery location"
@@ -55,13 +55,13 @@ function App() {
                     </div>
                   </div>
                 </div>
-                <p className="mt-4 greyColour">POPULAR CITIES IN INDIA</p>
+                <p className="mt-4 text-secondary">POPULAR CITIES IN INDIA</p>
                 <p className="mt-3 cities">
-                  Ahmedabad <span className="greyColour">Bangalore</span>{" "}
-                  Chennai <span className="greyColour">Delhi</span> Gurgaon
-                  <span className="greyColour"> Hyderabad </span>
+                  Ahmedabad <span className="text-secondary">Bangalore</span>{" "}
+                  Chennai <span className="text-secondary">Delhi</span> Gurgaon
+                  <span className="text-secondary"> Hyderabad </span>
                   Kolkata
-                  <span className="greyColour"> Mumbai </span> Pune & more.
+                  <span className="text-secondary"> Mumbai </span> Pune & more.
                 </p>
               </div>
             </div>
@@ -170,15 +170,33 @@ function App() {
         <div className="row">
           <div className="col-8 loginleftDiv"></div>
           <div className="col-4 loginrighttDiv">
-            <button className="btn "><i className="fas fa-times"></i></button>
-            <div className="row">
-              <div className="col-6">
-                <h4>Login</h4>
+            <button className="btn ">
+              <i className="fas fa-times"></i>
+            </button>
+            <div className="row createAcc">
+              <div className="col-5  mt-4  ms-3">
+                <h4 className="Login">Login</h4>
                 <p>
-                  Or <span>Create an account</span>
+                  or <span className="orangeColour"> Create an account</span>
                 </p>
               </div>
-              <div className="col-6"></div>
+              <div className="col-5 ms-3">
+                <img
+                  width="100"
+                  height="105"
+                  src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/Image-login_btpq7r"
+                />
+              </div>
+            </div>
+            <div className="row inputBoxDiv">
+              <div className="col-12  mt-4  ms-3">
+                <input placeholder="Email"  className="pt-3 ps-2 pb-3 inputLogin"/>
+                <input placeholder="Password"  className="mt-3 pt-3 ps-2 pb-3 inputLogin"/>
+              </div>
+              <div>
+              <button className="btn LoginButton mt-4 ms-3 pt-1 pb-2">Login</button>
+              <p className=" ms-3 mt-1"><span className="text-secondary">By clicking on Login, I accept the </span>Terms & Conditions & Privacy Policy</p>
+              </div>
             </div>
           </div>
         </div>

@@ -65,9 +65,6 @@
 .search-bar button[type="submit"] i {
   margin-right: 4px;
 }
-.greyColour {
-  color: grey;
-}
 .cities{
   font-weight: bold;
   color: #535353;
@@ -103,12 +100,74 @@
 .loginDiv{
   position: fixed;
   top: 0;
-  height: auto;
+}
+.loginDiv p{
+  font-size: small;
 }
 .loginleftDiv{
-  opacity: 0.1;
+  opacity: 0.5;
   background-color: grey;
+  height: 900px;
+  padding: 0px;
 }
 .loginrighttDiv{
   background-color: white;
+  height: 900px;
+}
+@media (min-width : 850px) {
+  #loginsign{
+   margin-top: 1rem;
+  }
+}
+
+.orangeColour{
+  color: #fc8019;
+}
+.createAcc:after {
+  content: "";
+  margin-left: 2rem;
+  width: 30px;
+  border: 1px solid black;
+}
+.inputBoxDiv{
+  background-color: transparent;
+  line-height: normal;
+  border: none;
+  outline: none;
+  height: 70px;
+  width: 100%;
+  font-size: 17px;
+}
+.inputLogin{
+  width: 85%;
+  height: 60px;
+  border: 1px solid #fc8019;
+  outline: none;
+}
+.LoginButton{
+  background-color: #fc8019 ;
+  width: 85%;
+  height: 50px;
+  border-radius: 0px;
+  color: white;
+  font-weight: 600;
+  font-size: large;
+}
+@media (max-width : 820px) {
+  .inputLogin{
+    width: 95%;
+    height: 30px;
+    border: 1px solid #fc8019;
+    outline: none;
+    font-size: small;
+  }
+  .LoginButton{
+    background-color: #fc8019 ;
+    width: 95%;
+    height: 30px;
+    border-radius: 0px;
+    color: white;
+    font-weight: 600;
+    font-size: small;
+  }
 }
