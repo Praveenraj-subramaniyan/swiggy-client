@@ -43,7 +43,7 @@ function App() {
                   <button type="button" className="btn mx-2 loginButton" onClick={() => LoginVisible("loginDiv")}>
                     <b>Login</b>
                   </button>
-                  <button type="button" className="btn btn-dark">
+                  <button type="button" className="btn btn-dark" onClick={() => LoginVisible("signupDiv")}>
                     Sign Up
                   </button>
                 </div>
@@ -197,16 +197,56 @@ function App() {
                 />
               </div>
             </div>
+            <form>
             <div className="row inputBoxDiv">
               <div className="col-12  mt-4  ms-3">
-                <input placeholder="Email"  className="pt-3 ps-2 pb-3 inputLogin"/>
-                <input placeholder="Password"  className="mt-3 pt-3 ps-2 pb-3 inputLogin"/>
+                <input placeholder="Email"  type="email" required className="pt-3 ps-2 pb-3 inputLogin"/>
+                <input placeholder="Password" type="password" required className="mt-3 pt-3 ps-2 pb-3 inputLogin"/>
               </div>
               <div>
-              <button className="btn LoginButton mt-4 ms-3 pt-1 pb-2" >Login</button>
+              <button className="btn LoginButton mt-4 ms-3 pt-1 pb-2" type="submit">Login</button>
               <p className=" ms-3 mt-1"><span className="text-secondary">By clicking on Login, I accept the </span>Terms & Conditions & Privacy Policy</p>
               </div>
             </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div className="container-fluid loginDiv" id="signupDiv">
+        <div className="row">
+          <div className="col-8  loginleftDiv"></div>
+          <div className="col-4   loginrighttDiv">
+            <button className="btn "  onClick={() => Close("signupDiv")}>
+              <i className="fas fa-times"></i>
+            </button>
+            <div className="row createAcc">
+              <div className="col-5  mt-4  ms-3">
+                <h4 className="Login">Sign up</h4>
+                <p>
+                  or <span className="orangeColour"> login to your account</span>
+                </p>
+              </div>
+              <div className="col-5 ms-3">
+                <img
+                  width="100"
+                  height="105"
+                  src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/Image-login_btpq7r"
+                />
+              </div>
+            </div>
+            <form>
+            <div className="row inputBoxDiv">
+              <div className="col-12  mt-4  ms-3">
+              <input placeholder="Email" type="email" required className="pt-3 ps-2 pb-3 mb-3 inputLogin"/>
+                <input placeholder="Password" type="password" required className="pt-3 ps-2 pb-3 inputLogin"/>
+                <input placeholder="Confirm password" type="password" required  className="mt-3 pt-3 ps-2 pb-3 inputLogin"/>
+              </div>
+              <div>
+              <button className="btn LoginButton mt-4 ms-3 pt-1 pb-2" type="submit">Sign up</button>
+              <p className=" ms-3 mt-1"><span className="text-secondary">By creating an account, I accept the </span>Terms & Conditions & Privacy Policy</p>
+              </div>
+            </div>
+            </form>
           </div>
         </div>
       </div>

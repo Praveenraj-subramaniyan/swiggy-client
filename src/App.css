@@ -174,3 +174,22 @@
 #loginDiv{
   visibility: hidden;
 }
+@media (max-width : 576px) {
+ .loginleftDiv{
+  display: none;
+  
+ }
+ .loginrighttDiv{
+  width: 100%;
+  padding: 0px;
+ }
+ .loginrighttDiv input{
+  width: 77%;
+ }
+ .LoginButton {
+  width: 77%;
+ }
+ .loginrighttDiv p{
+  width: 77%;
+ }
+}
