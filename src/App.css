@@ -196,3 +196,17 @@
   width: 77%;
  }
 }
+.switchTapButton{
+  padding-right: 0px;
+  padding-left: 0px;
+  padding-bottom: 10px;
+  font-size: small;
+}
+/* @media (min-width : 576px) and (max-width: 850px) {
+  .loginrighttDiv p{
+    width: 77%;
+   }
+} */
+.switchTapButton:hover {
+  color: #fc8019;
+}

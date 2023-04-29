@@ -19,6 +19,20 @@ function App() {
       currentIndex = 0;
     }
   }, 4000);
+  function SwitcTab(value){
+    if(value === "signupDiv"){
+      var element = document.getElementById(value);
+      element.style.visibility = "visible";
+      var element = document.getElementById("loginDiv");
+      element.style.visibility = "hidden";
+    }
+    else if( value === "loginDiv"){
+      var element = document.getElementById(value);
+      element.style.visibility = "visible";
+      var element = document.getElementById("signupDiv");
+      element.style.visibility = "hidden";
+    }
+  }
   function Close(value){
    
     var element = document.getElementById(value);
@@ -183,13 +197,15 @@ function App() {
               <i className="fas fa-times"></i>
             </button>
             <div className="row createAcc">
-              <div className="col-5  mt-4  ms-3">
+              <div className="col-5  mt-4  ms-3 pe-0 ps-0">
                 <h4 className="Login">Login</h4>
-                <p>
-                  or <span className="orangeColour"> Create an account</span>
+                
+                <p onClick={() => SwitcTab("signupDiv")}>
+                  or <button className="btn orangeColour switchTapButton"> Create an account </button>
                 </p>
+                
               </div>
-              <div className="col-5 ms-3">
+              <div className="col-5 ">
                 <img
                   width="100"
                   height="105"
@@ -220,10 +236,10 @@ function App() {
               <i className="fas fa-times"></i>
             </button>
             <div className="row createAcc">
-              <div className="col-5  mt-4  ms-3">
+              <div className="col-5  mt-4  ms-3 pe-0 ps-0">
                 <h4 className="Login">Sign up</h4>
-                <p>
-                  or <span className="orangeColour"> login to your account</span>
+                <p onClick={() => SwitcTab("loginDiv")}>
+                  or <button className="btn orangeColour switchTapButton"> login to your account </button>
                 </p>
               </div>
               <div className="col-5 ms-3">
