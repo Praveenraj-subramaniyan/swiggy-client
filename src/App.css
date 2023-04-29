@@ -171,3 +171,6 @@
     font-size: small;
   }
 }
+#loginDiv{
+  visibility: hidden;
+}

@@ -19,6 +19,15 @@ function App() {
       currentIndex = 0;
     }
   }, 4000);
+  function Close(value){
+   
+    var element = document.getElementById(value);
+    element.style.visibility = "hidden";
+  }
+  function LoginVisible(value){
+    var element = document.getElementById(value);
+    element.style.visibility = "visible";
+  }
   return (
     <div>
       <div className="container-fluid firstrow">
@@ -31,7 +40,7 @@ function App() {
                   <span className="Swiggycolour">swiggy</span>
                 </div>
                 <div className="col-6 mt-2 " id="loginsign">
-                  <button type="button" className="btn mx-2 loginButton">
+                  <button type="button" className="btn mx-2 loginButton" onClick={() => LoginVisible("loginDiv")}>
                     <b>Login</b>
                   </button>
                   <button type="button" className="btn btn-dark">
@@ -166,11 +175,11 @@ function App() {
           </a>
         </div>
       </div>
-      <div className="container-fluid loginDiv">
+      <div className="container-fluid loginDiv" id="loginDiv">
         <div className="row">
           <div className="col-8 loginleftDiv"></div>
           <div className="col-4 loginrighttDiv">
-            <button className="btn ">
+            <button className="btn " value="loginDiv" onClick={() => Close("loginDiv")}>
               <i className="fas fa-times"></i>
             </button>
             <div className="row createAcc">
@@ -194,7 +203,7 @@ function App() {
                 <input placeholder="Password"  className="mt-3 pt-3 ps-2 pb-3 inputLogin"/>
               </div>
               <div>
-              <button className="btn LoginButton mt-4 ms-3 pt-1 pb-2">Login</button>
+              <button className="btn LoginButton mt-4 ms-3 pt-1 pb-2" >Login</button>
               <p className=" ms-3 mt-1"><span className="text-secondary">By clicking on Login, I accept the </span>Terms & Conditions & Privacy Policy</p>
               </div>
             </div>
