@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/swiggy-client/static/css/main.e0d9cf5a.css",
-    "main.js": "/swiggy-client/static/js/main.8fa0f518.js",
+    "main.css": "/swiggy-client/static/css/main.b22d4409.css",
+    "main.js": "/swiggy-client/static/js/main.d9df76f1.js",
     "static/js/787.948b38c5.chunk.js": "/swiggy-client/static/js/787.948b38c5.chunk.js",
-    "static/media/swiggy.svg": "/swiggy-client/static/media/swiggy.c4605f3e17fa65c19d31cef6fd6b0530.svg",
     "index.html": "/swiggy-client/index.html",
+    "static/media/swiggy.svg": "/swiggy-client/static/media/swiggy.c4605f3e17fa65c19d31cef6fd6b0530.svg",
     "static/media/location.svg": "/swiggy-client/static/media/location.fd69c51208b37107574beec527d0b654.svg",
-    "main.e0d9cf5a.css.map": "/swiggy-client/static/css/main.e0d9cf5a.css.map",
-    "main.8fa0f518.js.map": "/swiggy-client/static/js/main.8fa0f518.js.map",
+    "main.b22d4409.css.map": "/swiggy-client/static/css/main.b22d4409.css.map",
+    "main.d9df76f1.js.map": "/swiggy-client/static/js/main.d9df76f1.js.map",
     "787.948b38c5.chunk.js.map": "/swiggy-client/static/js/787.948b38c5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e0d9cf5a.css",
-    "static/js/main.8fa0f518.js"
+    "static/css/main.b22d4409.css",
+    "static/js/main.d9df76f1.js"
   ]
 }
