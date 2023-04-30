@@ -210,3 +210,14 @@
 .switchTapButton:hover {
   color: #fc8019;
 }
+.visually-hidden{
+  visibility: hidden;
+}
+.visually-true{
+  visibility: visible;
+  color: red;
+}
+.LoginButton:hover{
+  background-color:  #fc8019;
+  color: white;
+}

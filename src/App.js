@@ -1,8 +1,115 @@
 import logo from "./images/swiggy.svg";
 import location from "./images/location.svg";
 import "./App.css";
+import React, { useState } from "react";
+import axios from "axios";
 
 function App() {
+  const [isVisible, setisVisible] = useState({
+    status: "visually-hidden",
+    message: "null",
+    for: "null",
+  });
+  const [loginData, setloginData] = useState({
+    emailIdLogin: "",
+    passwordLogin: "",
+  });
+  function HandleLoginData(event) {
+    const target = event.target;
+    const name = target.name;
+    const value = target.value;
+    setloginData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  }
+  function HandleLoginSubmit(event) {
+    event.preventDefault();
+    const url = "http://localhost:3000/login";
+    axios
+      .post(url, loginData)
+      .then((res) => {
+        console.error(res.data);
+        HandleLoginResponse(res.data, "login");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+  function HandleLoginResponse(response, value) {
+    if (response === "True") {
+      window.location.href = "/home";
+      console.log(response);
+    } else if (response === "Invalid") {
+      setisVisible({
+        status: "visually-true",
+        message: "Invalid username and password",
+        for: value,
+      });
+    } else if (response === "False") {
+      setisVisible({
+        status: "visually-true",
+        message: "Invalid password",
+        for: value,
+      });
+    }
+    console.log(isVisible.for);
+  }
+  const [signupData, setsignupData] = useState({
+    nameSignup: "",
+    emailIdSignup: "",
+    passwordSignup: "",
+    confirmpasswordSignup: "",
+  });
+  function HandleSignUpData(event) {
+    const target = event.target;
+    const name = target.name;
+    const value = target.value;
+    setsignupData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  }
+  function HandleSignUpSubmit(event) {
+    event.preventDefault();
+    if (signupData.confirmpasswordSignup === signupData.passwordSignup) {
+      const url = "http://localhost:3000/signup";
+      axios
+        .post(url, signupData)
+        .then((res) => {
+          console.error(res.data);
+          HandleSignUpResponse(res.data, "signup");
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    } else {
+      setisVisible({
+        status: "visually-true",
+        message: "Password Mismatch",
+        for: "signup",
+      });
+    }
+  }
+  function HandleSignUpResponse(response, value) {
+    if (response === "True") {
+      alert("Registration succesfull");
+      SwitchTab("signupDiv");
+      console.log(response);
+    } else if (response === "False") {
+      setisVisible({
+        status: "visually-true",
+        message: "Already registered",
+        for: value,
+      });
+    } else {
+      setisVisible({
+        status: "visually-true",
+        message: "Server time out",
+        for: value,
+      });
+    }
+  }
   let currentIndex = 0;
   setInterval(() => {
     let titles = [
@@ -19,26 +126,36 @@ function App() {
       currentIndex = 0;
     }
   }, 4000);
-  function SwitcTab(value){
-    if(value === "signupDiv"){
+  function SwitchTab(value) {
+    if (value === "signupDiv") {
       var element = document.getElementById(value);
       element.style.visibility = "visible";
       var element = document.getElementById("loginDiv");
       element.style.visibility = "hidden";
-    }
-    else if( value === "loginDiv"){
+    } else if (value === "loginDiv") {
       var element = document.getElementById(value);
       element.style.visibility = "visible";
       var element = document.getElementById("signupDiv");
       element.style.visibility = "hidden";
     }
   }
-  function Close(value){
-   
+  function Close(value) {
     var element = document.getElementById(value);
     element.style.visibility = "hidden";
+    setsignupData({
+      nameSignup: "",
+      emailIdSignup: "",
+      passwordSignup: "",
+      confirmpasswordSignup: "",
+    });
+    setloginData({
+      emailIdLogin: "",
+      passwordLogin: "",
+    });
+    console.log(loginData)
+    console.log(signupData)
   }
-  function LoginVisible(value){
+  function LoginVisible(value) {
     var element = document.getElementById(value);
     element.style.visibility = "visible";
   }
@@ -54,10 +171,18 @@ function App() {
                   <span className="Swiggycolour">swiggy</span>
                 </div>
                 <div className="col-6 mt-2 " id="loginsign">
-                  <button type="button" className="btn mx-2 loginButton" onClick={() => LoginVisible("loginDiv")}>
+                  <button
+                    type="button"
+                    className="btn mx-2 loginButton"
+                    onClick={() => LoginVisible("loginDiv")}
+                  >
                     <b>Login</b>
                   </button>
-                  <button type="button" className="btn btn-dark" onClick={() => LoginVisible("signupDiv")}>
+                  <button
+                    type="button"
+                    className="btn btn-dark"
+                    onClick={() => LoginVisible("signupDiv")}
+                  >
                     Sign Up
                   </button>
                 </div>
@@ -193,17 +318,24 @@ function App() {
         <div className="row">
           <div className="col-8 loginleftDiv"></div>
           <div className="col-4 loginrighttDiv">
-            <button className="btn " value="loginDiv" onClick={() => Close("loginDiv")}>
+            <button
+              className="btn "
+              value="loginDiv"
+              onClick={() => Close("loginDiv")}
+            >
               <i className="fas fa-times"></i>
             </button>
             <div className="row createAcc">
               <div className="col-5  mt-4  ms-3 pe-0 ps-0">
                 <h4 className="Login">Login</h4>
-                
-                <p onClick={() => SwitcTab("signupDiv")}>
-                  or <button className="btn orangeColour switchTapButton"> Create an account </button>
+
+                <p onClick={() => SwitchTab("signupDiv")}>
+                  or{" "}
+                  <button className="btn orangeColour switchTapButton">
+                    {" "}
+                    Create an account{" "}
+                  </button>
                 </p>
-                
               </div>
               <div className="col-5 ">
                 <img
@@ -213,17 +345,54 @@ function App() {
                 />
               </div>
             </div>
-            <form>
-            <div className="row inputBoxDiv">
-              <div className="col-12  mt-4  ms-3">
-                <input placeholder="Email"  type="email" required className="pt-3 ps-2 pb-3 inputLogin"/>
-                <input placeholder="Password" type="password" required className="mt-3 pt-3 ps-2 pb-3 inputLogin"/>
+            <form onSubmit={HandleLoginSubmit}>
+              <div className="row inputBoxDiv">
+                <div className="col-12  mt-4  ms-3">
+                  <input
+                    className="pt-3 ps-2 pb-3 inputLogin"
+                    placeholder="Email"
+                    type="email"
+                    onChange={HandleLoginData}
+                    name="emailIdLogin"
+                    id="emailid"
+                    value={loginData.emailIdLogin}
+                    required
+                  />
+                  <input
+                    className="mt-3 pt-3 ps-2 pb-3 inputLogin"
+                    placeholder="Password"
+                    type="password"
+                    onChange={HandleLoginData}
+                    name="passwordLogin"
+                    value={loginData.passwordLogin}
+                    required
+                  />
+                  <label
+                    htmlFor="emailIdLogin"
+                    className={
+                      isVisible.for === "login"
+                        ? isVisible.status
+                        : "visually-hidden"
+                    }
+                  >
+                    {isVisible.message}
+                  </label>
+                </div>
+                <div>
+                  <button
+                    className="btn LoginButton mt-4 ms-3 pt-1 pb-2"
+                    type="submit"
+                  >
+                    Login
+                  </button>
+                  <p className=" ms-3 mt-1">
+                    <span className="text-secondary">
+                      By clicking on Login, I accept the{" "}
+                    </span>
+                    Terms & Conditions & Privacy Policy
+                  </p>
+                </div>
               </div>
-              <div>
-              <button className="btn LoginButton mt-4 ms-3 pt-1 pb-2" type="submit">Login</button>
-              <p className=" ms-3 mt-1"><span className="text-secondary">By clicking on Login, I accept the </span>Terms & Conditions & Privacy Policy</p>
-              </div>
-            </div>
             </form>
           </div>
         </div>
@@ -232,14 +401,18 @@ function App() {
         <div className="row">
           <div className="col-8  loginleftDiv"></div>
           <div className="col-4   loginrighttDiv">
-            <button className="btn "  onClick={() => Close("signupDiv")}>
+            <button className="btn " onClick={() => Close("signupDiv")}>
               <i className="fas fa-times"></i>
             </button>
             <div className="row createAcc">
               <div className="col-5  mt-4  ms-3 pe-0 ps-0">
                 <h4 className="Login">Sign up</h4>
-                <p onClick={() => SwitcTab("loginDiv")}>
-                  or <button className="btn orangeColour switchTapButton"> login to your account </button>
+                <p onClick={() => SwitchTab("loginDiv")}>
+                  or{" "}
+                  <button className="btn orangeColour switchTapButton">
+                    {" "}
+                    login to your account{" "}
+                  </button>
                 </p>
               </div>
               <div className="col-5 ms-3">
@@ -250,18 +423,72 @@ function App() {
                 />
               </div>
             </div>
-            <form>
-            <div className="row inputBoxDiv">
-              <div className="col-12  mt-4  ms-3">
-              <input placeholder="Email" type="email" required className="pt-3 ps-2 pb-3 mb-3 inputLogin"/>
-                <input placeholder="Password" type="password" required className="pt-3 ps-2 pb-3 inputLogin"/>
-                <input placeholder="Confirm password" type="password" required  className="mt-3 pt-3 ps-2 pb-3 inputLogin"/>
+            <form onSubmit={HandleSignUpSubmit}>
+              <div className="row inputBoxDiv">
+                <div className="col-12  mt-4  ms-3">
+                  <input
+                    placeholder="Name"
+                    type="text"
+                    required
+                    className="pt-3 ps-2 pb-3 mb-3 inputLogin"
+                    name="nameSignup"
+                    value={setsignupData.nameSignup}
+                    onChange={HandleSignUpData}
+                  />
+                  <input
+                    placeholder="Email"
+                    type="email"
+                    required
+                    className="pt-3 ps-2 pb-3 mb-3 inputLogin"
+                    id="emailidsignup"
+                    name="emailIdSignup"
+                    value={setsignupData.emailIdSignup}
+                    onChange={HandleSignUpData}
+                  />
+                  <input
+                    placeholder="Password"
+                    type="password"
+                    required
+                    className="pt-3 ps-2 pb-3 inputLogin"
+                    name="passwordSignup"
+                    value={setsignupData.passwordSignup}
+                    onChange={HandleSignUpData}
+                  />
+                  <input
+                    placeholder="Confirm password"
+                    type="password"
+                    required
+                    className="mt-3 pt-3 ps-2 pb-3 inputLogin"
+                    name="confirmpasswordSignup"
+                    value={setsignupData.confirmpasswordSignup}
+                    onChange={HandleSignUpData}
+                  />
+                  <label
+                    htmlFor="emailid"
+                    className={
+                      isVisible.for === "signup"
+                        ? isVisible.status
+                        : "visually-hidden"
+                    }
+                  >
+                    {isVisible.message}
+                  </label>
+                </div>
+                <div>
+                  <button
+                    className="btn LoginButton mt-4 ms-3 pt-1 pb-2"
+                    type="submit"
+                  >
+                    Sign up
+                  </button>
+                  <p className=" ms-3 mt-1">
+                    <span className="text-secondary">
+                      By creating an account, I accept the{" "}
+                    </span>
+                    Terms & Conditions & Privacy Policy
+                  </p>
+                </div>
               </div>
-              <div>
-              <button className="btn LoginButton mt-4 ms-3 pt-1 pb-2" type="submit">Sign up</button>
-              <p className=" ms-3 mt-1"><span className="text-secondary">By creating an account, I accept the </span>Terms & Conditions & Privacy Policy</p>
-              </div>
-            </div>
             </form>
           </div>
         </div>
