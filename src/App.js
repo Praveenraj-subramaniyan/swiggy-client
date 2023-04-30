@@ -138,6 +138,10 @@ function App() {
       var element = document.getElementById("signupDiv");
       element.style.visibility = "hidden";
     }
+    setisVisible((preState)=>({
+      ...preState,
+      status:"visually-hidden",
+    }))
   }
   function Close(value) {
     var element = document.getElementById(value);
@@ -152,8 +156,10 @@ function App() {
       emailIdLogin: "",
       passwordLogin: "",
     });
-    console.log(loginData)
-    console.log(signupData)
+    setisVisible((preState)=>({
+      ...preState,
+      status:"visually-hidden",
+    }))
   }
   function LoginVisible(value) {
     var element = document.getElementById(value);
@@ -432,7 +438,7 @@ function App() {
                     required
                     className="pt-3 ps-2 pb-3 mb-3 inputLogin"
                     name="nameSignup"
-                    value={setsignupData.nameSignup}
+                    value={signupData.nameSignup}
                     onChange={HandleSignUpData}
                   />
                   <input
@@ -442,7 +448,7 @@ function App() {
                     className="pt-3 ps-2 pb-3 mb-3 inputLogin"
                     id="emailidsignup"
                     name="emailIdSignup"
-                    value={setsignupData.emailIdSignup}
+                    value={signupData.emailIdSignup}
                     onChange={HandleSignUpData}
                   />
                   <input
@@ -451,7 +457,7 @@ function App() {
                     required
                     className="pt-3 ps-2 pb-3 inputLogin"
                     name="passwordSignup"
-                    value={setsignupData.passwordSignup}
+                    value={signupData.passwordSignup}
                     onChange={HandleSignUpData}
                   />
                   <input
@@ -460,7 +466,7 @@ function App() {
                     required
                     className="mt-3 pt-3 ps-2 pb-3 inputLogin"
                     name="confirmpasswordSignup"
-                    value={setsignupData.confirmpasswordSignup}
+                    value={signupData.confirmpasswordSignup}
                     onChange={HandleSignUpData}
                   />
                   <label
