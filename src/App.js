@@ -1,8 +1,9 @@
 import logo from "./images/swiggy.svg";
-import location from "./images/location.svg";
 import "./App.css";
 import React, { useState } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
+import Footer from "./Footer";
 
 function App() {
   const [isVisible, setisVisible] = useState({
@@ -38,8 +39,19 @@ function App() {
   }
   function HandleLoginResponse(response, value) {
     if (response === "True") {
-      window.location.href = "/home";
-      console.log(response);
+      const expiryDate = new Date(Date.now() + 24 * 60 * 60 * 1000);
+      Cookies.set("Swiggy_client", JSON.stringify(loginData), {
+        expires: expiryDate,
+      });
+      const cookieValue = Cookies.get("Swiggy_client");
+      const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
+      console.log(
+        loginDataFromCookie.emailIdLogin +
+          " " +
+          loginDataFromCookie.passwordLogin
+      );
+      // window.location.href = "/home";
+      // console.log(response);
     } else if (response === "Invalid") {
       setisVisible({
         status: "visually-true",
@@ -53,7 +65,6 @@ function App() {
         for: value,
       });
     }
-    console.log(isVisible.for);
   }
   const [signupData, setsignupData] = useState({
     nameSignup: "",
@@ -95,7 +106,6 @@ function App() {
     if (response === "True") {
       alert("Registration succesfull");
       SwitchTab("signupDiv");
-      console.log(response);
     } else if (response === "False") {
       setisVisible({
         status: "visually-true",
@@ -138,10 +148,10 @@ function App() {
       var element = document.getElementById("signupDiv");
       element.style.visibility = "hidden";
     }
-    setisVisible((preState)=>({
+    setisVisible((preState) => ({
       ...preState,
-      status:"visually-hidden",
-    }))
+      status: "visually-hidden",
+    }));
   }
   function Close(value) {
     var element = document.getElementById(value);
@@ -156,10 +166,10 @@ function App() {
       emailIdLogin: "",
       passwordLogin: "",
     });
-    setisVisible((preState)=>({
+    setisVisible((preState) => ({
       ...preState,
-      status:"visually-hidden",
-    }))
+      status: "visually-hidden",
+    }));
   }
   function LoginVisible(value) {
     var element = document.getElementById(value);
@@ -271,55 +281,7 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="row lastdiv mr-0">
-        <div className="col-sm-3">
-          <h6>COMPANY</h6>
-          <p>About us</p>
-          <p>Team</p>
-          <p>Careers</p>
-          <p>Swiggy Blog</p>
-          <p>Bug Bounty</p>
-          <p>Swiggy One</p>
-          <p>Swiggy Corporate</p>
-          <p>Swiggy Instamart</p>
-          <p>Swiggy Genie</p>
-        </div>
-        <div className="col-sm-3">
-          <h6>CONTACT</h6>
-          <p>Help & Support</p>
-          <p>Partner with us</p>
-          <p>Ride with us</p>
-        </div>
-        <div className="col-sm-3">
-          <h6>LEGAL</h6>
-          <p>Terms & Conditions</p>
-          <p>Refund & Cancellation</p>
-          <p>Privacy Policy</p>
-          <p>Cookie Policy</p>
-          <p>Offer Terms</p>
-          <p>Phishing & Fraud</p>
-          <p>Corporate – Swiggy Money Codes Terms and Conditions</p>
-          <p>Corporate - Swiggy Discount Voucher Terms and Conditions</p>
-        </div>
-        <div className="col-sm-3 playstore">
-          <br />
-          <br />
-          <a
-            className="m-5"
-            href="https://itunes.apple.com/in/app/id989540920?referrer=utm_source%3Dswiggy%26utm_medium%3Dhomepage"
-          >
-            <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_200,h_65/icon-AppStore_lg30tv" />
-          </a>
-          <br />
-          <br />
-          <a
-            className="m-5"
-            href="https://play.google.com/store/apps/details?id=in.swiggy.android&amp;referrer=utm_source%3Dswiggy%26utm_medium%3Dheader"
-          >
-            <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_200,h_65/icon-GooglePlay_1_zixjxl" />
-          </a>
-        </div>
-      </div>
+      <Footer />
       <div className="container-fluid loginDiv" id="loginDiv">
         <div className="row">
           <div className="col-8 loginleftDiv"></div>
