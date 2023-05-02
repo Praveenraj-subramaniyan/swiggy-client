@@ -29,7 +29,8 @@ function Start() {
   }
   function HandleLoginSubmit(event) {
     event.preventDefault();
-    const url = "http://localhost:3000/login";
+   // const url = "http://localhost:3000/login";
+    const url = "https://swiggy-server-6c69.onrender.com/login";
     axios
       .post(url, loginData)
       .then((res) => {
@@ -82,7 +83,8 @@ function Start() {
   function HandleSignUpSubmit(event) {
     event.preventDefault();
     if (signupData.confirmpasswordSignup === signupData.passwordSignup) {
-      const url = "http://localhost:3000/signup";
+      //const url = "http://localhost:3000/signup";
+      const url = "https://swiggy-server-6c69.onrender.com/signup";
       axios
         .post(url, signupData)
         .then((res) => {
