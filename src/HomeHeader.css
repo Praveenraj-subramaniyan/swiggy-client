@@ -1,0 +1,42 @@
+.HeaderRow{
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 1%;
+    height: 60px;
+    color: gray;
+    font-weight: 500;
+}
+.logo{
+    width: 100%;
+    height: 60%;
+}
+/* .Poogavanapuramdiv:after {
+    content: "";
+    width: 100%;
+    border: 1px solid black;
+  } */
+  .Poogavanapuramdiv{
+    padding-top: 1%;
+    font-size: 14px;
+    padding-right: 0px;
+    color: black;
+  }
+  .dropdownIcon{
+    color: #fc8019;
+    padding: 5px;
+    font-size: medium;
+  }
+  .Searchdiv{
+    padding-top: 1%;
+    font-size: 18px;
+    padding-right: 0px;
+  }
+  .Searchdiv:hover{
+    color: #fc8019;
+  }
+  .Poogavanapuram:hover{
+    color: #fc8019;
+  }
+.New{
+    color: #fc8019;
+}

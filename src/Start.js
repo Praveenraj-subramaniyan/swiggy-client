@@ -29,8 +29,8 @@ function Start() {
   }
   function HandleLoginSubmit(event) {
     event.preventDefault();
-   // const url = "http://localhost:3000/login";
-    const url = "https://swiggy-server-6c69.onrender.com/login";
+    const url = "http://localhost:3000/login";
+   // const url = "https://swiggy-server-6c69.onrender.com/login";
     axios
       .post(url, loginData)
       .then((res) => {
