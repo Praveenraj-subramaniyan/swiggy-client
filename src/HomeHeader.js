@@ -10,7 +10,7 @@ function HomeHeader() {
       <div className="container-fluid">
         <div className="row HeaderRow ">
           <div className="col-1 ">
-            <img className="logo" src={logo} />
+            <img className="logo1" src={logo} />
           </div>
           <div className="col-3 Poogavanapuramdiv">
               <span className="Poogavanapuram"><b>Poogavanapuram</b></span>
