@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/swiggy-client/static/css/main.d30f12ce.css",
-    "main.js": "/swiggy-client/static/js/main.4de00b20.js",
+    "main.css": "/swiggy-client/static/css/main.10fe3ed9.css",
+    "main.js": "/swiggy-client/static/js/main.85053348.js",
     "static/js/787.948b38c5.chunk.js": "/swiggy-client/static/js/787.948b38c5.chunk.js",
     "index.html": "/swiggy-client/index.html",
     "static/media/swiggy.svg": "/swiggy-client/static/media/swiggy.c4605f3e17fa65c19d31cef6fd6b0530.svg",
-    "main.d30f12ce.css.map": "/swiggy-client/static/css/main.d30f12ce.css.map",
-    "main.4de00b20.js.map": "/swiggy-client/static/js/main.4de00b20.js.map",
+    "main.10fe3ed9.css.map": "/swiggy-client/static/css/main.10fe3ed9.css.map",
+    "main.85053348.js.map": "/swiggy-client/static/js/main.85053348.js.map",
     "787.948b38c5.chunk.js.map": "/swiggy-client/static/js/787.948b38c5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d30f12ce.css",
-    "static/js/main.4de00b20.js"
+    "static/css/main.10fe3ed9.css",
+    "static/js/main.85053348.js"
   ]
 }
