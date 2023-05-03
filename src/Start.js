@@ -295,8 +295,8 @@ function Start() {
               <i className="fas fa-times"></i>
             </button>
             <div className="row createAcc">
-              <div className="col-5  mt-4  ms-3 pe-0 ps-0">
-                <h4 className="Login">Login</h4>
+              <div className="col-5   mt-4  ms-3 pe-0 ps-0">
+                <h3 className="Login">Login</h3>
 
                 <p onClick={() => SwitchTab("signupDiv")}>
                   or{" "}
@@ -375,12 +375,12 @@ function Start() {
             </button>
             <div className="row createAcc">
               <div className="col-5  mt-4  ms-3 pe-0 ps-0">
-                <h4 className="Login">Sign up</h4>
+                <h3 className="Login">Sign up</h3>
                 <p onClick={() => SwitchTab("loginDiv")}>
                   or{" "}
                   <button className="btn orangeColour switchTapButton">
                     {" "}
-                    login to your account{" "}
+                    Login to your account{" "}
                   </button>
                 </p>
               </div>

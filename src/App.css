@@ -6,7 +6,7 @@
   padding: 0px;
   width: 100%;
 }
-.row1{
+.row1 {
   margin-right: 0px;
 }
 .imagefirstDiv {
@@ -35,7 +35,7 @@
   overflow: hidden;
   width: 100%;
 }
-.search-bar:hover{
+.search-bar:hover {
   border: 1px solid #fc8019;
 }
 .search-bar input[type="text"] {
@@ -65,71 +65,70 @@
 .search-bar button[type="submit"] i {
   margin-right: 4px;
 }
-.cities{
+.cities {
   font-weight: bold;
   color: #535353;
 }
-.brownColour{
+.brownColour {
   background-color: #2b1e16;
   color: white;
   text-align: center;
 }
-.lastdiv{
+.lastdiv {
   background-color: black;
   color: white;
   margin-right: 0px;
-  
 }
-.lastdiv h6{
+.lastdiv h6 {
   color: #535353;
-  margin:30px;
+  margin: 30px;
 }
-.lastdiv p{
- margin-left: 30px;
+.lastdiv p {
+  margin-left: 30px;
 }
-.lastdiv p:hover{
+.lastdiv p:hover {
   font-size: 17px;
 }
-.playstore{
+.playstore {
   position: relative;
   width: auto;
 }
-.loginButton :hover{
+.loginButton :hover {
   color: #fc8019;
 }
-.loginDiv{
+.loginDiv {
   position: fixed;
   top: 0;
 }
-.loginDiv p{
+.loginDiv p {
   font-size: small;
 }
-.loginleftDiv{
+.loginleftDiv {
   opacity: 0.5;
   background-color: grey;
   height: 900px;
   padding: 0px;
 }
-.loginrighttDiv{
+.loginrighttDiv {
   background-color: white;
   height: 900px;
 }
-@media (min-width : 850px) {
-  #loginsign{
-   margin-top: 1rem;
+@media (min-width: 850px) {
+  #loginsign {
+    margin-top: 1rem;
   }
 }
 
-.orangeColour{
+.orangeColour {
   color: #fc8019;
 }
-.createAcc:after {
+/* .createAcc:after {
   content: "";
   margin-left: 2rem;
   width: 30px;
   border: 1px solid black;
-}
-.inputBoxDiv{
+} */
+.inputBoxDiv {
   background-color: transparent;
   line-height: normal;
   border: none;
@@ -138,14 +137,14 @@
   width: 100%;
   font-size: 17px;
 }
-.inputLogin{
+.inputLogin {
   width: 85%;
   height: 60px;
   border: 1px solid #fc8019;
   outline: none;
 }
-.LoginButton{
-  background-color: #fc8019 ;
+.LoginButton {
+  background-color: #fc8019;
   width: 85%;
   height: 50px;
   border-radius: 0px;
@@ -153,16 +152,16 @@
   font-weight: 600;
   font-size: large;
 }
-@media (max-width : 820px) {
-  .inputLogin{
+@media (max-width: 820px) {
+  .inputLogin {
     width: 95%;
     height: 30px;
     border: 1px solid #fc8019;
     outline: none;
     font-size: small;
   }
-  .LoginButton{
-    background-color: #fc8019 ;
+  .LoginButton {
+    background-color: #fc8019;
     width: 95%;
     height: 30px;
     border-radius: 0px;
@@ -171,36 +170,36 @@
     font-size: small;
   }
 }
-#loginDiv{
+#loginDiv {
   visibility: hidden;
 }
-#signupDiv{
+#signupDiv {
   visibility: hidden;
 }
-@media (max-width : 576px) {
- .loginleftDiv{
-  display: none;
-  
- }
- .loginrighttDiv{
-  width: 100%;
-  padding: 0px;
- }
- .loginrighttDiv input{
-  width: 77%;
- }
- .LoginButton {
-  width: 77%;
- }
- .loginrighttDiv p{
-  width: 77%;
- }
+@media (max-width: 576px) {
+  .loginleftDiv {
+    display: none;
+  }
+  .loginrighttDiv {
+    width: 100%;
+    padding: 0px;
+  }
+  .loginrighttDiv input {
+    width: 77%;
+  }
+  .LoginButton {
+    width: 77%;
+  }
+  .loginrighttDiv p {
+    width: 77%;
+  }
 }
-.switchTapButton{
+.switchTapButton {
   padding-right: 0px;
   padding-left: 0px;
   padding-bottom: 10px;
-  font-size: small;
+  padding-top: 10px;
+  font-size: medium;
 }
 /* @media (min-width : 576px) and (max-width: 850px) {
   .loginrighttDiv p{
@@ -210,14 +209,14 @@
 .switchTapButton:hover {
   color: #fc8019;
 }
-.visually-hidden{
+.visually-hidden {
   visibility: hidden;
 }
-.visually-true{
+.visually-true {
   visibility: visible;
   color: red;
 }
-.LoginButton:hover{
-  background-color:  #fc8019;
+.LoginButton:hover {
+  background-color: #fc8019;
   color: white;
 }
