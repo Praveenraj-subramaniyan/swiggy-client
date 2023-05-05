@@ -35,16 +35,15 @@ function Home() {
             <span>1525 restaurants</span>
           </div>
           <div className="offset-1 col-7 btn-group  HomeHeader  Relevance ">
-            <button className="btn ">Relevance</button>
-            <button className="btn "> Rating ...</button>
-            <button className="btn ">Cost:Low To High</button>
-            <button className="btn ">Cost:High To Low</button>
-            <button className="btn ">Filters</button>
+            <button className="btn "><a className="activeHomeBtn">Relevance</a></button>
+            <button className="btn "><a className="activeHomeBtn"> Rating ...</a></button>
+            <button className="btn "><a className="activeHomeBtn">Cost:Low To High</a></button>
+            <button className="btn "><a className="activeHomeBtn">Cost:High To Low</a></button>
+            <button className="btn "><a className="activeHomeBtn">Filters</a></button>
           </div>
         </div>
       </div>
       <div className="HeaderRowBorder"></div>
-      <br />
       <br />
       <br />
       <div className="container">
