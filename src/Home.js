@@ -57,6 +57,8 @@ function Home() {
                 location={item.location}
                 image={item.image_url}
                 id={item._id}
+                offer={item.offer}
+                coupon={item.coupon}
               />
             );
           })}

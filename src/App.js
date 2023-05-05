@@ -4,21 +4,21 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import Footer from "./Footer";
-import { Navigate } from 'react-router-dom';
-import { Route,Routes, useNavigate,BrowserRouter } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+import { Route, Routes, useNavigate, BrowserRouter } from "react-router-dom";
 import Start from "./Start";
 import Home from "./Home";
 
 function App() {
   return (
     <div>
-       <BrowserRouter>
-     <Routes>
-     <Route path="/" element={<Navigate to="/swiggy-client" />} />
-     <Route path="/swiggy-client" element={<Start/>}/>
-     <Route path="/home" element={<Home/>}/>
-     </Routes>
-    </BrowserRouter>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Navigate to="/swiggy-client" />} />
+          <Route path="/swiggy-client" element={<Start />} />
+          <Route path="/home" element={<Home />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

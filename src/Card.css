@@ -1,8 +1,29 @@
-img{
-    width: 303px;
-    height: 214px;
+.Avatar {
+  width: 303px;
+  height: 214px;
 }
-.RestaurantName{
-    text-align: center;
-    height: 60px;
+.RestaurantName {
+  text-align: center;
+  height: 60px;
+}
+.offerDetails {
+  height: 60px;
+  color: brown;
+  font-weight: 400;
+  overflow: hidden;
+}
+.borerDiv {
+  border-top: 0.5px solid gray;
+  width: 92%;
+  margin-left: 10px;
+  margin-right: 3px;
+}
+#rating {
+  background-color: #48c479;
+  color: #fff;
+  padding: 10px 10px 5px 10px;
+  text-align: center;
+}
+.Quickview {
+  margin-left: 30%;
 }
