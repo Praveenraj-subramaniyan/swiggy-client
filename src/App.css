@@ -89,9 +89,7 @@
 .lastdiv p:hover {
   font-size: 17px;
 }
-.playstore {
- margin-bottom: 600px;
-}
+
 .loginButton :hover {
   color: #fc8019;
 }
@@ -166,6 +164,9 @@
     font-weight: 600;
     font-size: small;
   }
+  .playstore {
+    margin-bottom: 600px;
+  }
 }
 #loginDiv {
   visibility: hidden;
@@ -198,21 +199,21 @@
   padding-top: 10px;
   font-size: medium;
 }
-@media (min-width : 576px) and (max-width: 850px) {
-  .playstore{
+@media (min-width: 576px) and (max-width: 850px) {
+  .playstore {
     margin-right: 30px;
-   }
-   .loginleftDiv{
+  }
+  .loginleftDiv {
     width: 20%;
-   }
+  }
 }
 @media (max-width: 850px) {
-   .loginleftDiv{
+  .loginleftDiv {
     width: 8%;
-   }
-   .loginrighttDiv{
+  }
+  .loginrighttDiv {
     width: 80%;
-   }
+  }
 }
 .switchTapButton:hover {
   color: #fc8019;

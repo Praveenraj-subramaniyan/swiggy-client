@@ -12,8 +12,9 @@ function Card(data) {
         </div>
         <div className="borerDiv"></div>
         <div className="mt-3 offerDetails">
-          <p className="mx-4">
+          <p className="mx-3">
             <span id="rating" className="mx-1">
+              <i class="fa-solid fa-star me-1 "></i>
               {data.rating}
             </span>{" "}
             <span className="mx-1">{data.offer}% off </span>|{" "}

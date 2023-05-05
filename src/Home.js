@@ -67,9 +67,6 @@ function Home() {
       <br />
       <br />
       <br />
-      <br />
-      <br />
-      <br />
       <Footer />
     </div>
   );
