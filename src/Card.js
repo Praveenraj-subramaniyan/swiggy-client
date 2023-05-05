@@ -2,7 +2,7 @@ import "./Card.css";
 
 function Card(data) {
   return (
-    <div className="col-3">
+    <div className="col-lg-3 col-md-6">
       <div className="card mt-4 cardcard">
         <img className="Avatar" src={data.image} alt="Avatar" />
         <div className="RestaurantName mt-3 mb-2">
