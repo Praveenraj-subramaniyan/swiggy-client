@@ -104,9 +104,11 @@
   opacity: 0.5;
   background-color: grey;
   padding: 0px;
+  height: 900px;
 }
 .loginrighttDiv {
   background-color: white;
+  height: 900px;
 }
 @media (min-width: 850px) {
   #loginsign {
@@ -207,7 +209,7 @@
     width: 20%;
   }
 }
-@media (max-width: 850px) {
+@media (min-width: 600px) and (max-width: 850px) {
   .loginleftDiv {
     width: 8%;
   }

@@ -8,7 +8,7 @@ import { Navigate } from 'react-router-dom';
 import { Route,Routes, useNavigate,BrowserRouter } from "react-router-dom";
 
 function Start() {
-  const navigate1 =useNavigate();
+  const navigate =useNavigate();
   const [isVisible, setisVisible] = useState({
     status: "visually-hidden",
     message: "null",
@@ -47,9 +47,7 @@ function Start() {
       Cookies.set("Swiggy_client", JSON.stringify(loginData), {
         expires: expiryDate,
       });
-      const cookieValue = Cookies.get("Swiggy_client");
-      const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
-      navigate1("/home")
+      navigate("/home")
     } 
     else if (response === "Invalid") {
       setisVisible({
@@ -378,10 +376,7 @@ function Start() {
                 <h3 className="Login">Sign up</h3>
                 <p onClick={() => SwitchTab("loginDiv")}>
                   or{" "}
-                  <button className="btn orangeColour switchTapButton">
-                    {" "}
-                    Login to your account{" "}
-                  </button>
+                  <button className="btn orangeColour switchTapButton">Login into account</button>
                 </p>
               </div>
               <div className="col-5 ms-3">
