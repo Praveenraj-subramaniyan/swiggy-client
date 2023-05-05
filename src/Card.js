@@ -22,7 +22,7 @@ function Card(data) {
           </p>
         </div>
         <div>
-          <button className="btn btn-outline-light text-primary Quickview">
+          <button className="btn btn-outline-light text-primary Quickview mb-2">
             Quick view
           </button>
         </div>

@@ -27,3 +27,6 @@
 .Quickview {
   margin-left: 30%;
 }
+.cardcard button{
+  border: none;
+}

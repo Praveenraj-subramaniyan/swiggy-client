@@ -10,15 +10,26 @@ import Card from "./Card";
 
 function Home() {
   const [itemList, setItemList] = useState([]);
+  const [filteritemList, setfilteritemList] = useState([]);
+  const [buttonClick, setbuttonClick] = useState(1);
   useEffect(() => {
     async function SendResponse() {
       const url = "http://localhost:3000/home";
       let listData = await axios
         .get(url)
         .then((res) => {
+          
+          res.data.sort((a, b) => {
+          if (a.res_name < b.res_name) {
+            return -1;
+          }
+          if (a.res_name > b.res_name) {
+            return 1;
+          }
+          return 0;
+        });
           setItemList(res.data);
-          console.error(res.data);
-          //HandleResponse(res.data);
+          setfilteritemList(res.data);
         })
         .catch((error) => {
           console.error(error);
@@ -26,6 +37,43 @@ function Home() {
     }
     SendResponse();
   }, []);
+  function HandleHomeButton(data)
+  {
+    if(data==="Relevance"){
+      filteritemList.sort((a, b) => {
+        if (a.res_name < b.res_name) {
+          return -1;
+        }
+        if (a.res_name > b.res_name) {
+          return 1;
+        }
+        return 0;
+      });
+      setbuttonClick(1);
+    }
+    else if(data==="Rating"){
+      filteritemList.sort((a, b) => {
+        if (a.ratting > b.ratting) {
+          return -1;
+        }
+        if (a.ratting < b.ratting) {
+          return 1;
+        }
+        return 0;
+      });
+      setbuttonClick(2);
+    }
+    else if(data==="Low"){
+      setbuttonClick(3);
+      console.log("3");
+      console.log(filteritemList); 
+    }
+    else if(data==="High"){
+      setbuttonClick(4);
+      console.log("4");
+      console.log(filteritemList); 
+    }
+  }
   return (
     <div>
       <HomeHeader />
@@ -34,12 +82,12 @@ function Home() {
           <div className=" col restaurantsCountDiv Poogavanapuramdiv">
             <span>1525 restaurants</span>
           </div>
-          <div className="offset-1 col-7 btn-group  HomeHeader  Relevance ">
-            <button className="btn "><a className="activeHomeBtn">Relevance</a></button>
-            <button className="btn "><a className="activeHomeBtn"> Rating ...</a></button>
-            <button className="btn "><a className="activeHomeBtn">Cost:Low To High</a></button>
-            <button className="btn "><a className="activeHomeBtn">Cost:High To Low</a></button>
-            <button className="btn "><a className="activeHomeBtn">Filters</a></button>
+          <div className="offset-2 col-6 btn-group  HomeHeader  Relevance ">
+            <button className="btn "><a className={`activeHomeBtn1 ${buttonClick === 1 ? "activeHomeBtn" : ""}`} onClick={() =>HandleHomeButton("Relevance")}>Relevance</a></button>
+            <button className="btn "><a className={`activeHomeBtn1 ${buttonClick === 2 ? "activeHomeBtn" : ""}`} onClick={() =>HandleHomeButton("Rating")}> Rating ...</a></button>
+            <button className="btn "><a className={`activeHomeBtn1 ${buttonClick === 3 ? "activeHomeBtn" : ""}`} onClick={() =>HandleHomeButton("Low")}>Cost:Low To High</a></button>
+            <button className="btn "><a className={`activeHomeBtn1 ${buttonClick === 4 ? "activeHomeBtn" : ""}`} onClick={() =>HandleHomeButton("High")}>Cost:High To Low</a></button>
+            {/* <button className="btn "><a className={`activeHomeBtn1 ${buttonClick === 5 ? "activeHomeBtn" : ""}`}>Filters</a></button> */}
           </div>
         </div>
       </div>
@@ -48,7 +96,7 @@ function Home() {
       <br />
       <div className="container">
         <div className="row">
-          {itemList.map((item) => {
+          {filteritemList[0] && filteritemList.map((item) => {
             return (
               <Card
                 resName={item.res_name}
