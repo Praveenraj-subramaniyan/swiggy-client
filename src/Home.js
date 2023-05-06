@@ -41,7 +41,7 @@ function Home() {
   function HandleHomeButton(data)
   {
     if(data==="Relevance"){
-      filteritemList.sort((a, b) => {
+      itemList.sort((a, b) => {
         if (a.res_name < b.res_name) {
           return -1;
         }
@@ -53,7 +53,7 @@ function Home() {
       setbuttonClick(1);
     }
     else if(data==="Rating"){
-      filteritemList.sort((a, b) => {
+      itemList.sort((a, b) => {
         if (a.ratting > b.ratting) {
           return -1;
         }
@@ -97,7 +97,7 @@ function Home() {
       <br />
       <div className="container">
         <div className="row">
-          {filteritemList[0] && filteritemList.map((item) => {
+          {buttonClick <= 2   && itemList[0] && itemList.map((item) => {
             return (
               <Card
                 resName={item.res_name}
