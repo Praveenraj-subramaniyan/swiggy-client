@@ -1,0 +1,22 @@
+#rating1 {
+    background-color: #48c479;
+    color: #fff;
+    padding: 3px 5px 8px 5px;
+    text-align: center;
+    border-radius: 5px;
+  }
+  .showcase{
+    padding-left: 35%;
+}
+.detailsHome{
+  margin-left: 2%;
+}
+.resDetails{
+  margin-left: 26%;
+}
+.locDetails{
+  margin-left: 11%;
+}
+.RatingDetails{
+  margin-left: 38%;
+}
