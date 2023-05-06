@@ -1,16 +1,22 @@
 .Avatar {
   width: 303px;
   height: 214px;
+  text-decoration: none;
+}
+.carddiv a {
+  text-decoration: none;
 }
 .RestaurantName {
   text-align: center;
   height: 60px;
+  color: black;
 }
 .offerDetails {
   height: 60px;
   color: brown;
   font-weight: 400;
   overflow: hidden;
+  
 }
 .borerDiv {
   border-top: 0.5px solid gray;

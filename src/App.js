@@ -8,6 +8,7 @@ import { Navigate } from "react-router-dom";
 import { Route, Routes, useNavigate, BrowserRouter } from "react-router-dom";
 import Start from "./Start";
 import Home from "./Home";
+import DetailPage from "./DetailsPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Navigate to="/swiggy-client" />} />
           <Route path="/swiggy-client" element={<Start />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/details/:id" element={<DetailPage/>}/>
         </Routes>
       </BrowserRouter>
     </div>

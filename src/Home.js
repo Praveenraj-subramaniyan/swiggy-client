@@ -13,12 +13,13 @@ function Home() {
   const [filteritemList, setfilteritemList] = useState([]);
   const [buttonClick, setbuttonClick] = useState(1);
   useEffect(() => {
+    const cookieValue = Cookies.get("Swiggy_client");
+    const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
     async function SendResponse() {
       const url = "http://localhost:3000/home";
       let listData = await axios
         .get(url)
         .then((res) => {
-          
           res.data.sort((a, b) => {
           if (a.res_name < b.res_name) {
             return -1;
