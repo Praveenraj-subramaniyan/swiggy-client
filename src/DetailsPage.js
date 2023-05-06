@@ -46,7 +46,7 @@ function DetailPage() {
             <div className="contentcase">
             {
               detailList.map((data) => {
-                return <DishCard dishName={data.dish_name} resName={resList.res_name} category={data.category} image={data.dish_image_url} price={data.price} ratting={data.ratting}/>
+                return <DishCard dishName={data.dish_name} resName={resList.res_name} category={data.category} image={data.dish_image_url} price={data.price} rating={data.ratting}/>
                })
             }
             </div>

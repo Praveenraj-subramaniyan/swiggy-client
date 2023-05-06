@@ -21,11 +21,11 @@ function DishCard(data) {
                 <div className="row mt-2 mb-0 mx-1">
                 <div className="col-3 px-0">
                     <p>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star" style={{ color: "gold" }}></i>
-                      <i className="fa fa-star"></i>
+                      <i className={`fa fa-star ${data.rating >1 ? "goldStar" :" "}`}></i>
+                      <i className={`fa fa-star ${data.rating >2 ? "goldStar" :" "}`}></i>
+                      <i className={`fa fa-star ${data.rating >3 ? "goldStar" :" "}`}></i>
+                      <i className={`fa fa-star ${data.rating >4 ? "goldStar" :" "}`}></i>
+                      <i className={`fa fa-star ${data.rating >=5 ? "goldStar" :" "}`}></i>
                     </p>
                     </div>
                   <div className="col-3 foodname pe-5 me-2 ps-0">
