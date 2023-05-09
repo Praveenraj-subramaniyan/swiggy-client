@@ -36,3 +36,7 @@
 .activeHomeBtn{
   border-bottom:0.5px solid gray ;
 }
+.isLoading{
+  margin-top: 20%;
+  margin-left: 45%;
+}

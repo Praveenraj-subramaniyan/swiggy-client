@@ -13,6 +13,7 @@ function Home() {
   const [itemList, setItemList] = useState([]);
   const [filteritemList, setfilteritemList] = useState([]);
   const [buttonClick, setbuttonClick] = useState(1);
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const cookieValue = Cookies.get("Swiggy_client");
     const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
@@ -31,18 +32,17 @@ function Home() {
             return 0;
           });
           setItemList(res.data);
-        
+          const dishes = res.data.flatMap(data => data.dishes.map(dish => ({ ...dish, res_name: data.res_name })));
+          setfilteritemList(dishes);
+          setIsLoading(false);
         })
         .catch((error) => {
           console.error(error);
         });
     }
     SendResponse();
-    //const dishes = itemList.flatMap(data => data.dishes);
-    const dishes = itemList.flatMap(data => data.dishes.map(dish => ({ ...dish, res_name: data.res_name })));
-    setfilteritemList(dishes);
   }, []);
-  function setitem(data) {
+  function setitem(data) { 
      if (data === "Low") {
       filteritemList.sort((a, b) => {
         if (a.price < b.price) {
@@ -69,7 +69,6 @@ function Home() {
     }
   }
   function HandleHomeButton(data) {
-    
     if (data === "Relevance") {
       itemList.sort((a, b) => {
         if (a.res_name < b.res_name) {
@@ -93,6 +92,9 @@ function Home() {
       });
       setbuttonClick(2);
     } 
+  }
+  if (isLoading) {
+    return <div class="spinner-border text-warning isLoading"></div>;
   }
   return (
     <div>

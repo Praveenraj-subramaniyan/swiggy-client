@@ -40,6 +40,10 @@
   font-size: 110%;
   padding-right: 0px;
 }
+.HeaderRow a{
+  text-decoration: none;
+  color: gray;
+}
 .HomeHeader button {
   border: none;
   background-color: white;

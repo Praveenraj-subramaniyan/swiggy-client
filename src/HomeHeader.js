@@ -3,6 +3,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import logo from "./images/swiggy.svg";
 import "./HomeHeader.css";
+import { Link } from "react-router-dom";
 
 function HomeHeader() {
   return (
@@ -19,19 +20,23 @@ function HomeHeader() {
             <span className="text-secondary"> chinnaiyan Colony, Poon...</span>
             <i className="fa dropdownIcon">&#xf107;</i>
           </div>
-          <div className=" offset-2 col Searchdiv">
+          <div className="offset-2 col Searchdiv">
+          <Link to={`/home`}>
+            <i class="fa fa-home  px-2" aria-hidden="true"></i>
+            <span className=""> Home</span>
+            </Link>
+          </div>
+          <div className=" col Searchdiv">
+          <Link to={`/Search`}>
             <i className="fa px-2">&#xf002;</i>
             <span className="">search</span>
+            </Link>
           </div>
           <div className="col Searchdiv">
             <i class="fa fa-percent  px-2" aria-hidden="true"></i>
             <span className="">
               Offer<sup className="New"> New</sup>
             </span>
-          </div>
-          <div className="col Searchdiv">
-            <i class="fa fa-question  px-2" aria-hidden="true"></i>
-            <span className=""> Help</span>
           </div>
           <div className="col Searchdiv overflow-hidden">
             <i class="fa fa-user  px-2" aria-hidden="true"></i>
