@@ -29,6 +29,9 @@
 .Searchdiv:hover {
   color: #fc8019;
 }
+.Searchdiv a:hover {
+  color: #fc8019;
+}
 .Poogavanapuram:hover {
   color: #fc8019;
 }
@@ -59,4 +62,7 @@
 }
 .HeaderRow {
   position: sticky;
+}
+.highlight a{
+  color: #fc8019;
 }

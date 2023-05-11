@@ -57,11 +57,11 @@ function Search() {
     setfilteritemList(filteredData);
   }
   if (isLoading) {
-    return <div class="spinner-border text-warning isLoading"></div>;
+    return <div class="spinner-border isLoading"></div>;
   }
   return (
     <div>
-      <HomeHeader />
+      <HomeHeader highlight="search" />
       <div className="SearchInputBoxDivUp p-3"></div>
       <div className=" SearchInputBoxDiv  ">
         <input

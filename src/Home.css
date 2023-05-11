@@ -29,14 +29,15 @@
   border: 1px solid gray;
   margin-top: 2.5rem;
 }
-.activeHomeBtn1{
+.activeHomeBtn1 {
   text-decoration: none;
   color: gray;
 }
-.activeHomeBtn{
-  border-bottom:0.5px solid gray ;
+.activeHomeBtn {
+  border-bottom: 0.5px solid gray;
 }
-.isLoading{
+.isLoading {
   margin-top: 20%;
   margin-left: 45%;
+  color: #fc8019;
 }

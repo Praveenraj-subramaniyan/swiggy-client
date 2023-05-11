@@ -32,7 +32,9 @@ function Home() {
             return 0;
           });
           setItemList(res.data);
-          const dishes = res.data.flatMap(data => data.dishes.map(dish => ({ ...dish, res_name: data.res_name })));
+          const dishes = res.data.flatMap((data) =>
+            data.dishes.map((dish) => ({ ...dish, res_name: data.res_name }))
+          );
           setfilteritemList(dishes);
           setIsLoading(false);
         })
@@ -42,8 +44,8 @@ function Home() {
     }
     SendResponse();
   }, []);
-  function setitem(data) { 
-     if (data === "Low") {
+  function setitem(data) {
+    if (data === "Low") {
       filteritemList.sort((a, b) => {
         if (a.price < b.price) {
           return -1;
@@ -54,8 +56,7 @@ function Home() {
         return 0;
       });
       setbuttonClick(3);
-    }
-     else if (data === "High") {
+    } else if (data === "High") {
       filteritemList.sort((a, b) => {
         if (a.price > b.price) {
           return -1;
@@ -91,14 +92,14 @@ function Home() {
         return 0;
       });
       setbuttonClick(2);
-    } 
+    }
   }
   if (isLoading) {
-    return <div class="spinner-border text-warning isLoading"></div>;
+    return <div class="spinner-border  isLoading"></div>;
   }
   return (
     <div>
-      <HomeHeader />
+      <HomeHeader highlight="home" />
       <div className="HeaderRow1">
         <div className="row HeaderRow ">
           <div className=" col restaurantsCountDiv Poogavanapuramdiv">
@@ -132,7 +133,7 @@ function Home() {
                   buttonClick === 3 ? "activeHomeBtn" : ""
                 }`}
                 // onClick={() => HandleHomeButton("Low")}
-                onClick={()=>setitem("Low")}
+                onClick={() => setitem("Low")}
               >
                 Cost:Low To High
               </a>
@@ -175,19 +176,20 @@ function Home() {
       </div>
       <div className="container">
         <div className="row">
-      { buttonClick > 2 && filteritemList.map((data) => {
-        return (
-          <DishCard
-            dishName={data.dish_name}
-            resName={data.res_name}
-            category={data.category}
-            image={data.dish_image_url}
-            price={data.price}
-            rating={data.ratting}
-          />
-        );
-      })}
-      </div>
+          {buttonClick > 2 &&
+            filteritemList.map((data) => {
+              return (
+                <DishCard
+                  dishName={data.dish_name}
+                  resName={data.res_name}
+                  category={data.category}
+                  image={data.dish_image_url}
+                  price={data.price}
+                  rating={data.ratting}
+                />
+              );
+            })}
+        </div>
       </div>
       <br />
       <br />

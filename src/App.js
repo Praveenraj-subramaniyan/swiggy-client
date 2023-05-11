@@ -18,7 +18,7 @@ function App() {
           <Route path="/" element={<Navigate to="/swiggy-client" />} />
           <Route path="/swiggy-client" element={<Start />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/details/:id" element={<DetailPage/>}/>
+          <Route path="/details/:id" element={<DetailPage />} />
           <Route path="/Search" element={<Search />} />
         </Routes>
       </BrowserRouter>
