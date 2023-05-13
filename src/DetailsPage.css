@@ -9,26 +9,26 @@
     padding-left: 35%;
 }
 .detailsHome{
-  margin-left: 2%;
+  margin-left: 1%;
 }
 .resDetails{
-  margin-left: 26%;
+  margin-left: 27%;
 }
 .locDetails{
   margin-left: 11%;
 }
 .RatingDetails{
-  margin-left: 38%;
+  margin-left: 40%;
 }
 @media (min-width: 600px) and (max-width: 850px) {
   .detailsHome{
     margin-left: 1%;
   }
   .RatingDetails{
-    margin-left: 20%;
+    margin-left: 18.5%;
   }
   .resDetails{
-    margin-left: 20%;
+    margin-left: 21.5%;
   }
   .locDetails{
     margin-left: 19%;

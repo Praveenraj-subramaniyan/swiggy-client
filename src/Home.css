@@ -45,6 +45,7 @@
   color: #fc8019;
 }
 @media (max-width: 850px) {
+
 .restaurantsCountDiv{
   display: none;
 }
@@ -52,14 +53,6 @@
   margin-left: 10%;
   width: 85%;
 }
-/* .HeaderRow2{
-  border: none;
-  background-color: white;
-  color: gray;
-  font-size: 80%;
-  font-weight: 500;
-  text-align: start;
-} */
 .HeaderRow2{
   font-size: 60%;
   padding-right: 0px;
@@ -73,4 +66,18 @@
 .HeaderRowBorder{
   width: 86%;
 }
+}
+@media (min-width: 600px) and (max-width: 850px) {
+  .isLoading {
+    margin-top: 40%;
+    margin-left: 45%;
+    color: #fc8019;
+  }
+}
+@media (max-width: 600px) {
+  .isLoading {
+    margin-top: 70%;
+    margin-left: 45%;
+    color: #fc8019;
+  }
 }
