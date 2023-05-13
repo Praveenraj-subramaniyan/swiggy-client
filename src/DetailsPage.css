@@ -20,3 +20,34 @@
 .RatingDetails{
   margin-left: 38%;
 }
+@media (min-width: 600px) and (max-width: 850px) {
+  .detailsHome{
+    margin-left: 1%;
+  }
+  .RatingDetails{
+    margin-left: 20%;
+  }
+  .resDetails{
+    margin-left: 20%;
+  }
+  .locDetails{
+    margin-left: 19%;
+  }
+}
+@media (max-width: 600px) {
+  .detailsHome{
+    margin-left: 1%;
+  }
+  .RatingDetails{
+    margin-left: 8%;
+  }
+  .resDetails{
+    margin-left: 6%;
+  }
+  .locDetails{
+    margin-left: 3%;
+  }
+  .showcase{
+    padding-left: 10%;
+  }
+}

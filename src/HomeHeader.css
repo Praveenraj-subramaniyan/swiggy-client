@@ -82,8 +82,7 @@
     display: none;
   }
   .logo1{
-   width: 30px;
-   height: 40px;
+  display: none;
   }
   .HeaderRow {
     border: none;
@@ -101,4 +100,5 @@
   .container-fluid{
     padding-left: 0%;
   }
+
 }
