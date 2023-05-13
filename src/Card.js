@@ -14,13 +14,13 @@ function Card(data) {
           </div>
           <div className="borerDiv"></div>
           <div className="mt-3 offerDetails">
-            <p className="mx-3">
+            <p className="mx-2">
               <span id="rating" className="mx-1">
                 <i class="fa-solid fa-star me-1 "></i>
                 {data.rating}
               </span>{" "}
-              <span className="mx-1">{data.offer}% off </span>|{" "}
-              <span className="mx-1">{data.coupon.toUpperCase()}</span>
+              <span className="">{data.offer}% off </span>|{" "}
+              <span className="">{data.coupon.toUpperCase()}</span>
             </p>
           </div>
           <div>
