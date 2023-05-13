@@ -231,3 +231,10 @@
   background-color: #fc8019;
   color: white;
 }
+.isLoading {
+  position: fixed;
+  margin-top: 20%;
+  margin-left: 45%;
+  color: #fc8019;
+  top: 0;
+}

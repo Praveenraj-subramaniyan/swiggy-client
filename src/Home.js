@@ -100,8 +100,9 @@ function Home() {
   return (
     <div>
       <HomeHeader highlight="home" />
+      
       <div className="HeaderRow1">
-        <div className="row HeaderRow ">
+        <div className="row HeaderRow2 ">
           <div className=" col restaurantsCountDiv Poogavanapuramdiv">
             <span>1525 restaurants</span>
           </div>

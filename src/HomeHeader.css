@@ -2,6 +2,7 @@
   margin-left: 2%;
   margin-right: 2%;
   margin-top: 1%;
+  margin-bottom: 0%;
   height: 60px;
   color: gray;
   font-weight: 500;
@@ -38,12 +39,8 @@
 .New {
   color: #fc8019;
 }
-.HomeHeader {
-  padding-top: 1%;
-  font-size: 110%;
-  padding-right: 0px;
-}
-.HeaderRow a{
+
+.HeaderRow a {
   text-decoration: none;
   color: gray;
 }
@@ -59,10 +56,49 @@
   padding-top: 1%;
   font-weight: 600;
   font-size: 200%;
+  margin-left: 3%;
 }
 .HeaderRow {
   position: sticky;
 }
-.highlight a{
+.highlight a {
   color: #fc8019;
+}
+@media (max-width: 830px) {
+  .HeaderRow {
+    border: none;
+    background-color: white;
+    color: gray;
+    font-size: 69%;
+    font-weight: 500;
+    text-align: start;
+  }
+  .Searchdiv {
+    margin-left: 0%;
+  }
+}
+@media (max-width: 600px) {
+  .Poogavanapuramdiv {
+    display: none;
+  }
+  .logo1{
+   width: 30px;
+   height: 40px;
+  }
+  .HeaderRow {
+    border: none;
+    background-color: white;
+    color: gray;
+    font-size: 69%;
+    font-weight: 500;
+    text-align: start;
+    margin: 0%;
+    padding: 0%;
+  }
+  .Searchdiv {
+    margin-left: 0%;
+  }
+  .container-fluid{
+    padding-left: 0%;
+  }
 }

@@ -6,17 +6,19 @@ import "./DetailsPage.css";
 import { Link } from "react-router-dom";
 
 function DetailPage() {
-     const history= useParams();
+     const params= useParams();
     const [detailList, setdetailList] = useState([])
     const [resList, setresList] = useState([])
     useEffect (() => {
         async function FetchDetailsData(){
           try {
             
-            let listData = await axios.get(`http://localhost:3000/home/${history.id}`)
+            let listData = await axios.get(`http://localhost:3000/home/${params.id}`)
             setdetailList(listData.data.dishes)
             setresList(listData.data)
-          }
+            console.log(params.id)
+            console.log(params)
+            }
           catch (error) {
             console.log(error)
           }

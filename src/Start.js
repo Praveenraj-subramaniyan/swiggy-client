@@ -4,11 +4,12 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import Footer from "./Footer";
-import { Navigate } from 'react-router-dom';
-import { Route,Routes, useNavigate,BrowserRouter } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+import { Route, Routes, useNavigate, BrowserRouter } from "react-router-dom";
 
 function Start() {
-  const navigate =useNavigate();
+  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
   const [isVisible, setisVisible] = useState({
     status: "visually-hidden",
     message: "null",
@@ -29,8 +30,9 @@ function Start() {
   }
   function HandleLoginSubmit(event) {
     event.preventDefault();
+    setIsLoading(true);
     const url = "http://localhost:3000/login";
-   // const url = "https://swiggy-server-6c69.onrender.com/login";
+    // const url = "https://swiggy-server-6c69.onrender.com/login";
     axios
       .post(url, loginData)
       .then((res) => {
@@ -47,9 +49,8 @@ function Start() {
       Cookies.set("Swiggy_client", JSON.stringify(loginData), {
         expires: expiryDate,
       });
-      navigate("/home")
-    } 
-    else if (response === "Invalid") {
+      navigate("/home");
+    } else if (response === "Invalid") {
       setisVisible({
         status: "visually-true",
         message: "Invalid username and password",
@@ -62,6 +63,7 @@ function Start() {
         for: value,
       });
     }
+    setIsLoading(false);
   }
   const [signupData, setsignupData] = useState({
     nameSignup: "",
@@ -80,9 +82,10 @@ function Start() {
   }
   function HandleSignUpSubmit(event) {
     event.preventDefault();
+    setIsLoading(true);
     if (signupData.confirmpasswordSignup === signupData.passwordSignup) {
-      //const url = "http://localhost:3000/signup";
-      const url = "https://swiggy-server-6c69.onrender.com/signup";
+      const url = "http://localhost:3000/signup";
+      //const url = "https://swiggy-server-6c69.onrender.com/signup";
       axios
         .post(url, signupData)
         .then((res) => {
@@ -98,12 +101,13 @@ function Start() {
         message: "Password Mismatch",
         for: "signup",
       });
+      setIsLoading(false);
     }
   }
   function HandleSignUpResponse(response, value) {
     if (response === "True") {
       alert("Registration succesfull");
-      SwitchTab("signupDiv");
+      SwitchTab("loginDiv");
     } else if (response === "False") {
       setisVisible({
         status: "visually-true",
@@ -117,6 +121,7 @@ function Start() {
         for: value,
       });
     }
+    setIsLoading(false);
   }
   // let currentIndex = 0;
   // setInterval(() => {
@@ -151,6 +156,7 @@ function Start() {
       ...preState,
       status: "visually-hidden",
     }));
+    setIsLoading(false);
   }
   function Close(value) {
     var element = document.getElementById(value);
@@ -169,6 +175,7 @@ function Start() {
       ...preState,
       status: "visually-hidden",
     }));
+    setIsLoading(false);
   }
   function LoginVisible(value) {
     var element = document.getElementById(value);
@@ -376,7 +383,9 @@ function Start() {
                 <h3 className="Login">Sign up</h3>
                 <p onClick={() => SwitchTab("loginDiv")}>
                   or{" "}
-                  <button className="btn orangeColour switchTapButton">Login into account</button>
+                  <button className="btn orangeColour switchTapButton">
+                    Login into account
+                  </button>
                 </p>
               </div>
               <div className="col-5 ms-3">
@@ -457,6 +466,7 @@ function Start() {
           </div>
         </div>
       </div>
+      {isLoading &&<div class="spinner-border  isLoading"></div>}
     </div>
   );
 }

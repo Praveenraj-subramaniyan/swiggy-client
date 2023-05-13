@@ -1,10 +1,13 @@
 .HomeHeader {
-  padding-top: 1%;
   font-size: 110%;
   padding-right: 0px;
+   margin-top: 0%;
+  padding-top:0% ;
+}
+.Relevance button{
+  padding: 0px;
 }
 .HeaderRow1 {
-  background: linear-gradient(whitesmoke, white);
   position: sticky;
 }
 .HomeHeader button {
@@ -19,7 +22,7 @@
   font-weight: 600;
   font-size: 200%;
 }
-.HeaderRow {
+.HeaderRow2 {
   position: sticky;
 }
 .HeaderRowBorder {
@@ -27,17 +30,34 @@
   margin-left: 2rem;
   width: 95%;
   border: 1px solid gray;
-  margin-top: 2.5rem;
+  margin-top: 0.8rem;
 }
 .activeHomeBtn1 {
   text-decoration: none;
   color: gray;
 }
 .activeHomeBtn {
-  border-bottom: 0.5px solid gray;
+  border-bottom: 2px solid gray;
 }
 .isLoading {
   margin-top: 20%;
   margin-left: 45%;
   color: #fc8019;
+}
+@media (max-width: 850px) {
+.restaurantsCountDiv{
+  display: none;
+}
+.HomeHeader{
+  margin-left: 10%;
+  width: 85%;
+}
+.HeaderRow2{
+  border: none;
+  background-color: white;
+  color: gray;
+  font-size: 80%;
+  font-weight: 500;
+  text-align: start;
+}
 }
