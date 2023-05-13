@@ -14,12 +14,12 @@ function DishCard(data) {
                   alt="list"
                 />
               </div>
-              <div className="col mt-5">
+              <div className="col mt-5 resname">
                 <h5 className="">{data.resName}</h5>
                 </div>
               <div className="col-12">
                 <div className="row mt-2 mb-0 mx-1">
-                <div className="col-3 px-0">
+                <div className="col-3 px-0 goldStarDiv">
                     <p>
                       <i className={`fa fa-star ${data.rating >=1 ? "goldStar" :" "}`}></i>
                       <i className={`fa fa-star ${data.rating >=2 ? "goldStar" :" "}`}></i>
@@ -31,7 +31,7 @@ function DishCard(data) {
                   <div className="col-3 foodname pe-5 me-2 ps-0">
                     <p><b>{data.dishName}</b></p>
                   </div>
-                  <div className="col-3">
+                  <div className="col-3 pricename">
                     <p>₹ {data.price}</p>
                   </div>
                 </div>
@@ -39,8 +39,8 @@ function DishCard(data) {
             </div>
           </div>
           <div>
-            <button className="btn btn-outline-danger Addrow">
-              Add <i className="fa fa-plus"></i>
+            <button className="btn btn-outline-danger">
+             <span className="Addrow">Add</span>  <i className="fa fa-plus"></i>
             </button>
           </div>
         </li>
