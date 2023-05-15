@@ -10,6 +10,7 @@ import Card from "./Card";
 import DishCard from "./DishCard";
 
 function Home() {
+  const navigate = useNavigate();
   const [itemList, setItemList] = useState([]);
   const [filteritemList, setfilteritemList] = useState([]);
   const [buttonClick, setbuttonClick] = useState(1);
@@ -20,8 +21,11 @@ function Home() {
     async function SendResponse() {
       const url = "http://localhost:3000/home";
       let listData = await axios
-        .get(url)
+        .post(url, loginDataFromCookie)
         .then((res) => {
+          if (res.data === "") {
+            navigate("/");
+          }
           res.data.sort((a, b) => {
             if (a.res_name < b.res_name) {
               return -1;
@@ -100,7 +104,7 @@ function Home() {
   return (
     <div>
       <HomeHeader highlight="home" />
-      
+
       <div className="HeaderRow1">
         <div className="row HeaderRow2 ">
           <div className=" col restaurantsCountDiv Poogavanapuramdiv">

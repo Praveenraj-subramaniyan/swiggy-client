@@ -1,39 +1,39 @@
 .list-image {
-    width: 120px;
+  width: 120px;
 }
-.daetailsrow{
-    width: 100%;
-    margin-right: 0px;
+.daetailsrow {
+  width: 100%;
+  margin-right: 0px;
 }
-.foodname p{
-    width: 160px;
-    margin-left: 0%;
-    padding-left: 0px;
-    margin-right: 10%;
+.foodname p {
+  width: 160px;
+  margin-left: 0%;
+  padding-left: 0px;
+  margin-right: 10%;
 }
-.goldStar{
-    color: gold;
+.goldStar {
+  color: gold;
 }
-@media (max-width: 850px){
-.Addrow{
+@media (max-width: 850px) {
+  .Addrow {
     display: none;
+  }
 }
-}
-@media (max-width: 600px){
-    .foodname p{
-        width: 160px;
-        margin-left: 200%;
-        padding-left: 0px;
-        margin-right: 0%;
-    }
-    .pricename{
-        width: 100px;
-    }
-    .goldStarDiv{
-        width: 100px;
-    }
-    .resname{
-        width: 100px;
-        margin-left: 22%;
-    }
+@media (max-width: 600px) {
+  .foodname p {
+    width: 160px;
+    margin-left: 200%;
+    padding-left: 0px;
+    margin-right: 0%;
+  }
+  .pricename {
+    width: 100px;
+  }
+  .goldStarDiv {
+    width: 100px;
+  }
+  .resname {
+    width: 100px;
+    margin-left: 22%;
+  }
 }

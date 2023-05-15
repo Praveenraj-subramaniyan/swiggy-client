@@ -5,9 +5,10 @@ import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import axios from "axios";
 import DishCard from "./DishCard";
-
+import { Route, Routes, useNavigate, BrowserRouter } from "react-router-dom";
 
 function Search() {
+  const navigate = useNavigate();
   const [itemList, setItemList] = useState([]);
   const [filteritemList, setfilteritemList] = useState([]);
   const [inputValue, setinputValue] = useState("");
@@ -18,8 +19,11 @@ function Search() {
     async function SendResponse() {
       const url = "http://localhost:3000/home";
       let listData = await axios
-        .get(url)
+        .post(url, loginDataFromCookie)
         .then((res) => {
+          if (res === "") {
+            navigate("/");
+          }
           res.data.sort((a, b) => {
             if (a.res_name < b.res_name) {
               return -1;

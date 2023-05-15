@@ -1,10 +1,10 @@
 .HomeHeader {
   font-size: 110%;
   padding-right: 0px;
-   margin-top: 0%;
-  padding-top:0% ;
+  margin-top: 0%;
+  padding-top: 0%;
 }
-.Relevance button{
+.Relevance button {
   padding: 0px;
 }
 .HeaderRow1 {
@@ -45,27 +45,26 @@
   color: #fc8019;
 }
 @media (max-width: 850px) {
-
-.restaurantsCountDiv{
-  display: none;
-}
-.HomeHeader{
-  margin-left: 10%;
-  width: 85%;
-}
-.HeaderRow2{
-  font-size: 60%;
-  padding-right: 0px;
-   margin-top: 0%;
-  padding-top:0% ;
-  color: gray;
-}
-.HeaderRow2 a{
-  color: gray;
-}
-.HeaderRowBorder{
-  width: 86%;
-}
+  .restaurantsCountDiv {
+    display: none;
+  }
+  .HomeHeader {
+    margin-left: 10%;
+    width: 85%;
+  }
+  .HeaderRow2 {
+    font-size: 60%;
+    padding-right: 0px;
+    margin-top: 0%;
+    padding-top: 0%;
+    color: gray;
+  }
+  .HeaderRow2 a {
+    color: gray;
+  }
+  .HeaderRowBorder {
+    width: 86%;
+  }
 }
 @media (min-width: 600px) and (max-width: 850px) {
   .isLoading {
@@ -81,6 +80,6 @@
     color: #fc8019;
   }
 }
-.HeaderRow2 a{
+.HeaderRow2 a {
   color: gray;
 }

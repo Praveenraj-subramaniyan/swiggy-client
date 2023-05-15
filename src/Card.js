@@ -29,7 +29,7 @@ function Card(data) {
             </button>
           </div>
         </div>
-        </Link>
+      </Link>
     </div>
   );
 }

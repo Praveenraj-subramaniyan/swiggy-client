@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import Footer from "./Footer";
-import { Navigate } from "react-router-dom";
 import { Route, Routes, useNavigate, BrowserRouter } from "react-router-dom";
 // require('dotenv').config();
 
@@ -32,7 +31,7 @@ function Start() {
   function HandleLoginSubmit(event) {
     event.preventDefault();
     setIsLoading(true);
-    const url ="http://localhost:3000/login";
+    const url = "http://localhost:3000/login";
     // const url = `${process.env.URL}/login`;
     // const url = "https://swiggy-server-6c69.onrender.com/login";
     axios
@@ -86,7 +85,7 @@ function Start() {
     event.preventDefault();
     setIsLoading(true);
     if (signupData.confirmpasswordSignup === signupData.passwordSignup) {
-      const url ="http://localhost:3000/signup";
+      const url = "http://localhost:3000/signup";
       //const url = `${process.env.URL}/signup`;
       //const url = "https://swiggy-server-6c69.onrender.com/signup";
       axios
@@ -469,7 +468,7 @@ function Start() {
           </div>
         </div>
       </div>
-      {isLoading &&<div class="spinner-border  isLoading"></div>}
+      {isLoading && <div class="spinner-border  isLoading"></div>}
     </div>
   );
 }

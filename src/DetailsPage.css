@@ -1,53 +1,53 @@
 #rating1 {
-    background-color: #48c479;
-    color: #fff;
-    padding: 3px 5px 8px 5px;
-    text-align: center;
-    border-radius: 5px;
-  }
-  .showcase{
-    padding-left: 35%;
+  background-color: #48c479;
+  color: #fff;
+  padding: 3px 5px 8px 5px;
+  text-align: center;
+  border-radius: 5px;
 }
-.detailsHome{
+.showcase {
+  padding-left: 35%;
+}
+.detailsHome {
   margin-left: 1%;
 }
-.resDetails{
+.resDetails {
   margin-left: 27%;
 }
-.locDetails{
+.locDetails {
   margin-left: 11%;
 }
-.RatingDetails{
+.RatingDetails {
   margin-left: 35%;
 }
 @media (min-width: 600px) and (max-width: 850px) {
-  .detailsHome{
+  .detailsHome {
     margin-left: 1%;
   }
-  .RatingDetails{
+  .RatingDetails {
     margin-left: 18.5%;
   }
-  .resDetails{
+  .resDetails {
     margin-left: 21.5%;
   }
-  .locDetails{
+  .locDetails {
     margin-left: 19%;
   }
 }
 @media (max-width: 600px) {
-  .detailsHome{
+  .detailsHome {
     margin-left: 1%;
   }
-  .RatingDetails{
+  .RatingDetails {
     margin-left: 8%;
   }
-  .resDetails{
+  .resDetails {
     margin-left: 6%;
   }
-  .locDetails{
+  .locDetails {
     margin-left: 3%;
   }
-  .showcase{
+  .showcase {
     padding-left: 10%;
   }
 }
