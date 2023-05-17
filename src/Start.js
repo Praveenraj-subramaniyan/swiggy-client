@@ -9,6 +9,8 @@ import { Route, Routes, useNavigate, BrowserRouter } from "react-router-dom";
 
 function Start() {
   const navigate = useNavigate();
+  const cookieValue = Cookies.get("Swiggy_client");
+  const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
   const [isLoading, setIsLoading] = useState(false);
   const [isVisible, setisVisible] = useState({
     status: "visually-hidden",
@@ -182,6 +184,12 @@ function Start() {
   function LoginVisible(value) {
     var element = document.getElementById(value);
     element.style.visibility = "visible";
+    if(loginDataFromCookie!==null){
+      setloginData({
+        emailIdLogin:loginDataFromCookie.emailIdLogin ,
+        passwordLogin: loginDataFromCookie.passwordLogin,
+      });
+    }
   }
   return (
     <div>

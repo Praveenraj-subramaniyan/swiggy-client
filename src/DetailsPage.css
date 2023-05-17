@@ -1,7 +1,7 @@
 #rating1 {
   background-color: #48c479;
   color: #fff;
-  padding: 3px 5px 8px 5px;
+  padding: 5px 10px 10px 10px;
   text-align: center;
   border-radius: 5px;
 }
@@ -12,26 +12,20 @@
   margin-left: 1%;
 }
 .resDetails {
-  margin-left: 27%;
-}
-.locDetails {
-  margin-left: 11%;
+  margin-left: 20%;
 }
 .RatingDetails {
-  margin-left: 35%;
+  margin-left: 1%;
 }
 @media (min-width: 600px) and (max-width: 850px) {
   .detailsHome {
     margin-left: 1%;
   }
   .RatingDetails {
-    margin-left: 18.5%;
+    margin-left: 1%;
   }
   .resDetails {
-    margin-left: 21.5%;
-  }
-  .locDetails {
-    margin-left: 19%;
+    margin-left: 11%;
   }
 }
 @media (max-width: 600px) {
@@ -39,13 +33,10 @@
     margin-left: 1%;
   }
   .RatingDetails {
-    margin-left: 8%;
+    margin-left:2%;
   }
   .resDetails {
-    margin-left: 6%;
-  }
-  .locDetails {
-    margin-left: 3%;
+    margin-left: 5%;
   }
   .showcase {
     padding-left: 10%;

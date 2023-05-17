@@ -22,11 +22,13 @@ function DetailPage() {
           ? JSON.parse(cookieValue)
           : null;
         const url = `http://localhost:3000/home/${params.id}`;
-        let listData = await axios.post(url, loginDataFromCookie).then(() => {
-          setdetailList(listData.data.dishes);
-          setresList(listData.data);
-          setIsLoading(false);
-        });
+        let listData = await axios
+          .post(url, loginDataFromCookie)
+          .then((res) => {
+            setdetailList(res.data.dishes);
+            setresList(res.data);
+            setIsLoading(false);
+          });
       } catch (error) {
         console.log(error);
       }
@@ -48,21 +50,17 @@ function DetailPage() {
         </div>
         <div className="titlecase  mb-3">
           <Link to={`/home`}>
-            <a href="" className="btn btn-danger mt-2 detailsHome">
+            <a href="" className="btn btn-danger detailsHome">
               <i className="fa fa-home"></i> Home
             </a>
           </Link>
-          <span className="resDetails">
-            <b>{resList.res_name}</b>
-          </span>
-          <span className="locDetails">
-            <b>{resList.location}</b>
-          </span>
-          <span className="RatingDetails" id="rating1">
-            <i className="fa-solid fa-star me-1 "></i>
+          <span className="RatingDetails btn-danger" id="rating1">
+            <i className="fa-solid fa-star  pt-1 "></i>
             {resList.ratting}
           </span>
-
+          <span className="resDetails">
+            <b>{resList.res_name},{resList.location}</b>
+          </span>
           {/* <button className="btn btn-outline-danger"><i className="fa fa-comments"></i> Add Review</button>
                 <button className="btn btn-outline-danger"><i className="fa fa-map-marker"></i> Direction</button>
                 <button className="btn btn-outline-danger"><i className="fa fa-bookmark"></i> Add Bookmark</button>
