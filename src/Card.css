@@ -27,11 +27,13 @@
 #rating {
   background-color: #48c479;
   color: #fff;
-  padding: 10px 10px 5px 10px;
+  padding: 0px 5px 5px 5px;
   text-align: center;
+  border-radius: 5px;
 }
 .Quickview {
   margin-left: 30%;
+  text-align: center;
 }
 .cardcard button {
   border: none;

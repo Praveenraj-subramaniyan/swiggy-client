@@ -98,13 +98,17 @@ function Home() {
       setbuttonClick(2);
     }
   }
+  function AllDishNames(resName) {
+    const filteredDishesByRes = filteritemList.filter((data) => data.res_name === resName);
+    const filteredDishes = filteredDishesByRes.flatMap((data) => data.dish_name);
+    return filteredDishes
+  }
   if (isLoading) {
-    return <div class="spinner-border  isLoading"></div>;
+    return <div className="spinner-border  isLoading"></div>;
   }
   return (
     <div>
       <HomeHeader highlight="home" />
-
       <div className="HeaderRow1">
         <div className="row HeaderRow2 ">
           <div className=" col restaurantsCountDiv Poogavanapuramdiv">
@@ -174,6 +178,7 @@ function Home() {
                   id={item._id}
                   offer={item.offer}
                   coupon={item.coupon}
+                  dishes={AllDishNames(item.res_name)}
                 />
               );
             })}

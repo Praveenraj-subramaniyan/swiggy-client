@@ -19,7 +19,7 @@
   width: 18%;
 }
 .Swiggycolour {
-  color: #fc8019;
+  color: #fc8019 !important;
   font-weight: bolder;
   font-size: 32px;
   letter-spacing: 3px;
@@ -36,7 +36,7 @@
   width: 100%;
 }
 .search-bar:hover {
-  border: 1px solid #fc8019;
+  border: 1px solid #fc8019 !important;
 }
 .search-bar input[type="text"] {
   flex-grow: 1;
@@ -55,8 +55,8 @@
   width: 100px;
   border: none;
   outline: none;
-  background-color: #fc8019;
-  color: white;
+  background-color: #fc8019 !important;
+  color: white !important;
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
@@ -91,7 +91,7 @@
 }
 
 .loginButton :hover {
-  color: #fc8019;
+  color: #fc8019 !important;
 }
 .loginDiv {
   position: fixed;
@@ -117,7 +117,7 @@
 }
 
 .orangeColour {
-  color: #fc8019;
+  color: #fc8019 !important;
 }
 /* .createAcc:after {
   content: "";
@@ -141,11 +141,11 @@
   outline: none;
 }
 .LoginButton {
-  background-color: #fc8019;
+  background-color: #fc8019 !important;
   width: 85%;
   height: 50px;
   border-radius: 0px;
-  color: white;
+  color: white !important;
   font-weight: 600;
   font-size: large;
 }
@@ -153,12 +153,12 @@
   .inputLogin {
     width: 95%;
     height: 30px;
-    border: 1px solid #fc8019;
+    border: 1px solid #fc8019 !important;
     outline: none;
     font-size: small;
   }
   .LoginButton {
-    background-color: #fc8019;
+    background-color: #fc8019 !important;
     width: 95%;
     height: 30px;
     border-radius: 0px;
@@ -218,7 +218,7 @@
   }
 }
 .switchTapButton:hover {
-  color: #fc8019;
+  color: #fc8019 !important;
 }
 .visually-hidden {
   visibility: hidden;
@@ -228,13 +228,13 @@
   color: red;
 }
 .LoginButton:hover {
-  background-color: #fc8019;
-  color: white;
+  background-color: #fc8019 !important;
+  color: white !important;
 }
 .isLoading {
   position: fixed;
   margin-top: 20%;
   margin-left: 45%;
-  color: #fc8019;
+  color: #fc8019 !important;
   top: 0;
 }
