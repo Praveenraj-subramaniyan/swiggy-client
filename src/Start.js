@@ -39,7 +39,6 @@ function Start() {
     axios
       .post(url, loginData)
       .then((res) => {
-        console.error(res.data);
         HandleLoginResponse(res.data, "login");
       })
       .catch((error) => {
@@ -93,7 +92,6 @@ function Start() {
       axios
         .post(url, signupData)
         .then((res) => {
-          console.error(res.data);
           HandleSignUpResponse(res.data, "signup");
         })
         .catch((error) => {
