@@ -21,7 +21,8 @@ function DetailPage() {
         const loginDataFromCookie = cookieValue
           ? JSON.parse(cookieValue)
           : null;
-        const url = `http://localhost:3000/home/${params.id}`;
+        //const url = `http://localhost:3000/home/${params.id}`;
+        const url = `https://swiggy-server-6c69.onrender.com/home/${params.id}`;
         let listData = await axios
           .post(url, loginDataFromCookie)
           .then((res) => {
