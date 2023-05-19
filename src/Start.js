@@ -125,23 +125,22 @@ function Start() {
     }
     setIsLoading(false);
   }
-  // let currentIndex = 0;
-  // setInterval(() => {
-  //   let titles = [
-  //     "Hungry?",
-  //     "Late night at office?",
-  //     "Movie marathon?",
-  //     "Game night?",
-  //     "Cooking gone wrong?",
-  //   ];
-  //   var element = document.getElementById("ChangingElement");
-  //   element.innerText = titles[currentIndex];
-  //   currentIndex++;
-  //   if (currentIndex === 5) {
-  //     currentIndex = 0;
-  //   }
-  //   console.log(titles[currentIndex]);
-  // }, 4000);
+  let currentIndex = 0;
+  setInterval(() => {
+    let titles = [
+      "Hungry?",
+      "Late night at office?",
+      "Movie marathon?",
+      "Game night?",
+      "Cooking gone wrong?",
+    ];
+    var element = document.getElementById("ChangingElement");
+    element.innerText = titles[currentIndex];
+    currentIndex++;
+    if (currentIndex === 5) {
+      currentIndex = 0;
+    }
+  }, 3000);
   function SwitchTab(value) {
     if (value === "signupDiv") {
       var element = document.getElementById(value);
