@@ -33,9 +33,9 @@ function Start() {
   function HandleLoginSubmit(event) {
     event.preventDefault();
     setIsLoading(true);
-    const url = "http://localhost:3000/login";
+    //const url = "http://localhost:3000/login";
     // const url = `${process.env.URL}/login`;
-    // const url = "https://swiggy-server-6c69.onrender.com/login";
+    const url = "https://swiggy-server-6c69.onrender.com/login";
     axios
       .post(url, loginData)
       .then((res) => {
@@ -87,9 +87,9 @@ function Start() {
     event.preventDefault();
     setIsLoading(true);
     if (signupData.confirmpasswordSignup === signupData.passwordSignup) {
-      const url = "http://localhost:3000/signup";
+      //const url = "http://localhost:3000/signup";
       //const url = `${process.env.URL}/signup`;
-      //const url = "https://swiggy-server-6c69.onrender.com/signup";
+      const url = "https://swiggy-server-6c69.onrender.com/signup";
       axios
         .post(url, signupData)
         .then((res) => {
@@ -184,9 +184,9 @@ function Start() {
   function LoginVisible(value) {
     var element = document.getElementById(value);
     element.style.visibility = "visible";
-    if(loginDataFromCookie!==null){
+    if (loginDataFromCookie !== null) {
       setloginData({
-        emailIdLogin:loginDataFromCookie.emailIdLogin ,
+        emailIdLogin: loginDataFromCookie.emailIdLogin,
         passwordLogin: loginDataFromCookie.passwordLogin,
       });
     }

@@ -17,7 +17,8 @@ function Search() {
     const cookieValue = Cookies.get("Swiggy_client");
     const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
     async function SendResponse() {
-      const url = "http://localhost:3000/home";
+      //const url = "http://localhost:3000/home";
+      const url = "https://swiggy-server-6c69.onrender.com/home";
       let listData = await axios
         .post(url, loginDataFromCookie)
         .then((res) => {

@@ -19,7 +19,8 @@ function Home() {
     const cookieValue = Cookies.get("Swiggy_client");
     const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
     async function SendResponse() {
-      const url = "http://localhost:3000/home";
+      const url = "https://swiggy-server-6c69.onrender.com/home";
+      //const url = "http://localhost:3000/home";
       let listData = await axios
         .post(url, loginDataFromCookie)
         .then((res) => {
@@ -99,9 +100,13 @@ function Home() {
     }
   }
   function AllDishNames(resName) {
-    const filteredDishesByRes = filteritemList.filter((data) => data.res_name === resName);
-    const filteredDishes = filteredDishesByRes.flatMap((data) => data.dish_name);
-    return filteredDishes
+    const filteredDishesByRes = filteritemList.filter(
+      (data) => data.res_name === resName
+    );
+    const filteredDishes = filteredDishesByRes.flatMap(
+      (data) => data.dish_name
+    );
+    return filteredDishes;
   }
   if (isLoading) {
     return <div className="spinner-border  isLoading"></div>;

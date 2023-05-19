@@ -59,7 +59,9 @@ function DetailPage() {
             {resList.ratting}
           </span>
           <span className="resDetails">
-            <b>{resList.res_name},{resList.location}</b>
+            <b>
+              {resList.res_name},{resList.location}
+            </b>
           </span>
           {/* <button className="btn btn-outline-danger"><i className="fa fa-comments"></i> Add Review</button>
                 <button className="btn btn-outline-danger"><i className="fa fa-map-marker"></i> Direction</button>
