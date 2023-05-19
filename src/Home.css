@@ -44,6 +44,10 @@
   margin-left: 45%;
   color: #fc8019;
 }
+.HeaderRow2 .btn a:hover{
+  color: gray;
+}
+
 @media (max-width: 850px) {
   .restaurantsCountDiv {
     display: none;
