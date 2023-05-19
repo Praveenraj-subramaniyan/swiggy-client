@@ -11,6 +11,7 @@
 }
 .imagefirstDiv {
   height: 550px;
+  padding-right: 0px !important;
 }
 .firstrow {
   padding: 0px;
