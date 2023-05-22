@@ -20,7 +20,7 @@ function Home() {
     async function SendResponse() {
       const url = "https://swiggy-server-6c69.onrender.com/home";
       //const url = "http://localhost:3000/home";
-      let listData = await axios
+      await axios
         .post(url, loginDataFromCookie)
         .then((res) => {
           if (res.data === "") {
