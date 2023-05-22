@@ -10,6 +10,7 @@ import { Navigate } from "react-router-dom";
 import { Route, Routes, useNavigate, BrowserRouter } from "react-router-dom";
 
 function DetailPage() {
+  const navigate = useNavigate();
   const params = useParams();
   const [detailList, setdetailList] = useState([]);
   const [resList, setresList] = useState([]);
