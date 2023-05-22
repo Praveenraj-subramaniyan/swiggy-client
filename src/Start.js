@@ -1,9 +1,10 @@
 import logo from "./images/swiggy.svg";
 import "./App.css";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import Footer from "./Footer";
+import { useNavigate } from "react-router-dom";
 // require('dotenv').config();
 
 function Start() {
@@ -124,22 +125,22 @@ function Start() {
     }
     setIsLoading(false);
   }
-  // let currentIndex = 0;
-  // setInterval(() => {
-  //   let titles = [
-  //     "Hungry?",
-  //     "Late night at office?",
-  //     "Movie marathon?",
-  //     "Game night?",
-  //     "Cooking gone wrong?",
-  //   ];
-  //   var element = document.getElementById("ChangingElement");
-  //   element.innerHTML = titles[currentIndex];
-  //   currentIndex++;
-  //   if (currentIndex === 5) {
-  //     currentIndex = 0;
-  //   }
-  // }, 3000);
+  let currentIndex = 0;
+  setInterval(() => {
+    let titles = [
+      "Hungry?",
+      "Late night at office?",
+      "Movie marathon?",
+      "Game night?",
+      "Cooking gone wrong?",
+    ];
+    var ChangingElement = document.getElementById("ChangingElement");
+    ChangingElement.innerHTML = titles[currentIndex];
+    currentIndex++;
+    if (currentIndex === 5) {
+      currentIndex = 0;
+    }
+  }, 3000);
   function SwitchTab(value) {
     if (value === "signupDiv") {
       var element = document.getElementById(value);
@@ -472,7 +473,11 @@ function Start() {
           </div>
         </div>
       </div>
-      {isLoading && <div className="isLoadingLogin"><div className="spinner-border  "></div></div>}
+      {isLoading && (
+        <div className="isLoadingLogin">
+          <div className="spinner-border  "></div>
+        </div>
+      )}
     </div>
   );
 }
