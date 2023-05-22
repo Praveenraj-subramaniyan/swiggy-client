@@ -13,10 +13,10 @@ import Search from "./Search";
 function App() {
   return (
     <div>
-      <BrowserRouter>
+      <BrowserRouter basename="/swiggy-client">
         <Routes>
-          <Route path="/" element={<Navigate to="/swiggy-client" />} />
-          <Route path="/swiggy-client" element={<Start />} />
+          {/* <Route path="/" element={<Navigate to="/swiggy-client" />} /> */}
+          <Route path="/" element={<Start />} />
           <Route path="/home" element={<Home />} />
           <Route path="/details/:id" element={<DetailPage />} />
           <Route path="/Search" element={<Search />} />
