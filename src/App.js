@@ -7,7 +7,7 @@ import DetailPage from "./DetailsPage";
 import Search from "./Search";
 function App() {
   return (
-    <div>
+    <>
       <BrowserRouter basename="/swiggy-client">
         <Routes>
           <Route path="/" element={<Start />} />
@@ -16,7 +16,7 @@ function App() {
           <Route path="/Search" element={<Search />} />
         </Routes>
       </BrowserRouter>
-    </div>
+    </>
   );
 }
 
