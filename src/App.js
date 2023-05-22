@@ -8,7 +8,7 @@ import Search from "./Search";
 function App() {
   return (
     <div>
-      <BrowserRouter basename="/">
+      <BrowserRouter basename="/swiggy-client">
         <Routes>
           <Route path="/" element={<Start />} />
           <Route path="/home" element={<Home />} />
