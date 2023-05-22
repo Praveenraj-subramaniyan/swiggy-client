@@ -20,8 +20,8 @@ function Card(data) {
   }
   return (
     <div className="col-lg-3 col-md-6 carddiv">
-      <Link to={`/details/${data.id}`}>
-        <div className="card mt-4 cardcard">
+      <div className="card mt-4 cardcard">
+        <Link to={`/details/${data.id}`}>
           <img className="Avatar" src={data.image} alt="Avatar" />
           <div className="RestaurantName mt-3 mb-2">
             <h4>
@@ -39,22 +39,22 @@ function Card(data) {
               <span className="">{data.coupon.toUpperCase()}</span>
             </p>
           </div>
-          <div>
-            <button
-              ref={popoverRef}
-              type="button"
-              className="btn btn-outline-light text-primary Quickview mb-2"
-              title="MENU"
-              data-bs-toggle="popover"
-              data-bs-content="Some content inside the popover"
-              data-bs-trigger="hover"
-              onMouseEnter={QuickView}
-            >
-              Quick view
-            </button>
-          </div>
+        </Link>
+        <div>
+          <button
+            ref={popoverRef}
+            type="button"
+            className="btn btn-outline-light text-primary Quickview mb-2"
+            title="MENU"
+            data-bs-toggle="popover"
+            data-bs-content="Some content inside the popover"
+            data-bs-trigger="hover"
+            onMouseEnter={QuickView}
+          >
+            Quick view
+          </button>
         </div>
-      </Link>
+      </div>
     </div>
   );
 }

@@ -314,7 +314,7 @@ function Start() {
                   or{" "}
                   <button className="btn orangeColour switchTapButton">
                     {" "}
-                    Create an account{" "}
+                    create an account{" "}
                   </button>
                 </p>
               </div>
@@ -391,7 +391,7 @@ function Start() {
                 <p onClick={() => SwitchTab("loginDiv")}>
                   or{" "}
                   <button className="btn orangeColour switchTapButton">
-                    Login into account
+                    login into account
                   </button>
                 </p>
               </div>
@@ -473,7 +473,7 @@ function Start() {
           </div>
         </div>
       </div>
-      {isLoading && <div class="spinner-border  isLoading"></div>}
+      {isLoading && <div className="isLoadingLogin"><div className="spinner-border  "></div></div>}
     </div>
   );
 }
