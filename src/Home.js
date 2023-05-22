@@ -25,7 +25,7 @@ function Home() {
         .post(url, loginDataFromCookie)
         .then((res) => {
           if (res.data === "") {
-            navigate("/");
+            navigate("/swiggy-client");
           }
           res.data.sort((a, b) => {
             if (a.res_name < b.res_name) {

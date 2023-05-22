@@ -26,6 +26,9 @@ function DetailPage() {
         let listData = await axios
           .post(url, loginDataFromCookie)
           .then((res) => {
+            if (res.data === "") {
+              navigate("/swiggy-client");
+            }
             setdetailList(res.data.dishes);
             setresList(res.data);
             setIsLoading(false);
