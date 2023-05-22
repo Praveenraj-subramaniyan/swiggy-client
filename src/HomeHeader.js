@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import logo from "./images/swiggy.svg";
 import "./HomeHeader.css";
 import { Link } from "react-router-dom";

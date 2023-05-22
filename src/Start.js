@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import Footer from "./Footer";
-import { Route, Routes, useNavigate, BrowserRouter } from "react-router-dom";
 // require('dotenv').config();
 
 function Start() {

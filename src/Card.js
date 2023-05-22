@@ -2,7 +2,6 @@ import "./Card.css";
 import { Link } from "react-router-dom";
 import React, { useEffect, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { OverlayTrigger, Popover } from "react-bootstrap";
 
 function Card(data) {
   const popoverRef = useRef(null);

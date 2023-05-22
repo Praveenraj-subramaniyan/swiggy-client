@@ -6,8 +6,6 @@ import "./DetailsPage.css";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import Cookies from "js-cookie";
-import { Navigate } from "react-router-dom";
-import { Route, Routes, useNavigate, BrowserRouter } from "react-router-dom";
 
 function DetailPage() {
   const navigate = useNavigate();

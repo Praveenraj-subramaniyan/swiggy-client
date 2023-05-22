@@ -1,10 +1,5 @@
-import logo from "./images/swiggy.svg";
 import "./App.css";
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import Cookies from "js-cookie";
-import Footer from "./Footer";
-import { Navigate } from "react-router-dom";
+import React from "react";
 import { Route, Routes, useNavigate, BrowserRouter } from "react-router-dom";
 import Start from "./Start";
 import Home from "./Home";
