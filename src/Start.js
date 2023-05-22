@@ -125,33 +125,35 @@ function Start() {
     }
     setIsLoading(false);
   }
-  let currentIndex = 0;
-  setInterval(() => {
-    let titles = [
-      "Hungry?",
-      "Late night at office?",
-      "Movie marathon?",
-      "Game night?",
-      "Cooking gone wrong?",
-    ];
-    var ChangingElement = document.getElementById("ChangingElement");
-    ChangingElement.innerHTML = titles[currentIndex];
-    currentIndex++;
-    if (currentIndex === 5) {
-      currentIndex = 0;
-    }
-  }, 3000);
+  // let currentIndex = 0;
+  // setInterval(() => {
+  //   let titles = [
+  //     "Hungry?",
+  //     "Late night at office?",
+  //     "Movie marathon?",
+  //     "Game night?",
+  //     "Cooking gone wrong?",
+  //   ];
+  //   var ChangingElement = document.getElementById("ChangingElement");
+  //   ChangingElement.innerHTML = titles[currentIndex];
+  //   currentIndex++;
+  //   if (currentIndex === 5) {
+  //     currentIndex = 0;
+  //   }
+  // }, 3000);
   function SwitchTab(value) {
+    var signupDiv;
+    var loginDiv;
     if (value === "signupDiv") {
-      var element = document.getElementById(value);
-      element.style.visibility = "visible";
-      var element = document.getElementById("loginDiv");
-      element.style.visibility = "hidden";
+      signupDiv = document.getElementById(value);
+      signupDiv.style.visibility = "visible";
+      loginDiv = document.getElementById("loginDiv");
+      loginDiv.style.visibility = "hidden";
     } else if (value === "loginDiv") {
-      var element = document.getElementById(value);
-      element.style.visibility = "visible";
-      var element = document.getElementById("signupDiv");
-      element.style.visibility = "hidden";
+      loginDiv = document.getElementById(value);
+      loginDiv.style.visibility = "visible";
+      signupDiv = document.getElementById("signupDiv");
+      signupDiv.style.visibility = "hidden";
     }
     setisVisible((preState) => ({
       ...preState,
@@ -196,7 +198,7 @@ function Start() {
             <div className="container firstrow mt-5 mx-5">
               <div className="row col-12 firstrow  ">
                 <div className="col-6">
-                  <img className="logo" src={logo} />
+                  <img alt="Logo" className="logo" src={logo} />
                   <span className="Swiggycolour">swiggy</span>
                 </div>
                 <div className="col-6 mt-2 " id="loginsign">
@@ -245,6 +247,7 @@ function Start() {
           </div>
           <div className="col-sm-5 imagefirstDiv firstrow">
             <img
+              alt="Banner"
               className="firstImage"
               src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_1340/Lunch1_vlksgq"
             />
@@ -255,6 +258,7 @@ function Start() {
         <div className="row">
           <div className="col-sm-4">
             <img
+              alt="Banner"
               className=""
               width="104"
               height="199"
@@ -268,6 +272,7 @@ function Start() {
           </div>
           <div className="col-sm-4">
             <img
+              alt="Banner"
               className=""
               width="112"
               height="206"
@@ -281,6 +286,7 @@ function Start() {
           </div>
           <div className="col-sm-4">
             <img
+              alt="Banner"
               className=""
               width="124"
               height="188"
@@ -320,6 +326,7 @@ function Start() {
               </div>
               <div className="col-5 ">
                 <img
+                  alt="Banner"
                   width="100"
                   height="105"
                   src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/Image-login_btpq7r"
@@ -397,6 +404,7 @@ function Start() {
               </div>
               <div className="col-5 ms-3">
                 <img
+                  alt="Banner"
                   width="100"
                   height="105"
                   src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/Image-login_btpq7r"

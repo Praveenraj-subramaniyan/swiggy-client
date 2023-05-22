@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import axios from "axios";
 import DishCard from "./DishCard";
-import { Route, Routes, useNavigate, BrowserRouter } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Search() {
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ function Search() {
     async function SendResponse() {
       //const url = "http://localhost:3000/home";
       const url = "https://swiggy-server-6c69.onrender.com/home";
-      let listData = await axios
+      await axios
         .post(url, loginDataFromCookie)
         .then((res) => {
           if (res === "") {
