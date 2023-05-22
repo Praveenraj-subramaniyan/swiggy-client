@@ -8,9 +8,9 @@ import Search from "./Search";
 function App() {
   return (
     <>
-      <BrowserRouter basename="/swiggy-client">
+      <BrowserRouter >
         <Routes>
-          <Route path="/" element={<Start />} />
+          <Route path="/swiggy-client" element={<Start />} />
           <Route path="/home" element={<Home />} />
           <Route path="/details/:id" element={<DetailPage />} />
           <Route path="/Search" element={<Search />} />
