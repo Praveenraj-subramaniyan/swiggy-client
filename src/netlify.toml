@@ -1,0 +1,6 @@
+[[redirects]]
+  from = "/home"
+  to = "https://master--praveenswiggycloneapp.netlify.app/home"
+  status = 200
+  force = true
+  headers = {X-From = "Netlify"}
