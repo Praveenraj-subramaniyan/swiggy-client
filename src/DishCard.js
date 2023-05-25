@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import "./DishCard.css";
 function DishCard(data) {
+  const [cartData, setCartData]=useState(data)
   return (
     <div>
       <ul className="list-group mb-3">

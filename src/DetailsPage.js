@@ -1,11 +1,9 @@
 import DishCard from "./DishCard";
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./DetailsPage.css";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
-import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import { FoodDetailsCard } from "./ApiFiles/api";
 
@@ -20,6 +18,9 @@ function DetailPage() {
     const fetchData = async () => {
       try {
         const items = await FoodDetailsCard(params.id);
+        if (items === "login") {
+          navigate("/");
+        }
         setdetailList(items.dishes);
         setresList(items);
         setIsLoading(false);
@@ -29,29 +30,6 @@ function DetailPage() {
     };
     fetchData();
   }, []);
-  // useEffect(() => {
-  //   async function FetchDetailsData() {
-  //     try {
-  //       const cookieValue = Cookies.get("Swiggy_client");
-  //       const loginDataFromCookie = cookieValue
-  //         ? JSON.parse(cookieValue)
-  //         : null;
-  //       //const url = `http://localhost:3000/home/${params.id}`;
-  //       const url = `https://swiggy-server-6c69.onrender.com/home/${params.id}`;
-  //       await axios.post(url, loginDataFromCookie).then((res) => {
-  //         if (res.data === "") {
-  //           navigate("/swiggy-client");
-  //         }
-  //         setdetailList(res.data.dishes);
-  //         setresList(res.data);
-  //         setIsLoading(false);
-  //       });
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   }
-  //   FetchDetailsData();
-  // }, []);
   if (isLoading) {
     return <div className="spinner-border  isLoading"></div>;
   }
@@ -91,6 +69,8 @@ function DetailPage() {
               <DishCard
                 dishName={data.dish_name}
                 resName={resList.res_name}
+                resId={resList.id} 
+                dishNId={data.dish_id} 
                 category={data.category}
                 image={data.dish_image_url}
                 price={data.price}

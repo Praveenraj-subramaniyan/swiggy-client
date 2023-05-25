@@ -22,7 +22,11 @@ function Home() {
         }
         setItemList(items);
         const dishes = items.flatMap((data) =>
-          data.dishes.map((dish) => ({ ...dish, res_name: data.res_name }))
+          data.dishes.map((dish) => ({
+            ...dish,
+            res_name: data.res_name,
+            res_id: data._id,
+          }))
         );
         setfilteritemList(dishes);
         setIsLoading(false);
@@ -186,6 +190,8 @@ function Home() {
                   image={data.dish_image_url}
                   price={data.price}
                   rating={data.ratting}
+                  resId={data.id}
+                  dishNId={data.dish_id}
                 />
               );
             })}

@@ -21,16 +21,19 @@ function Search() {
           navigate("/");
         }
         const dishes = items.flatMap((data) =>
-        data.dishes.map((dish) => ({ ...dish, res_name: data.res_name }))
-      );
-      setItemList(dishes);
-      setIsLoading(false)
+          data.dishes.map((dish) => ({
+            ...dish,
+            res_name: data.res_name,
+            res_id: data._id,
+          }))
+        );
+        setItemList(dishes);
+        setIsLoading(false);
       } catch (error) {
         console.error(error);
       }
     };
     fetchData();
- ;
   }, []);
   function HandleData(event) {
     const target = event.target;
@@ -76,6 +79,8 @@ function Search() {
                     image={data.dish_image_url}
                     price={data.price}
                     rating={data.ratting}
+                    resId={data._id}
+                    dishNId={data.dish_id}
                   />
                 );
               })}
