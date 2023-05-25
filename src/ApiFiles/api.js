@@ -41,8 +41,6 @@ export const FoodDetailsCard = async (id) => {
 export const LoginAPI = async (loginData) => {
   try {
     const response = await axios.post(url + "login", loginData);
-    console.log(url + "login");
-    console.log(response);
     responseLoginData = response.data;
     return responseLoginData;
   } catch (error) {
