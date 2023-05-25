@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
-import { FoodDetailsCard } from "./api";
+import { FoodDetailsCard } from "./ApiFiles/api";
 
 function DetailPage() {
   const navigate = useNavigate();

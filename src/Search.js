@@ -4,9 +4,10 @@ import Footer from "./Footer";
 import React, { useEffect, useState } from "react";
 import DishCard from "./DishCard";
 import { useNavigate } from "react-router-dom";
-import { RestaurantCard } from "./api";
+import { RestaurantCard } from "./ApiFiles/api";
 
 function Search() {
+  const navigate = useNavigate();
   const [itemList, setItemList] = useState([]);
   const [filteritemList, setfilteritemList] = useState([]);
   const [inputValue, setinputValue] = useState("");
@@ -16,6 +17,9 @@ function Search() {
       try {
         const items = await RestaurantCard();
         setItemList(items);
+        if (items === "login") {
+          navigate("/");
+        }
         const dishes = items.flatMap((data) =>
         data.dishes.map((dish) => ({ ...dish, res_name: data.res_name }))
       );

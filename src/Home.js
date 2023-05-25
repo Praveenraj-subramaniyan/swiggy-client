@@ -4,9 +4,11 @@ import HomeHeader from "./HomeHeader";
 import "./Home.css";
 import Card from "./Card";
 import DishCard from "./DishCard";
-import { RestaurantCard } from "./api";
+import { useNavigate } from "react-router-dom";
+import { RestaurantCard } from "./ApiFiles/api";
 
 function Home() {
+  const navigate = useNavigate();
   const [itemList, setItemList] = useState([]);
   const [filteritemList, setfilteritemList] = useState([]);
   const [buttonClick, setbuttonClick] = useState(1);
@@ -15,6 +17,9 @@ function Home() {
     const fetchData = async () => {
       try {
         const items = await RestaurantCard();
+        if (items === "login") {
+          navigate("/");
+        }
         setItemList(items);
         const dishes = items.flatMap((data) =>
           data.dishes.map((dish) => ({ ...dish, res_name: data.res_name }))
