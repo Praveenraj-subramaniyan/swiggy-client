@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
+import { FoodDetailsCard } from "./api";
 
 function DetailPage() {
   const navigate = useNavigate();
@@ -14,31 +15,45 @@ function DetailPage() {
   const [detailList, setdetailList] = useState([]);
   const [resList, setresList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
-    async function FetchDetailsData() {
+    const fetchData = async () => {
       try {
-        const cookieValue = Cookies.get("Swiggy_client");
-        const loginDataFromCookie = cookieValue
-          ? JSON.parse(cookieValue)
-          : null;
-        //const url = `http://localhost:3000/home/${params.id}`;
-        const url = `https://swiggy-server-6c69.onrender.com/home/${params.id}`;
-        await axios.post(url, loginDataFromCookie).then((res) => {
-          if (res.data === "") {
-            navigate("/swiggy-client");
-          }
-          setdetailList(res.data.dishes);
-          setresList(res.data);
-          setIsLoading(false);
-        });
+        const items = await FoodDetailsCard(params.id);
+        setdetailList(items.dishes);
+        setresList(items);
+        setIsLoading(false);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
-    }
-    FetchDetailsData();
+    };
+    fetchData();
   }, []);
+  // useEffect(() => {
+  //   async function FetchDetailsData() {
+  //     try {
+  //       const cookieValue = Cookies.get("Swiggy_client");
+  //       const loginDataFromCookie = cookieValue
+  //         ? JSON.parse(cookieValue)
+  //         : null;
+  //       //const url = `http://localhost:3000/home/${params.id}`;
+  //       const url = `https://swiggy-server-6c69.onrender.com/home/${params.id}`;
+  //       await axios.post(url, loginDataFromCookie).then((res) => {
+  //         if (res.data === "") {
+  //           navigate("/swiggy-client");
+  //         }
+  //         setdetailList(res.data.dishes);
+  //         setresList(res.data);
+  //         setIsLoading(false);
+  //       });
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
+  //   FetchDetailsData();
+  // }, []);
   if (isLoading) {
-    return <div class="spinner-border  isLoading"></div>;
+    return <div className="spinner-border  isLoading"></div>;
   }
   return (
     <div>

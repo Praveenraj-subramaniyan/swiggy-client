@@ -2,49 +2,31 @@ import "./Search.css";
 import HomeHeader from "./HomeHeader";
 import Footer from "./Footer";
 import React, { useEffect, useState } from "react";
-import Cookies from "js-cookie";
-import axios from "axios";
 import DishCard from "./DishCard";
 import { useNavigate } from "react-router-dom";
+import { RestaurantCard } from "./api";
 
 function Search() {
-  const navigate = useNavigate();
   const [itemList, setItemList] = useState([]);
   const [filteritemList, setfilteritemList] = useState([]);
   const [inputValue, setinputValue] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    const cookieValue = Cookies.get("Swiggy_client");
-    const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
-    async function SendResponse() {
-      //const url = "http://localhost:3000/home";
-      const url = "https://swiggy-server-6c69.onrender.com/home";
-      await axios
-        .post(url, loginDataFromCookie)
-        .then((res) => {
-          if (res === "") {
-            navigate("/");
-          }
-          res.data.sort((a, b) => {
-            if (a.res_name < b.res_name) {
-              return -1;
-            }
-            if (a.res_name > b.res_name) {
-              return 1;
-            }
-            return 0;
-          });
-          const dishes = res.data.flatMap((data) =>
-            data.dishes.map((dish) => ({ ...dish, res_name: data.res_name }))
-          );
-          setItemList(dishes);
-          setIsLoading(false);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }
-    SendResponse();
+    const fetchData = async () => {
+      try {
+        const items = await RestaurantCard();
+        setItemList(items);
+        const dishes = items.flatMap((data) =>
+        data.dishes.map((dish) => ({ ...dish, res_name: data.res_name }))
+      );
+      setItemList(dishes);
+      setIsLoading(false)
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+ ;
   }, []);
   function HandleData(event) {
     const target = event.target;
@@ -62,7 +44,7 @@ function Search() {
     setfilteritemList(filteredData);
   }
   if (isLoading) {
-    return <div class="spinner-border isLoading"></div>;
+    return <div className="spinner-border isLoading"></div>;
   }
   return (
     <div>
@@ -77,7 +59,7 @@ function Search() {
           value={inputValue}
           onChange={HandleData}
         />
-        <i class="fa fa-search search-icon" aria-hidden="true"></i>
+        <i className="fa fa-search search-icon" aria-hidden="true"></i>
         <div className="container">
           <div className="row">
             {filteritemList[0] &&

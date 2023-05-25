@@ -1,53 +1,33 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-import Cookies from "js-cookie";
 import Footer from "./Footer";
-import { useNavigate } from "react-router-dom";
 import HomeHeader from "./HomeHeader";
 import "./Home.css";
 import Card from "./Card";
 import DishCard from "./DishCard";
+import { RestaurantCard } from "./api";
 
 function Home() {
-  const navigate = useNavigate();
   const [itemList, setItemList] = useState([]);
   const [filteritemList, setfilteritemList] = useState([]);
   const [buttonClick, setbuttonClick] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    const cookieValue = Cookies.get("Swiggy_client");
-    const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
-    async function SendResponse() {
-      const url = "https://swiggy-server-6c69.onrender.com/home";
-      //const url = "http://localhost:3000/home";
-      await axios
-        .post(url, loginDataFromCookie)
-        .then((res) => {
-          if (res.data === "") {
-            navigate("/swiggy-client");
-          }
-          res.data.sort((a, b) => {
-            if (a.res_name < b.res_name) {
-              return -1;
-            }
-            if (a.res_name > b.res_name) {
-              return 1;
-            }
-            return 0;
-          });
-          setItemList(res.data);
-          const dishes = res.data.flatMap((data) =>
-            data.dishes.map((dish) => ({ ...dish, res_name: data.res_name }))
-          );
-          setfilteritemList(dishes);
-          setIsLoading(false);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }
-    SendResponse();
+    const fetchData = async () => {
+      try {
+        const items = await RestaurantCard();
+        setItemList(items);
+        const dishes = items.flatMap((data) =>
+          data.dishes.map((dish) => ({ ...dish, res_name: data.res_name }))
+        );
+        setfilteritemList(dishes);
+        setIsLoading(false);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
   }, []);
+
   function setitem(data) {
     if (data === "Low") {
       filteritemList.sort((a, b) => {
@@ -191,6 +171,7 @@ function Home() {
       <div className="container">
         <div className="row">
           {buttonClick > 2 &&
+            filteritemList[0] &&
             filteritemList.map((data) => {
               return (
                 <DishCard

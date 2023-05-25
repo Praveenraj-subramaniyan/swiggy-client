@@ -23,7 +23,7 @@ function HomeHeader(data) {
             } `}
           >
             <Link to={`/home`}>
-              <i class="fa fa-home  px-2 " aria-hidden="true"></i>
+              <i className="fa fa-home  px-2 " aria-hidden="true"></i>
               <span className="">Home</span>
             </Link>
           </div>
@@ -38,17 +38,17 @@ function HomeHeader(data) {
             </Link>
           </div>
           <div className="col Searchdiv">
-            <i class="fa fa-percent  px-2" aria-hidden="true"></i>
+            <i className="fa fa-percent  px-2" aria-hidden="true"></i>
             <span className="">
               Offer<sup className="New"> New</sup>
             </span>
           </div>
           <div className="col Searchdiv">
-            <i class="fa fa-shopping-cart  px-2" aria-hidden="true"></i>
+            <i className="fa fa-shopping-cart  px-2" aria-hidden="true"></i>
             <span className="">Cart</span>
           </div>
           <div className="col Searchdiv overflow-hidden">
-            <i class="fa fa-user  px-2" aria-hidden="true"></i>
+            <i className="fa fa-user  px-2" aria-hidden="true"></i>
             <span className="">Praveen</span>
           </div>
         </div>
