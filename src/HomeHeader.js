@@ -38,14 +38,8 @@ function HomeHeader(data) {
             </Link>
           </div>
           <div className="col Searchdiv">
-            <i className="fa fa-percent  px-2" aria-hidden="true"></i>
-            <span className="">
-              Offer<sup className="New"> New</sup>
-            </span>
-          </div>
-          <div className="col Searchdiv">
             <i className="fa fa-shopping-cart  px-2" aria-hidden="true"></i>
-            <span className="">Cart</span>
+            <span className="">Cart<sup className="New"> 2</sup></span>
           </div>
           <div className="col Searchdiv overflow-hidden">
             <i className="fa fa-user  px-2" aria-hidden="true"></i>

@@ -190,8 +190,9 @@ function Home() {
                   image={data.dish_image_url}
                   price={data.price}
                   rating={data.ratting}
-                  resId={data.id}
-                  dishNId={data.dish_id}
+                  resId={data.res_id}
+                  dishId={data.dish_id}
+                  quantity={data.quantity}
                 />
               );
             })}

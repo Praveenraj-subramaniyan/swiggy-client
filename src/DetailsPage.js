@@ -58,10 +58,6 @@ function DetailPage() {
               {resList.res_name},{resList.location}
             </b>
           </span>
-          {/* <button className="btn btn-outline-danger"><i className="fa fa-comments"></i> Add Review</button>
-                <button className="btn btn-outline-danger"><i className="fa fa-map-marker"></i> Direction</button>
-                <button className="btn btn-outline-danger"><i className="fa fa-bookmark"></i> Add Bookmark</button>
-                <button className="btn btn-outline-danger"><i className="fa fa-share"></i> share</button> */}
         </div>
         <div className="contentcase">
           {detailList.map((data) => {

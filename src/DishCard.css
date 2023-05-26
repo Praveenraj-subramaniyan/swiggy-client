@@ -14,6 +14,15 @@
 .goldStar {
   color: gold;
 }
+.quantity{
+  background-color: #dc3545;
+  color: white;
+  padding-bottom: 10px;
+  padding-top: 5px;
+  padding-left: 13px;
+  padding-right: 13px;
+  border-radius: 5px;
+}
 @media (max-width: 850px) {
   .Addrow {
     display: none;
