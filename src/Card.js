@@ -24,7 +24,7 @@ function Card(data) {
           <img className="Avatar" src={data.image} alt="Avatar" />
           <div className="RestaurantName mt-3 mb-2">
             <h4>
-              <b>{data.resName}</b>
+              <b>{data.res_name}</b>
             </h4>
           </div>
           <div className="borerDiv"></div>

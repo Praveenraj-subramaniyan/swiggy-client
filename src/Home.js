@@ -21,13 +21,7 @@ function Home() {
           navigate("/");
         }
         setItemList(items);
-        const dishes = items.flatMap((data) =>
-          data.dishes.map((dish) => ({
-            ...dish,
-            res_name: data.res_name,
-            res_id: data._id,
-          }))
-        );
+        const dishes = items.flatMap((data) => data.dishes);
         setfilteritemList(dishes);
         setIsLoading(false);
       } catch (error) {
@@ -37,7 +31,7 @@ function Home() {
     fetchData();
   }, []);
 
-  function setitem(data) {
+  function SetItem(data) {
     if (data === "Low") {
       filteritemList.sort((a, b) => {
         if (a.price < b.price) {
@@ -134,8 +128,7 @@ function Home() {
                 className={`activeHomeBtn1 ${
                   buttonClick === 3 ? "activeHomeBtn" : ""
                 }`}
-                // onClick={() => HandleHomeButton("Low")}
-                onClick={() => setitem("Low")}
+                onClick={() => SetItem("Low")}
               >
                 Cost:Low To High
               </a>
@@ -145,7 +138,7 @@ function Home() {
                 className={`activeHomeBtn1 ${
                   buttonClick === 4 ? "activeHomeBtn" : ""
                 }`}
-                onClick={() => setitem("High")}
+                onClick={() => SetItem("High")}
               >
                 Cost:High To Low
               </a>
@@ -164,7 +157,7 @@ function Home() {
             itemList.map((item) => {
               return (
                 <Card
-                res_name={item.res_name}
+                  res_name={item.res_name}
                   rating={item.ratting}
                   location={item.location}
                   image={item.image_url}
@@ -186,7 +179,7 @@ function Home() {
               return (
                 <DishCard
                   dishName={data.dish_name}
-                  resName={data.res_name}
+                  res_name={data.res_name}
                   category={data.category}
                   image={data.dish_image_url}
                   price={data.price}

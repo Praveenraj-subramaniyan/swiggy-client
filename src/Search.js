@@ -21,12 +21,9 @@ function Search() {
           navigate("/");
         }
         const dishes = items.flatMap((data) =>
-          data.dishes.map((dish) => ({
-            ...dish,
-            res_name: data.res_name,
-            res_id: data._id,
-          }))
+          data.dishes
         );
+        console.log(dishes)
         setItemList(dishes);
         setIsLoading(false);
       } catch (error) {
@@ -45,10 +42,10 @@ function Search() {
     const value = valueInput;
     const filteredData = itemList.filter(
       (data) =>
-        data.res_name.toLowerCase().includes(value.toLowerCase()) ||
+         data.res_name.toLowerCase().includes(value.toLowerCase()) ||
         data.dish_name.toLowerCase().includes(value.toLowerCase())
     );
-    setfilteritemList(filteredData);
+    setfilteritemList(() =>filteredData);
   }
   if (isLoading) {
     return <div className="spinner-border isLoading"></div>;
