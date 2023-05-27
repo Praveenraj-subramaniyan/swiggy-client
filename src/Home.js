@@ -164,7 +164,7 @@ function Home() {
             itemList.map((item) => {
               return (
                 <Card
-                  resName={item.res_name}
+                res_name={item.res_name}
                   rating={item.ratting}
                   location={item.location}
                   image={item.image_url}

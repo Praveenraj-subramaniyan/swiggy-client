@@ -72,3 +72,22 @@ export const CartAPI = async (updatedCartData) => {
     console.error(error);
   }
 };
+
+export const ViewCard = async () => {
+  try {
+    const response = await axios.post(url + "cart/view ", loginDataFromCookie);
+    responseData = response.data.sort((a, b) => {
+      if (a.res_name < b.res_name) {
+        return -1;
+      }
+      if (a.res_name > b.res_name) {
+        return 1;
+      }
+      return 0;
+    });
+    return responseData;
+  } catch (error) {
+    console.error(error);
+    return "login";
+  }
+};

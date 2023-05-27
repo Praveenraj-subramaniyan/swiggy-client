@@ -74,7 +74,7 @@ function Search() {
                 return (
                   <DishCard
                     dishName={data.dish_name}
-                    resName={data.res_name}
+                    res_name={data.res_name}
                     category={data.category}
                     image={data.dish_image_url}
                     price={data.price}

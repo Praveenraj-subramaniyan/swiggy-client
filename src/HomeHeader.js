@@ -39,13 +39,14 @@ function HomeHeader(data) {
           </div>
           <div
             className={`col Searchdiv ${
-              data.highlight === "search" ? "highlight" : ""
+              data.highlight === "cart" ? "highlight" : ""
             } `}
           >
             <Link to={`/cart`}>
               <i className="fa fa-shopping-cart  px-2" aria-hidden="true"></i>
               <span className="">
-                Cart<sup className="New"> 2</sup>
+                Cart
+                {/* <sup className="New"> 2</sup> */}
               </span>
             </Link>
           </div>

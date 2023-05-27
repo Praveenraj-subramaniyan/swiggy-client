@@ -35,7 +35,7 @@ function DishCard(data) {
                 />
               </div>
               <div className="col mt-5 resname">
-                <h5 className="">{cartData.resName}</h5>
+                <h5 className="">{cartData.res_name}</h5>
               </div>
               <div className="col-12">
                 <div className="row mt-2 mb-0 mx-1">

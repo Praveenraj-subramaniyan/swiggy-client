@@ -68,7 +68,7 @@ function DetailPage() {
             return (
               <DishCard
                 dishName={data.dish_name}
-                resName={resList.res_name}
+                res_name={resList.res_name}
                 res_id={resList._id} 
                 dish_id={data.dish_id} 
                 key={data.dish_id} 
