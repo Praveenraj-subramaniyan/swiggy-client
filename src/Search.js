@@ -79,8 +79,9 @@ function Search() {
                     image={data.dish_image_url}
                     price={data.price}
                     rating={data.ratting}
-                    resId={data._id}
-                    dishNId={data.dish_id}
+                    res_id={data.res_id}
+                    dish_id={data.dish_id}
+                    quantity={data.quantity}
                   />
                 );
               })}

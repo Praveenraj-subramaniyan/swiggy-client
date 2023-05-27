@@ -24,6 +24,8 @@ function DetailPage() {
         }
         setdetailList(items.dishes);
         setresList(items);
+        console.log(items._id)
+        console.log(items)
         setIsLoading(false);
       } catch (error) {
         console.error(error);
@@ -67,13 +69,14 @@ function DetailPage() {
               <DishCard
                 dishName={data.dish_name}
                 resName={resList.res_name}
-                resId={resList.id} 
-                dishId={data.dish_id} 
+                res_id={resList._id} 
+                dish_id={data.dish_id} 
                 key={data.dish_id} 
                 category={data.category}
                 image={data.dish_image_url}
                 price={data.price}
                 rating={data.ratting}
+                quantity={data.quantity}
               />
             );
           })}

@@ -37,10 +37,19 @@ function HomeHeader(data) {
               <span className="">search</span>
             </Link>
           </div>
-          <div className="col Searchdiv">
-            <i className="fa fa-shopping-cart  px-2" aria-hidden="true"></i>
-            <span className="">Cart<sup className="New"> 2</sup></span>
+          <div
+            className={`col Searchdiv ${
+              data.highlight === "search" ? "highlight" : ""
+            } `}
+          >
+            <Link to={`/cart`}>
+              <i className="fa fa-shopping-cart  px-2" aria-hidden="true"></i>
+              <span className="">
+                Cart<sup className="New"> 2</sup>
+              </span>
+            </Link>
           </div>
+
           <div className="col Searchdiv overflow-hidden">
             <i className="fa fa-user  px-2" aria-hidden="true"></i>
             <span className="">Praveen</span>

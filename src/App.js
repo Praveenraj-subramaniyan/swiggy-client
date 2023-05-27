@@ -5,6 +5,8 @@ import Start from "./Start";
 import Home from "./Home";
 import DetailPage from "./DetailsPage";
 import Search from "./Search";
+import Cart from "./Cart";
+
 function App() {
   return (
     <>
@@ -14,6 +16,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/details/:id" element={<DetailPage />} />
           <Route path="/search" element={<Search />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </BrowserRouter>
     </>
