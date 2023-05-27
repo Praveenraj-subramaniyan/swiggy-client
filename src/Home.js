@@ -169,6 +169,7 @@ function Home() {
                   location={item.location}
                   image={item.image_url}
                   id={item._id}
+                  key={item._id}
                   offer={item.offer}
                   coupon={item.coupon}
                   dishes={AllDishNames(item.res_name)}
@@ -190,8 +191,8 @@ function Home() {
                   image={data.dish_image_url}
                   price={data.price}
                   rating={data.ratting}
-                  resId={data.res_id}
-                  dishId={data.dish_id}
+                  res_id={data.res_id}
+                  dish_id={data.dish_id}
                   quantity={data.quantity}
                 />
               );

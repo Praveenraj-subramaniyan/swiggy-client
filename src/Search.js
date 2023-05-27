@@ -62,7 +62,7 @@ function Search() {
           type="text"
           className="SearchInputBox mt-4 mb-5  px-4"
           placeholder="Search for restaurants and food"
-          maxlength="20"
+          maxLength={15}
           value={inputValue}
           onChange={HandleData}
         />

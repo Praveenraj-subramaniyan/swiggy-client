@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
 import { FoodDetailsCard } from "./ApiFiles/api";
+import HomeHeader from "./HomeHeader";
 
 function DetailPage() {
   const navigate = useNavigate();
@@ -35,6 +36,7 @@ function DetailPage() {
   }
   return (
     <div>
+      <HomeHeader highlight="home" />
       <div className="container">
         <div className="showcase mb-2">
           <img
@@ -66,7 +68,8 @@ function DetailPage() {
                 dishName={data.dish_name}
                 resName={resList.res_name}
                 resId={resList.id} 
-                dishNId={data.dish_id} 
+                dishId={data.dish_id} 
+                key={data.dish_id} 
                 category={data.category}
                 image={data.dish_image_url}
                 price={data.price}

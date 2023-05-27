@@ -1,23 +1,26 @@
-import React, { useState } from "react";
+import React, {useState } from "react";
 import "./DishCard.css";
 import { CartAPI } from "./ApiFiles/api";
 function DishCard(data) {
   const [cartData, setCartData] = useState(data);
-  function AddCart() {
-    setCartData((prevCartData) => ({
-      ...prevCartData,
-      quantity: +prevCartData.quantity + 1
-    }));
-    console.log(cartData)
-    CartAPI(cartData);
+
+  function AddCart(cartData) {
+    const updatedCartData = {
+      ...cartData,
+      quantity: +cartData.quantity + 1,
+    };
+    setCartData(updatedCartData);
+    CartAPI(updatedCartData);
   }
-  function MinusCart(){
-    setCartData((prevCartData) => ({
-      ...prevCartData,
-      quantity: +prevCartData.quantity - 1
-    }));
-    CartAPI(cartData);
+  function MinusCart(cartData) {
+    const updatedCartData = {
+      ...cartData,
+      quantity: +cartData.quantity - 1,
+    };
+    setCartData(updatedCartData);
+    CartAPI(updatedCartData);
   }
+
   return (
     <div>
       <ul className="list-group mb-3">
@@ -80,16 +83,22 @@ function DishCard(data) {
           <div>
             {cartData.quantity > 0 ? (
               <div>
-                <button className="btn btn-outline-danger" onClick={MinusCart}>
-                  <i className="fa fa-minus"></i>
+                <button className="btn btn-outline-danger" onClick={() => MinusCart(cartData)} >
+                  <i className="fa fa-minus" ></i>
                 </button>
                 <span className="quantity mx-1">{cartData.quantity}</span>
-                <button className="btn btn-outline-danger" onClick={() =>(AddCart(cartData.resId,cartData.dishId))}>
+                <button
+                  className="btn btn-outline-danger"
+                  onClick={() => AddCart(cartData)}
+                >
                   <i className="fa fa-plus"></i>
                 </button>
               </div>
             ) : (
-              <button className="btn btn-outline-danger" onClick={AddCart}>
+              <button
+                className="btn btn-outline-danger"
+                onClick={() => AddCart(cartData)}
+              >
                 <span className="Addrow">Add</span>
                 <i className="fa fa-plus"></i>{" "}
               </button>

@@ -20,7 +20,6 @@ export const RestaurantCard = async () => {
       }
       return 0;
     });
-    console.log(responseData)
     return responseData;
   } catch (error) {
     console.error(error);
@@ -61,12 +60,13 @@ export const SignUPAPI = async (loginData) => {
   }
 };
 
-export const CartAPI = async (cartData) => {
+export const CartAPI = async (updatedCartData) => {
   try {
     const PayLoad={
       loginDataFromCookie,
-      cartData,
+      updatedCartData,
     }
+    console.log("payLoad")
     console.log(PayLoad);
     await axios.post(url + "cart", PayLoad);
   } catch (error) {
