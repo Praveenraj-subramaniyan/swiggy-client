@@ -98,7 +98,7 @@ function Home() {
       <HomeHeader highlight="home" />
       <div className="HeaderRow1">
         <div className="row HeaderRow2 ">
-          <div className=" col restaurantsCountDiv Poogavanapuramdiv">
+          <div className=" col restaurantsCountDiv ">
             <span>1525 restaurants</span>
           </div>
           <div className="offset-2 col-6 btn-group  HomeHeader  Relevance ">
