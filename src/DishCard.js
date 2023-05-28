@@ -1,15 +1,18 @@
-import React, {useState } from "react";
+import React, {useState,useEffect } from "react";
 import "./DishCard.css";
 import { CartAPI } from "./ApiFiles/api";
 function DishCard(data) {
   const [cartData, setCartData] = useState(data);
+
+  useEffect(() => {
+    setCartData(data);
+  }, [data]);
 
   function AddCart(cartData) {
     const updatedCartData = {
       ...cartData,
       quantity: +cartData.quantity + 1,
     };
-    data=updatedCartData;
     setCartData(updatedCartData);
     CartAPI(updatedCartData);
   }
@@ -18,7 +21,6 @@ function DishCard(data) {
       ...cartData,
       quantity: +cartData.quantity - 1,
     };
-    data=updatedCartData;
     setCartData(updatedCartData);
     CartAPI(updatedCartData);
   }
@@ -31,13 +33,13 @@ function DishCard(data) {
             <div className="row ">
               <div className="col-3">
                 <img
-                  src={data.image}
+                  src={cartData.image}
                   className="list-image rounded float-left"
                   alt="list"
                 />
               </div>
               <div className="col mt-5 resname">
-                <h5 className="">{data.res_name}</h5>
+                <h5 className="">{cartData.res_name}</h5>
               </div>
               <div className="col-12">
                 <div className="row mt-2 mb-0 mx-1">
@@ -45,17 +47,17 @@ function DishCard(data) {
                     <p>
                       <i
                         className={`fa fa-star ${
-                          data.rating >= 1 ? "goldStar" : " "
+                          cartData.rating >= 1 ? "goldStar" : " "
                         }`}
                       ></i>
                       <i
                         className={`fa fa-star ${
-                          data.rating >= 2 ? "goldStar" : " "
+                          cartData.rating >= 2 ? "goldStar" : " "
                         }`}
                       ></i>
                       <i
                         className={`fa fa-star ${
-                          data.rating >= 3 ? "goldStar" : " "
+                          cartData.rating >= 3 ? "goldStar" : " "
                         }`}
                       ></i>
                       <i
@@ -65,18 +67,18 @@ function DishCard(data) {
                       ></i>
                       <i
                         className={`fa fa-star ${
-                          data.rating >= 5 ? "goldStar" : " "
+                          cartData.rating >= 5 ? "goldStar" : " "
                         }`}
                       ></i>
                     </p>
                   </div>
                   <div className="col-3 foodname pe-5 me-2 ps-0">
                     <p>
-                      <b>{data.dishName}</b>
+                      <b>{cartData.dishName}</b>
                     </p>
                   </div>
                   <div className="col-3 pricename">
-                    <p>₹ {data.price}</p>
+                    <p>₹ {cartData.price}</p>
                   </div>
                 </div>
               </div>

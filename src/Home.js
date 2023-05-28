@@ -81,9 +81,9 @@ function Home() {
       setbuttonClick(2);
     }
   }
-  function AllDishNames(resName) {
+  function AllDishNames(res_name) {
     const filteredDishesByRes = filteritemList.filter(
-      (data) => data.res_name === resName
+      (data) => data.res_name === res_name
     );
     const filteredDishes = filteredDishesByRes.flatMap(
       (data) => data.dish_name

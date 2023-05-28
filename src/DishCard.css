@@ -24,9 +24,9 @@
   border-radius: 5px;
 }
 @media (max-width: 850px) {
-  .Addrow {
+  /* .Addrow {
     display: none;
-  }
+  } */
 }
 @media (max-width: 600px) {
   .foodname p {

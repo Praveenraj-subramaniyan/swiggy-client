@@ -7,14 +7,14 @@ function HomeHeader(data) {
     <div>
       <div className="container-fluid">
         <div className="row HeaderRow ">
-          <div className="col-1 ">
-            <img alt="Logo" className="logo1 ms-5 mt-2" src={logo} />
+          <div className="col-1 logo1div">
+            <img alt="Logo" className="logo1  mt-2" src={logo} />
           </div>
           <div className="col-3 Poogavanapuramdiv">
             <span className="Poogavanapuram">
               <b>Poogavanapuram</b>
             </span>
-            <span className="text-secondary"> chinnaiyan Colony, Poon...</span>
+            <span className="text-secondary "> chinnaiyan Colony,<span className="text-secondary chinnaiyan"> Poon...</span></span>
             <i className="fa dropdownIcon">&#xf107;</i>
           </div>
           <div
@@ -50,11 +50,21 @@ function HomeHeader(data) {
               </span>
             </Link>
           </div>
-
-          <div className="col Searchdiv overflow-hidden">
+          <div
+            className="col Searchdiv overflow-hidden dropdown-toggle"
+            data-bs-toggle="dropdown"
+          >
             <i className="fa fa-user  px-2" aria-hidden="true"></i>
             <span className="">Praveen</span>
           </div>
+          <div className="dropdown-menu">
+          <a className="dropdown-item" href="">
+            Profile
+          </a>
+          <a className="dropdown-item" href="">
+            Logout
+          </a>
+        </div>
         </div>
       </div>
     </div>

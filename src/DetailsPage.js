@@ -24,8 +24,6 @@ function DetailPage() {
         }
         setdetailList(items.dishes);
         setresList(items);
-        console.log(items._id)
-        console.log(items)
         setIsLoading(false);
       } catch (error) {
         console.error(error);
@@ -68,8 +66,8 @@ function DetailPage() {
             return (
               <DishCard
                 dishName={data.dish_name}
-                res_name={resList.res_name}
-                res_id={resList._id} 
+                res_name={data.res_name}
+                res_id={data.res_id} 
                 dish_id={data.dish_id} 
                 key={data.dish_id} 
                 category={data.category}
