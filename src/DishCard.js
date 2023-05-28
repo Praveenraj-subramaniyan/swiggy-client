@@ -9,6 +9,7 @@ function DishCard(data) {
       ...cartData,
       quantity: +cartData.quantity + 1,
     };
+    data=updatedCartData;
     setCartData(updatedCartData);
     CartAPI(updatedCartData);
   }
@@ -17,6 +18,7 @@ function DishCard(data) {
       ...cartData,
       quantity: +cartData.quantity - 1,
     };
+    data=updatedCartData;
     setCartData(updatedCartData);
     CartAPI(updatedCartData);
   }
@@ -29,13 +31,13 @@ function DishCard(data) {
             <div className="row ">
               <div className="col-3">
                 <img
-                  src={cartData.image}
+                  src={data.image}
                   className="list-image rounded float-left"
                   alt="list"
                 />
               </div>
               <div className="col mt-5 resname">
-                <h5 className="">{cartData.res_name}</h5>
+                <h5 className="">{data.res_name}</h5>
               </div>
               <div className="col-12">
                 <div className="row mt-2 mb-0 mx-1">
@@ -43,17 +45,17 @@ function DishCard(data) {
                     <p>
                       <i
                         className={`fa fa-star ${
-                          cartData.rating >= 1 ? "goldStar" : " "
+                          data.rating >= 1 ? "goldStar" : " "
                         }`}
                       ></i>
                       <i
                         className={`fa fa-star ${
-                          cartData.rating >= 2 ? "goldStar" : " "
+                          data.rating >= 2 ? "goldStar" : " "
                         }`}
                       ></i>
                       <i
                         className={`fa fa-star ${
-                          cartData.rating >= 3 ? "goldStar" : " "
+                          data.rating >= 3 ? "goldStar" : " "
                         }`}
                       ></i>
                       <i
@@ -63,18 +65,18 @@ function DishCard(data) {
                       ></i>
                       <i
                         className={`fa fa-star ${
-                          cartData.rating >= 5 ? "goldStar" : " "
+                          data.rating >= 5 ? "goldStar" : " "
                         }`}
                       ></i>
                     </p>
                   </div>
                   <div className="col-3 foodname pe-5 me-2 ps-0">
                     <p>
-                      <b>{cartData.dishName}</b>
+                      <b>{data.dishName}</b>
                     </p>
                   </div>
                   <div className="col-3 pricename">
-                    <p>₹ {cartData.price}</p>
+                    <p>₹ {data.price}</p>
                   </div>
                 </div>
               </div>
@@ -97,7 +99,7 @@ function DishCard(data) {
             ) : (
               <button
                 className="btn btn-outline-danger"
-                onClick={() => AddCart(cartData)}
+                onClick={() => AddCart(cartData )}
               >
                 <span className="Addrow">Add</span>
                 <i className="fa fa-plus"></i>{" "}

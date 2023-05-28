@@ -9,21 +9,18 @@ import { RestaurantCard } from "./ApiFiles/api";
 function Search() {
   const navigate = useNavigate();
   const [itemList, setItemList] = useState([]);
-  const [filteritemList, setfilteritemList] = useState([]);
-  const [inputValue, setinputValue] = useState("");
+  const [filteritemList, setFilterItemList] = useState([]);
+  const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const items = await RestaurantCard();
-        setItemList(items);
         if (items === "login") {
           navigate("/");
         }
-        const dishes = items.flatMap((data) =>
-          data.dishes
-        );
-        console.log(dishes)
+        const dishes = items.flatMap((data) => data.dishes);
         setItemList(dishes);
         setIsLoading(false);
       } catch (error) {
@@ -32,24 +29,27 @@ function Search() {
     };
     fetchData();
   }, []);
+
   function HandleData(event) {
-    const target = event.target;
-    const value = target.value;
-    setinputValue(value);
+    const value = event.target.value;
+    setInputValue(value);
     Search(value);
   }
+
   function Search(valueInput) {
     const value = valueInput;
     const filteredData = itemList.filter(
       (data) =>
-         data.res_name.toLowerCase().includes(value.toLowerCase()) ||
+        data.res_name.toLowerCase().includes(value.toLowerCase()) ||
         data.dish_name.toLowerCase().includes(value.toLowerCase())
     );
-    setfilteritemList(() =>filteredData);
+    setFilterItemList(filteredData);
   }
+
   if (isLoading) {
     return <div className="spinner-border isLoading"></div>;
   }
+
   return (
     <div>
       <HomeHeader highlight="search" />
@@ -66,22 +66,19 @@ function Search() {
         <i className="fa fa-search search-icon" aria-hidden="true"></i>
         <div className="container">
           <div className="row">
-            {filteritemList[0] &&
-              filteritemList.map((data) => {
-                return (
-                  <DishCard
-                    dishName={data.dish_name}
-                    res_name={data.res_name}
-                    category={data.category}
-                    image={data.dish_image_url}
-                    price={data.price}
-                    rating={data.ratting}
-                    res_id={data.res_id}
-                    dish_id={data.dish_id}
-                    quantity={data.quantity}
-                  />
-                );
-              })}
+            {filteritemList.map((data) => (
+              <DishCard
+                dishName={data.dish_name}
+                res_name={data.res_name}
+                category={data.category}
+                image={data.dish_image_url}
+                price={data.price}
+                rating={data.ratting}
+                res_id={data.res_id}
+                dish_id={data.dish_id}
+                quantity={data.quantity}
+              />
+            ))}
           </div>
         </div>
       </div>
