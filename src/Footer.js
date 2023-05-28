@@ -3,7 +3,7 @@ import "./App.css";
 function Footer() {
   return (
     <div>
-      <div className="row lastdiv mr-0">
+      <div className="row lastdiv mx-0">
         <div className="col-sm-3">
           <h6>COMPANY</h6>
           <p>About us</p>

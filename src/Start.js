@@ -175,9 +175,9 @@ function Start() {
       <div className="container-fluid firstrow">
         <div className="row firstrow row1 ml-5">
           <div className="container col-sm-7 ml-5">
-            <div className="container firstrow mt-5 mx-5">
+            <div className="container firstrow mt-5 mx-3">
               <div className="row col-12 firstrow  ">
-                <div className="col-6">
+                <div className="col-6 imageBox">
                   <img alt="Logo" className="logo" src={logo} />
                   <span className="Swiggycolour">swiggy</span>
                 </div>

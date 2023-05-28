@@ -212,6 +212,18 @@
     width: 50% !important;
     font-size: 15px;
   }
+  #loginsign{
+    padding: 0% !important;
+  }
+  .imageBox{
+    padding: 0% !important;
+  }
+  .imageBox{
+    padding: 0% !important;
+  }
+  .logo{
+    padding-bottom: 6% !important;
+  }
 }
 .switchTapButton {
   padding-right: 0px;
