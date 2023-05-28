@@ -239,6 +239,13 @@
   .loginleftDiv {
     width: 20%;
   }
+  .search-bar input[type="text"] {
+    width: 70% !important;
+    font-size: 15px;
+  }
+  .logo{
+    padding-bottom: 6% !important;
+  }
 }
 @media (min-width: 600px) and (max-width: 850px) {
   .loginleftDiv {
