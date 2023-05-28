@@ -148,8 +148,6 @@ function Home() {
         </div>
       </div>
       <div className="HeaderRowBorder"></div>
-      <br />
-      <br />
       <div className="container">
         <div className="row">
           {buttonClick <= 2 &&

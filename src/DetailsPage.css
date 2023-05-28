@@ -7,38 +7,33 @@
 }
 .showcase {
   padding-left: 35%;
-}
-.detailsHome {
-  margin-left: 1%;
+  height: 60%;
+  width: 60%;
 }
 .resDetails {
-  margin-left: 20%;
+  margin-left: 2%;
 }
 .RatingDetails {
   margin-left: 1%;
 }
 @media (min-width: 600px) and (max-width: 850px) {
-  .detailsHome {
-    margin-left: 1%;
-  }
+ 
   .RatingDetails {
     margin-left: 1%;
   }
   .resDetails {
-    margin-left: 11%;
+    margin-left: 2%;
   }
 }
 @media (max-width: 600px) {
-  .detailsHome {
-    margin-left: 1%;
-  }
   .RatingDetails {
     margin-left: 2%;
   }
   .resDetails {
-    margin-left: 5%;
+    margin-left: 2%;
   }
   .showcase {
     padding-left: 10%;
+    margin-left: 12%;
   }
 }

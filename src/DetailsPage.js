@@ -36,7 +36,7 @@ function DetailPage() {
   }
   return (
     <div>
-      <HomeHeader highlight="home" />
+      <HomeHeader highlight="" />
       <div className="container">
         <div className="showcase mb-2">
           <img
@@ -46,11 +46,6 @@ function DetailPage() {
           />
         </div>
         <div className="titlecase  mb-3">
-          <Link to={`/home`}>
-            <a href="" className="btn btn-danger detailsHome">
-              <i className="fa fa-home"></i> Home
-            </a>
-          </Link>
           <span className="RatingDetails btn-danger" id="rating1">
             <i className="fa-solid fa-star  pt-1 "></i>
             {resList.ratting}
