@@ -14,7 +14,9 @@ function HomeHeader(data) {
             <span className="Poogavanapuram">
               <b>Poogavanapuram</b>
             </span>
-            <span className="text-secondary "> chinnaiyan Colony,<span className="text-secondary chinnaiyan"> Poon...</span></span>
+            <span className="text-secondary ">
+              chinnaiyan Colony
+            </span>
             <i className="fa dropdownIcon">&#xf107;</i>
           </div>
           <div
@@ -40,8 +42,7 @@ function HomeHeader(data) {
           <div
             className={`col Searchdiv ${
               data.highlight === "cart" ? "highlight" : ""
-            } `}
-          >
+            } `}>
             <Link to={`/cart`}>
               <i className="fa fa-shopping-cart  px-2" aria-hidden="true"></i>
               <span className="">
@@ -51,20 +52,14 @@ function HomeHeader(data) {
             </Link>
           </div>
           <div
-            className="col Searchdiv overflow-hidden dropdown-toggle"
-            data-bs-toggle="dropdown"
-          >
-            <i className="fa fa-user  px-2" aria-hidden="true"></i>
-            <span className="">Praveen</span>
+            className={`col Searchdiv ${
+              data.highlight === "profile" ? "highlight" : ""
+            } `}>
+              <Link to={`/profile`}>
+          <i className="fa fa-user  px-2" aria-hidden="true"></i>
+          <span className="">Praveen</span>
+          </Link>
           </div>
-          <div className="dropdown-menu">
-          <a className="dropdown-item" href="">
-            Profile
-          </a>
-          <a className="dropdown-item" href="">
-            Logout
-          </a>
-        </div>
         </div>
       </div>
     </div>
