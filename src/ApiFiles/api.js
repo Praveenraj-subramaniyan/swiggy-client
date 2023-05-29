@@ -31,7 +31,6 @@ export const FoodDetailsCard = async (id) => {
   try {
     const response = await axios.post(url + "home/" + id, loginDataFromCookie);
     responseData1 = response.data;
-    console.log(response.data)
     return responseData1;
   } catch (error) {
     console.error(error);
