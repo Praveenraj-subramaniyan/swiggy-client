@@ -1,10 +1,10 @@
-import logo from "./images/swiggy.svg";
-import "./App.css";
+import logo from "../images/swiggy.svg";
+import "./Css/App.css";
 import React, { useState } from "react";
 import Cookies from "js-cookie";
-import Footer from "./Footer";
+import Footer from "../Components/Footer";
 import { useNavigate } from "react-router-dom";
-import { LoginAPI, SignUPAPI } from "./ApiFiles/api";
+import { LoginAPI, SignUPAPI } from "../Api/api";
 // require('dotenv').config();
 
 function Start() {

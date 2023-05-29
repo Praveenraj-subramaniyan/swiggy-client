@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Footer from "./Footer";
-import HomeHeader from "./HomeHeader";
-import "./Home.css";
-import Card from "./Card";
-import DishCard from "./DishCard";
+import Footer from "../Components/Footer";
+import HomeHeader from "../Components/HomeHeader";
+import "./Css/Home.css";
+import Card from "../Components/Card";
+import DishCard from "../Components/DishCard";
 import { useNavigate } from "react-router-dom";
-import { RestaurantCard } from "./ApiFiles/api";
+import { RestaurantCard } from "../Api/api";
 
 function Home() {
   const navigate = useNavigate();

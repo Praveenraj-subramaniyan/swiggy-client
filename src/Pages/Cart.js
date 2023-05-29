@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import "./Cart.css";
-import HomeHeader from "./HomeHeader";
-import { ViewCard } from "./ApiFiles/api";
+import "./Css/Cart.css";
+import HomeHeader from "../Components/HomeHeader";
+import { ViewCard } from "../Api/api";
 import { useNavigate } from "react-router-dom";
-import DishCard from "./DishCard";
+import DishCard from "../Components/DishCard";
+import Footer from "../Components/Footer";
 
 function Cart() {
   const navigate = useNavigate();
@@ -51,6 +52,8 @@ function Cart() {
             })}
         </div>
       </div>
+      <br/>
+      <Footer />
     </div>
   );
 }

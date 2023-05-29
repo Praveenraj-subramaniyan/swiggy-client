@@ -1,12 +1,11 @@
-import DishCard from "./DishCard";
+import DishCard from "../Components/DishCard";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import "./DetailsPage.css";
-import { Link } from "react-router-dom";
-import Footer from "./Footer";
+import "./Css/DetailsPage.css";
+import Footer from "../Components/Footer";
 import { useNavigate } from "react-router-dom";
-import { FoodDetailsCard } from "./ApiFiles/api";
-import HomeHeader from "./HomeHeader";
+import { FoodDetailsCard } from "../Api/api";
+import HomeHeader from "../Components/HomeHeader";
 
 function DetailPage() {
   const navigate = useNavigate();

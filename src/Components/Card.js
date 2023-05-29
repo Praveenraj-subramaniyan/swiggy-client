@@ -1,4 +1,4 @@
-import "./Card.css";
+import "./Css/Card.css";
 import { Link } from "react-router-dom";
 import React, {useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";

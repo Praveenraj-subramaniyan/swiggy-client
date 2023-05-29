@@ -1,5 +1,5 @@
-import logo from "./images/swiggy.svg";
-import "./HomeHeader.css";
+import logo from "../images/swiggy.svg";
+import "./Css/HomeHeader.css";
 import { Link } from "react-router-dom";
 
 function HomeHeader(data) {

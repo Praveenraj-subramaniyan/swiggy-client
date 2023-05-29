@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./DishCard.css";
-import { CartAPI } from "./ApiFiles/api";
+import "./Css/DishCard.css";
+import { CartAPI } from "../Api/api";
 function DishCard(data) {
   const [cartData, setCartData] = useState(data);
 

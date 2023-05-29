@@ -1,11 +1,10 @@
-import "./App.css";
 import React from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import Start from "./Start";
-import Home from "./Home";
-import DetailPage from "./DetailsPage";
-import Search from "./Search";
-import Cart from "./Cart";
+import Start from "./Pages/Start";
+import Home from "./Pages/Home";
+import DetailPage from "./Pages/DetailsPage";
+import Search from "./Pages/Search";
+import Cart from "./Pages/Cart";
 
 function App() {
   return (

@@ -1,10 +1,10 @@
-import "./Search.css";
-import HomeHeader from "./HomeHeader";
-import Footer from "./Footer";
+import "./Css/Search.css";
+import HomeHeader from "../Components/HomeHeader";
+import Footer from "../Components/Footer";
 import React, { useEffect, useState } from "react";
-import DishCard from "./DishCard";
+import DishCard from "../Components/DishCard";
 import { useNavigate } from "react-router-dom";
-import { RestaurantCard } from "./ApiFiles/api";
+import { RestaurantCard } from "../Api/api";
 
 function Search() {
   const navigate = useNavigate();
