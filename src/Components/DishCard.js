@@ -65,13 +65,13 @@ function DishCard(data) {
               </p>
             </div>
           </div>
-          <div className="col -7 mt-1 resname">
+          <div className="col -7 mt-1 resname text-secondary">
             <h5 className="">{cartData.res_name}</h5>
             <div className=" foodname mt-3">
               <h6>{cartData.dishName}</h6>
             </div>
 
-            <div className="col-3 pricename">
+            <div className="col-3 pricename text-secondary">
               <p>₹ {cartData.quantity >0 ? cartData.quantity * cartData.price :cartData.price}</p>
             </div>
           </div>

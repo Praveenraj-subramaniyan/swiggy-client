@@ -23,7 +23,7 @@ function Card(data) {
         <Link to={`/details/${data.id}`}>
           <img className="Avatar" src={data.image} alt="Avatar" />
           <div className="RestaurantName mt-3 mb-2">
-            <h4>
+            <h4 className="text-secondary">
               <b>{data.res_name}</b>
             </h4>
           </div>
