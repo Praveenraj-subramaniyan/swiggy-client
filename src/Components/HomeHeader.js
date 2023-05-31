@@ -10,15 +10,21 @@ function HomeHeader(data) {
           <div className="col-1 logo1div">
             <img alt="Logo" className="logo1  mt-2" src={logo} />
           </div>
-          <div className="col-3 Poogavanapuramdiv">
-            <span className="Poogavanapuram">
-              <b>Poogavanapuram</b>
-            </span>
-            <span className="text-secondary ">
-              chinnaiyan Colony
-            </span>
-            <i className="fa dropdownIcon">&#xf107;</i>
-          </div>
+          {data.highlight === "profile" ? (
+            <div className="col-3 Poogavanapuramdiv text-secondary">
+              <p className="Poogavanapuram">
+                <b>My Account</b>
+              </p>
+            </div>
+          ) : (
+            <div className="col-3 Poogavanapuramdiv">
+              <span className="Poogavanapuram">
+                <b>Poogavanapuram</b>
+              </span>
+              <span className="text-secondary ">chinnaiyan Colony</span>
+              <i className="fa dropdownIcon">&#xf107;</i>
+            </div>
+          )}
           <div
             className={`offset-2 col Searchdiv ${
               data.highlight === "home" ? "highlight" : ""
@@ -42,7 +48,8 @@ function HomeHeader(data) {
           <div
             className={`col Searchdiv ${
               data.highlight === "cart" ? "highlight" : ""
-            } `}>
+            } `}
+          >
             <Link to={`/cart`}>
               <i className="fa fa-shopping-cart  px-2" aria-hidden="true"></i>
               <span className="">
@@ -54,11 +61,12 @@ function HomeHeader(data) {
           <div
             className={`col Searchdiv ${
               data.highlight === "profile" ? "highlight" : ""
-            } `}>
-              <Link to={`/profile`}>
-          <i className="fa fa-user  px-2" aria-hidden="true"></i>
-          <span className="">Praveen</span>
-          </Link>
+            } `}
+          >
+            <Link to={`/profile`}>
+              <i className="fa fa-user  px-2" aria-hidden="true"></i>
+              <span className="">Praveen</span>
+            </Link>
           </div>
         </div>
       </div>

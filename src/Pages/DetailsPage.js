@@ -1,11 +1,10 @@
 import DishCard from "../Components/DishCard";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams ,Link} from "react-router-dom";
 import "./Css/DetailsPage.css";
 import Footer from "../Components/Footer";
 import { useNavigate } from "react-router-dom";
 import { FoodDetailsCard } from "../Api/api";
-import HomeHeader from "../Components/HomeHeader";
 
 function DetailPage() {
   const navigate = useNavigate();
@@ -35,7 +34,7 @@ function DetailPage() {
   }
   return (
     <div>
-      <HomeHeader highlight="" />
+      {/* <HomeHeader highlight="" /> */}
       <div className="container">
         <div className="showcase mb-2">
           <img
@@ -45,6 +44,11 @@ function DetailPage() {
           />
         </div>
         <div className="titlecase  mb-3">
+        <Link to={`/home`}>
+            <button className="btn btn-danger detailsHome">
+              <i className="fa fa-home"></i> Home
+            </button>
+          </Link>
           <span className="RatingDetails btn-danger" id="rating1">
             <i className="fa-solid fa-star  pt-1 "></i>
             {resList.ratting}
