@@ -2,8 +2,20 @@
     background-color: #37718e;
     color: white;
 }
+
 .EditProfile{
     background-color: transparent;
     border: 0.5px solid whitesmoke;
     color: white;
+}
+.Profilebutton{
+    background-color: #37718e;
+    color: white;
+}
+.Profilebuttondiv button{
+    border-radius: 0px !important;
+    border: 0px;
+}
+.Profilebuttonclicked{
+    color: #37718e;;
 }
