@@ -19,3 +19,7 @@
 .Profilebuttonclicked{
     color: #37718e;;
 }
+.ProfilesecondDiv{
+    border-left: 10px solid #37718e;
+    border-right: 10px solid #37718e;
+}

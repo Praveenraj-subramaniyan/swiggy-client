@@ -15,6 +15,9 @@ function DishCard(data) {
     };
     setCartData(updatedCartData);
     CartAPI(updatedCartData);
+    if (data.onFilteritemListChange) {
+      data.onFilteritemListChange(updatedCartData); 
+    }
   }
   function MinusCart(cartData) {
     const updatedCartData = {
@@ -23,6 +26,9 @@ function DishCard(data) {
     };
     setCartData(updatedCartData);
     CartAPI(updatedCartData);
+    if (data.onFilteritemListChange) {
+      data.onFilteritemListChange(updatedCartData); 
+    }
   }
 
   return (
@@ -72,7 +78,12 @@ function DishCard(data) {
             </div>
 
             <div className="col-3 pricename text-secondary">
-              <p>₹ {cartData.quantity >0 ? cartData.quantity * cartData.price :cartData.price}</p>
+              <p>
+                ₹{" "}
+                {cartData.quantity > 0
+                  ? cartData.quantity * cartData.price
+                  : cartData.price}
+              </p>
             </div>
           </div>
           <div className="col-4 dishCardAddMinusDiv">
@@ -98,12 +109,12 @@ function DishCard(data) {
                   </div>
                 ) : (
                   <div className="addonly">
-                  <button
-                    className="btn btn-outline-danger "
-                    onClick={() => AddCart(cartData)}
-                  >
-                    <span className="Addrow">Add+</span>
-                  </button>
+                    <button
+                      className="btn btn-outline-danger "
+                      onClick={() => AddCart(cartData)}
+                    >
+                      <span className="Addrow">Add+</span>
+                    </button>
                   </div>
                 )}
               </div>

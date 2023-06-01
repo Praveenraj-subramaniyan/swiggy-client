@@ -90,6 +90,23 @@ function Home() {
     );
     return filteredDishes;
   }
+
+  const handleFilteritemListChange = (newFilteritemList) => {
+    setfilteritemList((prevFilteritemList) =>
+      prevFilteritemList.map((data) => {
+        if ( newFilteritemList.res_id === data.res_id &&newFilteritemList.dish_id === data.dish_id) {
+          return {
+            ...data,
+            quantity: newFilteritemList.quantity,
+          };
+        }
+        else{
+          return data;
+        }
+      })
+    );
+  };
+
   if (isLoading) {
     return <div className="spinner-border  isLoading"></div>;
   }
@@ -185,6 +202,7 @@ function Home() {
                   res_id={data.res_id}
                   dish_id={data.dish_id}
                   quantity={data.quantity}
+                  onFilteritemListChange={handleFilteritemListChange}
                 />
               );
             })}
