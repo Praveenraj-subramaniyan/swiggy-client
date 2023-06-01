@@ -2,8 +2,8 @@ import axios from "axios";
 import Cookies from "js-cookie";
 const cookieValue = Cookies.get("Swiggy_client");
 const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
-//const url = "http://localhost:3000/";
-const url = "https://swiggy-server-6c69.onrender.com/";
+const url = "http://localhost:3000/";
+//const url = "https://swiggy-server-6c69.onrender.com/";
 
 let responseData;
 let responseData1;
@@ -62,10 +62,10 @@ export const SignUPAPI = async (loginData) => {
 
 export const CartAPI = async (updatedCartData) => {
   try {
-    const PayLoad={
+    const PayLoad = {
       loginDataFromCookie,
       updatedCartData,
-    }
+    };
     await axios.post(url + "cart", PayLoad);
   } catch (error) {
     console.error(error);
@@ -85,6 +85,16 @@ export const ViewCard = async () => {
       return 0;
     });
     return responseData;
+  } catch (error) {
+    console.error(error);
+    return "login";
+  }
+};
+
+export const CheckoutCart = async () => {
+  try {
+    await axios.post(url + "cart/checkoutcart ", loginDataFromCookie);
+    return true;
   } catch (error) {
     console.error(error);
     return "login";

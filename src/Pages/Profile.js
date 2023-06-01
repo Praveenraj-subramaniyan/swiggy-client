@@ -38,10 +38,10 @@ function Profile() {
                   : "Profilebutton"
               }`}
               onClick={() => {
-                setbuttonClick(1);
+                setbuttonClick(2);
               }}
             >
-              Orders
+              Address
             </button>
             <button
               className={` ${
@@ -50,10 +50,10 @@ function Profile() {
                   : "Profilebutton"
               }`}
               onClick={() => {
-                setbuttonClick(2);
+                setbuttonClick(1);
               }}
             >
-              Address
+              Orders
             </button>
             <button
               className={` ${
@@ -69,8 +69,10 @@ function Profile() {
         </div>
       </div>
       <div className=" ProfilesecondDiv pt-5 px-5">
-        {buttonClick === 1 && <div>orders</div>}
-        {buttonClick === 2 && <div>add</div>}
+        {buttonClick === 1 && <div>
+          
+          </div>}
+        {buttonClick === 2 && <div>orders</div>}
         {buttonClick === 3 && <div></div>}
       </div>
       <br />

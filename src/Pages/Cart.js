@@ -5,6 +5,7 @@ import { ViewCard } from "../Api/api";
 import { useNavigate } from "react-router-dom";
 import DishCard from "../Components/DishCard";
 import Footer from "../Components/Footer";
+import { CheckoutCart } from "../Api/api";
 
 function Cart() {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ function Cart() {
           navigate("/");
         }
         setItemList(items);
+        console.log(items);
         setIsLoading(false);
       } catch (error) {
         console.error(error);
@@ -25,7 +27,11 @@ function Cart() {
     };
     fetchData();
   }, []);
-
+  async function Checkout() {
+    await CheckoutCart();
+    alert("Order Placed succesfully");
+    navigate("/home");
+  }
   if (isLoading) {
     return <div className="spinner-border  isLoading"></div>;
   }
@@ -33,6 +39,16 @@ function Cart() {
     <div>
       <HomeHeader highlight="cart" />
       <div className="container">
+        <div>
+          {itemList[0] && (
+            <button
+              className="btn btn-outline-danger Checkoutbutton"
+              onClick={() => Checkout()}
+            >
+              Checkout
+            </button>
+          )}
+        </div>
         <div className="row">
           {itemList[0] &&
             itemList.map((data) => {
@@ -50,9 +66,17 @@ function Cart() {
                 />
               );
             })}
+          {!itemList[0] && (
+            <div>
+              No items in cart
+              <br /> <br /> <br /> <br />
+              <br />
+              <br />
+            </div>
+          )}
         </div>
       </div>
-      <br/>
+      <br />
       <Footer />
     </div>
   );

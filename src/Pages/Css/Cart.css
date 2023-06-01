@@ -1,0 +1,14 @@
+.Checkoutbutton {
+  margin-left: 90%;
+}
+@media (min-width: 600px) and (max-width: 850px) {
+  .Checkoutbutton {
+    margin-left: 87%;
+  }
+}
+@media (max-width: 600px)  {
+    .Checkoutbutton {
+      margin-left: 71%;
+    }
+  }
+  
