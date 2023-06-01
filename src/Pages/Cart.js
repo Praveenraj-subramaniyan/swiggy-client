@@ -38,6 +38,7 @@ function Cart() {
   return (
     <div>
       <HomeHeader highlight="cart" />
+      <br/>
       <div className="container">
         <div>
           {itemList[0] && (
@@ -67,10 +68,10 @@ function Cart() {
               );
             })}
           {!itemList[0] && (
-            <div>
-              No items in cart
-              <br /> <br /> <br /> <br />
-              <br />
+            <div className="cartzero">
+              <img className="" src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/2xempty_cart_yfxml0" alt="Cart Image"/>
+              <h4 className="text-secondary"> Your cart is empty</h4>
+              <p className="text-secondary">You can go to home page to view more restaurants</p>
               <br />
             </div>
           )}
