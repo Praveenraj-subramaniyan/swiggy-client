@@ -12,6 +12,16 @@
 .cartzero p{
   margin-left: 32%;
 }
+.SEERESTAURANTS {
+  background-color: #fc8019 !important;
+  width: 20%;
+  height: 40px;
+  border-radius: 0px;
+  color: white !important;
+  font-weight: 500;
+  font-size: small;
+  margin-left: 38% !important;
+}
 
 @media (min-width: 600px) and (max-width: 850px) {
   .Checkoutbutton {
@@ -19,6 +29,16 @@
   }
   .cartzero p{
     margin-left: 28%;
+  }
+  .SEERESTAURANTS {
+    font-size: 8px;
+    margin-left: 38% !important;
+  }
+  .cartzero h4{
+    margin-left: 36%;
+  }
+  .cartzero p{
+    margin-left: 25%;
   }
 }
 @media (max-width: 600px)  {
@@ -32,6 +52,12 @@
     .cartzero p{
       margin-left: 18%;
       font-size: 10px;
+    }
+    .SEERESTAURANTS {
+      font-size: 8px;
+      width: 40%;
+      margin-left: 31% !important;
+      padding: 5px !important;
     }
   }
   

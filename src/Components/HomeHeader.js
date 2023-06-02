@@ -40,9 +40,9 @@ function HomeHeader(data) {
               data.highlight === "search" ? "highlight" : ""
             } `}
           >
-            <Link to={`/Search`}>
+            <Link to={`/search`}>
               <i className="fa px-2">&#xf002;</i>
-              <span className="">search</span>
+              <span className="">Search</span>
             </Link>
           </div>
           <div

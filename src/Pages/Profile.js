@@ -38,7 +38,7 @@ function Profile() {
                   : "Profilebutton"
               }`}
               onClick={() => {
-                setbuttonClick(2);
+                setbuttonClick(1);
               }}
             >
               Address
@@ -50,7 +50,7 @@ function Profile() {
                   : "Profilebutton"
               }`}
               onClick={() => {
-                setbuttonClick(1);
+                setbuttonClick(2);
               }}
             >
               Orders
@@ -70,7 +70,6 @@ function Profile() {
       </div>
       <div className=" ProfilesecondDiv pt-5 px-5">
         {buttonClick === 1 && <div>
-          
           </div>}
         {buttonClick === 2 && <div>orders</div>}
         {buttonClick === 3 && <div></div>}

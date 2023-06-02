@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import DishCard from "../Components/DishCard";
 import Footer from "../Components/Footer";
 import { CheckoutCart } from "../Api/api";
+import { Link } from "react-router-dom";
 
 function Cart() {
   const navigate = useNavigate();
@@ -71,7 +72,12 @@ function Cart() {
               <img className="" src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/2xempty_cart_yfxml0" alt="Cart Image"/>
               <h4 className="text-secondary"> Your cart is empty</h4>
               <p className="text-secondary">You can go to home page to view more restaurants</p>
-              <br />
+              <Link to={`/home`}>
+              <button className="btn SEERESTAURANTS " type="button">
+              SEE RESTAURANTS NEAR YOU
+              </button>
+              </Link>
+              <br /> <br /> <br />
             </div>
           )}
         </div>
