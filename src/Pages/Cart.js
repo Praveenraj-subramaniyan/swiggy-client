@@ -19,7 +19,6 @@ function Cart() {
           navigate("/");
         }
         setItemList(items);
-        console.log(items);
         setIsLoading(false);
       } catch (error) {
         console.error(error);
