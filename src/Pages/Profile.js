@@ -62,18 +62,18 @@ function Profile() {
       <div className="ProfileDiv">
         <div className="containerprofilediv px-3">
           <div className="row ps-5">
-            <div className=" pt-5 col-lg-7 col-sm-12">
-              <h3 className="pt-5">{itemListProfile.name}</h3>
+            <div className=" pt-5 profiledetailsdiv col-lg-7 col-sm-12 ">
+              <h3 className="pt-5 ">{itemListProfile.name}</h3>
               <span className="me-3">{itemListProfile.phone}</span>
               <span className="me-3">.</span>{" "}
               <span>{itemListProfile.email}</span>
             </div>
-            <div className=" pt-5 px-0 col-2  mt-5 ">
+            <div className="profiledetailbutton pt-5 px-0 col-2  mt-5 ">
               <button className="EditProfile py-2 px-3">
                 <b>Edit Profile</b>
               </button>
             </div>
-            <div className=" pt-5 px-0 col-3  mt-5 pb-5">
+            <div className="profiledetailbutton pt-5 px-0 col-3  mt-5 pb-5">
               <button className="EditProfile   py-2 px-3">
                 <b>Add Address</b>
               </button>
@@ -120,7 +120,7 @@ function Profile() {
       </div>
       <div className=" ProfilesecondDiv px-5">
         {buttonClick === 1 && (
-          <div className="row pt-5">
+          <div className="row pt-3">
             {itemListProfile.address.map((data) => {
               return (
                 <AddressCard
