@@ -68,12 +68,12 @@ function Profile() {
               <span className="me-3">.</span>{" "}
               <span>{itemListProfile.email}</span>
             </div>
-            <div className=" pt-5 pe-0 col-lg-2 col-sm-12 mt-5 pb-5">
+            <div className=" pt-5 ps-0 col-lg-1 col-sm-12 mt-5 pb-5">
               <button className="EditProfile py-2 px-3">
                 <b>Edit Profile</b>
               </button>
             </div>
-            <div className=" pt-5 ps-0 col-lg-2 col-sm-12 mt-5 pb-5">
+            <div className=" pt-5 ps-0 col-lg-1 col-sm-12 mt-5 pb-5">
               <button className="EditProfile   py-2 px-3">
                 <b>Add Address</b>
               </button>
@@ -141,11 +141,17 @@ function Profile() {
         {buttonClick === 2 && (
           <div className="row">
             {isLoadingOrders ? (
-              <div className="spinner-border  isLoading"></div>
-            ) : (
+              <div className="spinner-border isLoading"></div>
+            ) : ( itemListOrders[0]? (
               itemListOrders.map((data) => {
                 return <OrderCard orderDate={data.orderDate} OrderDetails={data.OrderDetails}/>;
-              })
+              })) : (
+                <div>
+                  <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_262/empty-orders-image_acrbbw"/>
+                  <h6 className="text-secondary">No orders</h6>
+                  <p className="text-secondary">You haven't placed any order yet.</p>
+                </div>
+              )
             )}
           </div>
         )}
