@@ -60,6 +60,7 @@ function Start() {
   const [signupData, setsignupData] = useState({
     nameSignup: "",
     emailIdSignup: "",
+    phoneSignup:"",
     passwordSignup: "",
     confirmpasswordSignup: "",
   });
@@ -146,6 +147,7 @@ function Start() {
     element.style.visibility = "hidden";
     setsignupData({
       nameSignup: "",
+      phoneSignup:"",
       emailIdSignup: "",
       passwordSignup: "",
       confirmpasswordSignup: "",
@@ -401,6 +403,15 @@ function Start() {
                     className="pt-3 ps-2 pb-3 mb-3 inputLogin"
                     name="nameSignup"
                     value={signupData.nameSignup}
+                    onChange={HandleSignUpData}
+                  />
+                    <input
+                    placeholder="Phone"
+                    type="text"
+                    required
+                    className="pt-3 ps-2 pb-3 mb-3 inputLogin"
+                    name="phoneSignup"
+                    value={signupData.phoneSignup}
                     onChange={HandleSignUpData}
                   />
                   <input
