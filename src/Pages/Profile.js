@@ -62,18 +62,18 @@ function Profile() {
       <div className="ProfileDiv">
         <div className="containerprofilediv px-3">
           <div className="row ps-5">
-            <div className=" pt-5 col-lg-8 col-sm-12">
+            <div className=" pt-5 col-lg-7 col-sm-12">
               <h3 className="pt-5">{itemListProfile.name}</h3>
               <span className="me-3">{itemListProfile.phone}</span>
               <span className="me-3">.</span>{" "}
               <span>{itemListProfile.email}</span>
             </div>
-            <div className=" pt-5 ps-0 col-lg-1 col-sm-12 mt-5 pb-5">
+            <div className=" pt-5 px-0 col-2  mt-5 ">
               <button className="EditProfile py-2 px-3">
                 <b>Edit Profile</b>
               </button>
             </div>
-            <div className=" pt-5 ps-0 col-lg-1 col-sm-12 mt-5 pb-5">
+            <div className=" pt-5 px-0 col-3  mt-5 pb-5">
               <button className="EditProfile   py-2 px-3">
                 <b>Add Address</b>
               </button>
@@ -118,9 +118,9 @@ function Profile() {
           </div>
         </div>
       </div>
-      <div className=" ProfilesecondDiv pt-5 px-5">
+      <div className=" ProfilesecondDiv px-5">
         {buttonClick === 1 && (
-          <div className="row">
+          <div className="row pt-5">
             {itemListProfile.address.map((data) => {
               return (
                 <AddressCard
@@ -146,8 +146,8 @@ function Profile() {
               itemListOrders.map((data) => {
                 return <OrderCard orderDate={data.orderDate} OrderDetails={data.OrderDetails}/>;
               })) : (
-                <div>
-                  <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_262/empty-orders-image_acrbbw"/>
+                <div className="orderEmpty">
+                  <img  src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_262/empty-orders-image_acrbbw"/>
                   <h6 className="text-secondary">No orders</h6>
                   <p className="text-secondary">You haven't placed any order yet.</p>
                 </div>
