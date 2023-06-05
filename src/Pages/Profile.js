@@ -3,13 +3,14 @@ import HomeHeader from "../Components/HomeHeader";
 import Footer from "../Components/Footer";
 import { useNavigate } from "react-router-dom";
 import "./Css/Profile.css";
-import { ViewOrders, ViewProfile } from "../Api/api";
+import { ViewOrders, ViewProfile, EditProfile } from "../Api/api";
 import AddressCard from "../Components/AddressCard";
 import OrderCard from "../Components/OrderCard";
 
 function Profile() {
   const [buttonClick, setbuttonClick] = useState(1);
   const [itemListProfile, setItemListProfile] = useState([]);
+  const [editProfile, SetEditProfile] = useState([]);
   const [itemListOrders, setItemListOrders] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isLoadingOrders, setIsLoadingOrders] = useState(false);
@@ -23,6 +24,10 @@ function Profile() {
           navigate("/");
         }
         setItemListProfile(items.data);
+        SetEditProfile({
+          name: items.data.name,
+          phone: items.data.phone,
+        });
         setIsLoading(false);
       } catch (error) {
         console.error(error);
@@ -52,6 +57,30 @@ function Profile() {
       navigate("/");
     }
   }
+  function HandleEdit(event) {
+    const target = event.target;
+    const name = target.name;
+    const value = target.value;
+    SetEditProfile((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+   }
+   async function SaveEdit() {
+    try {
+      setItemListProfile((prevState) => ({
+        ...prevState,
+        name: editProfile.name,
+        phone: editProfile.phone,
+      }));
+      const items = await EditProfile(editProfile);
+      if (items === "login") {
+        navigate("/");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   if (isLoading) {
     return <div className="spinner-border  isLoading"></div>;
@@ -69,16 +98,56 @@ function Profile() {
               <span>{itemListProfile.email}</span>
             </div>
             <div className="profiledetailbutton pt-5 px-0 col-5 col-sm-2  mt-5 ">
-              <button className="EditProfile py-2 px-3">
+              <button
+                className="EditProfile py-2 px-3"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#EditProfilecanvas"
+              >
                 <b>Edit Profile</b>
               </button>
+            </div>
+            <div className="offcanvas offcanvas-end" id="EditProfilecanvas">
+              <div className="offcanvas-header">
+                <h4 className="offcanvas-title EditProfileHeading">
+                  Edit Profile
+                </h4>
+                <button
+                  type="button"
+                  className="btn-close "
+                  data-bs-dismiss="offcanvas"
+                ></button>
+              </div>
+              <div className="offcanvas-body">
+                <input
+                  name="name"
+                  className="EditProfileinputbox mb-3 ps-2 mt-5"
+                  onChange={HandleEdit}
+                  value={editProfile.name}
+                  placeholder="Name"
+                />
+                <input
+                  name="phone"
+                  className="EditProfileinputbox mb-3 ps-2"
+                  onChange={HandleEdit}
+                  value={editProfile.phone}
+                  placeholder="Phone"
+                />
+                <br />
+                <button
+                  className="btn EditProfilecanvasclosebtn"
+                  type="button"
+                  onClick={() => SaveEdit()}
+                >
+                  Save
+                </button>
+              </div>
             </div>
             <div className="profiledetailbutton pt-5 px-0 col-6 col-sm-3  mt-5 pb-5">
               <button className="EditProfile   py-2 px-3">
                 <b>Add Address</b>
               </button>
             </div>
-            
           </div>
           <div className="Profilebuttondiv ps-4">
             <button
@@ -142,16 +211,23 @@ function Profile() {
           <div className="row">
             {isLoadingOrders ? (
               <div className="spinner-border isLoading"></div>
-            ) : ( itemListOrders[0]? (
+            ) : itemListOrders[0] ? (
               itemListOrders.map((data) => {
-                return <OrderCard orderDate={data.orderDate} OrderDetails={data.OrderDetails}/>;
-              })) : (
-                <div className="orderEmpty">
-                  <img  src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_262/empty-orders-image_acrbbw"/>
-                  <h6 className="text-secondary">No orders</h6>
-                  <p className="text-secondary">You haven't placed any order yet.</p>
-                </div>
-              )
+                return (
+                  <OrderCard
+                    orderDate={data.orderDate}
+                    OrderDetails={data.OrderDetails}
+                  />
+                );
+              })
+            ) : (
+              <div className="orderEmpty">
+                <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_262/empty-orders-image_acrbbw" />
+                <h6 className="text-secondary">No orders</h6>
+                <p className="text-secondary">
+                  You haven't placed any order yet.
+                </p>
+              </div>
             )}
           </div>
         )}

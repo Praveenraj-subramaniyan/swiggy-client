@@ -41,6 +41,23 @@
 .orderEmpty {
   margin-left: 12%;
 }
+.EditProfileinputbox{
+  width: 80%;
+  border: 1px solid #37718e !important;
+  height: 50px;
+}
+.EditProfilecanvasclosebtn{
+  background-color: #37718e;
+  color: white;
+  width: 80%;
+}
+.EditProfilecanvasclosebtn:hover {
+  background-color: #37718e !important;
+  color: white !important;
+}
+.EditProfileHeading{
+  color: #37718e;
+}
 @media (min-width: 600px)  and (max-width: 850px) {
   .profiledetailsdiv {
     padding: 0% !important;
