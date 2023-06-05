@@ -68,12 +68,12 @@ function Profile() {
               <span className="me-3">.</span>{" "}
               <span>{itemListProfile.email}</span>
             </div>
-            <div className="profiledetailbutton pt-5 px-0 col-2  mt-5 ">
+            <div className="profiledetailbutton pt-5 px-0 col-5 col-sm-3  mt-5 ">
               <button className="EditProfile py-2 px-3">
                 <b>Edit Profile</b>
               </button>
             </div>
-            <div className="profiledetailbutton pt-5 px-0 col-3  mt-5 pb-5">
+            <div className="profiledetailbutton pt-5 px-0 col-6 col-sm-3  mt-5 pb-5">
               <button className="EditProfile   py-2 px-3">
                 <b>Add Address</b>
               </button>
