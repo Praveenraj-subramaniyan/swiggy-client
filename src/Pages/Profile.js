@@ -144,9 +144,82 @@ function Profile() {
               </div>
             </div>
             <div className="profiledetailbutton pt-5 px-0 col-6 col-sm-3  mt-5 pb-5">
-              <button className="EditProfile   py-2 px-3">
+              <button className="EditProfile   py-2 px-3"
+               data-bs-toggle="offcanvas"
+               data-bs-target="#Addresscanvas">
                 <b>Add Address</b>
               </button>
+            </div>
+            <div className="offcanvas offcanvas-end" id="Addresscanvas">
+              <div className="offcanvas-header">
+                <h4 className="offcanvas-title EditProfileHeading">
+                Add Address
+                </h4>
+                <button
+                  type="button"
+                  className="btn-close "
+                  data-bs-dismiss="offcanvas"
+                ></button>
+              </div>
+              <div className="offcanvas-body">
+                <input
+                  name="name"
+                  className="EditProfileinputbox mb-3 ps-2 mt-2"
+                  onChange={HandleEdit}
+                  value=""
+                  placeholder="Flat No"
+                />
+                <input
+                  name="phone"
+                  className="EditProfileinputbox mb-3 ps-2"
+                  onChange={HandleEdit}
+                  value=""
+                  placeholder="Street"
+                />
+                   <input
+                  name="phone"
+                  className="EditProfileinputbox mb-3 ps-2"
+                  onChange={HandleEdit}
+                  value=""
+                  placeholder="Area"
+                />
+                   <input
+                  name="phone"
+                  className="EditProfileinputbox mb-3 ps-2"
+                  onChange={HandleEdit}
+                  value=""
+                  placeholder="City"
+                />
+                  <input
+                  name="phone"
+                  className="EditProfileinputbox mb-3 ps-2"
+                  onChange={HandleEdit}
+                  value=""
+                  placeholder="State"
+                />
+                   <input
+                  name="phone"
+                  className="EditProfileinputbox mb-3 ps-2"
+                  onChange={HandleEdit}
+                  value=""
+                  placeholder="Country"
+                />
+                   <input
+                  name="phone"
+                  className="EditProfileinputbox mb-3 ps-2"
+                  onChange={HandleEdit}
+                  value=""
+                  placeholder="Pincode"
+                />
+                <br />
+                <button
+                  className="btn EditProfilecanvasclosebtn"
+                  type="button"
+                  onClick={() => SaveEdit()}
+                >
+                  Add Adress
+                </button>
+              </div>
             </div>
           </div>
           <div className="Profilebuttondiv ps-4">

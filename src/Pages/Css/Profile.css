@@ -42,14 +42,14 @@
   margin-left: 12%;
 }
 .EditProfileinputbox{
-  width: 80%;
+  width: 85%;
   border: 1px solid #37718e !important;
   height: 50px;
 }
 .EditProfilecanvasclosebtn{
   background-color: #37718e;
   color: white;
-  width: 80%;
+  width: 85%;
 }
 .EditProfilecanvasclosebtn:hover {
   background-color: #37718e !important;
