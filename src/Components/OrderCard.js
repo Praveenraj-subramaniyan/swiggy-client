@@ -4,7 +4,7 @@ import "./Css/OrderCard.css"
 function OrderCard(data) {
     let TotalPrice=0;
   return (
-    <div className="col-12 AddressBox mb-3 ms-2">
+    <div className="col-12 AddressBox mt-4 mb-3 ms-2">
       <h6 className="col-6 text-secondary">{data.orderDate}</h6>
       <div className="row">
         <div className="col-3">
@@ -12,7 +12,7 @@ function OrderCard(data) {
             <b>Dish</b>
           </p>
         </div>
-        <div className="col-3">
+        <div className="col-3 Restaurantorderheading">
           <p>
             <b>Restaurant </b>
           </p>
