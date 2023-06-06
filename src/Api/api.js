@@ -136,3 +136,17 @@ export const EditProfile = async (profile) => {
     return "login";
   }
 };
+
+export const SaveAddress = async (address) => {
+  try {
+    const PayLoad = {
+      loginDataFromCookie,
+      address,
+    };
+    const response = await axios.post(url + "profile/address/save", PayLoad);
+    return response;
+  } catch (error) {
+    console.error(error);
+    return "login";
+  }
+};

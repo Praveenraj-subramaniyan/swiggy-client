@@ -58,6 +58,9 @@
 .EditProfileHeading{
   color: #37718e;
 }
+.NoaddressDiv{
+  text-align: center;
+}
 @media (min-width: 600px)  and (max-width: 850px) {
   .profiledetailsdiv {
     padding: 0% !important;
@@ -108,5 +111,13 @@
         margin-top: 1%;
         margin-left: 15%;
         margin-bottom: 5%;
+      }
+      .NoaddressDiv h4{
+        font-size: medium;
+        margin-left: 20%;
+      }
+      .NoaddressDiv p{
+        font-size: small;
+        margin-left: 20%;
       }
   }

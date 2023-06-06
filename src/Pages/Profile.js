@@ -3,7 +3,7 @@ import HomeHeader from "../Components/HomeHeader";
 import Footer from "../Components/Footer";
 import { useNavigate } from "react-router-dom";
 import "./Css/Profile.css";
-import { ViewOrders, ViewProfile, EditProfile } from "../Api/api";
+import { ViewOrders, ViewProfile, EditProfile, SaveAddress } from "../Api/api";
 import AddressCard from "../Components/AddressCard";
 import OrderCard from "../Components/OrderCard";
 
@@ -14,6 +14,15 @@ function Profile() {
   const [itemListOrders, setItemListOrders] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isLoadingOrders, setIsLoadingOrders] = useState(false);
+  const [addAddress, SetaddAddress] = useState({
+    flatno: "",
+    street: "",
+    area: "",
+    city: "",
+    state: "",
+    country: "",
+    pincode: "",
+  });
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -65,8 +74,8 @@ function Profile() {
       ...prevState,
       [name]: value,
     }));
-   }
-   async function SaveEdit() {
+  }
+  async function SaveEdit() {
     try {
       setItemListProfile((prevState) => ({
         ...prevState,
@@ -76,6 +85,27 @@ function Profile() {
       const items = await EditProfile(editProfile);
       if (items === "login") {
         navigate("/");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  function HandleAddAdress(event) {
+    const target = event.target;
+    const name = target.name;
+    const value = target.value;
+    SetaddAddress((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  }
+  async function AddAddress() {
+    try {
+      const items = await SaveAddress(addAddress);
+      if (items === "login") {
+        navigate("/");
+      } else {
+        window.location.reload();
       }
     } catch (error) {
       console.error(error);
@@ -144,16 +174,18 @@ function Profile() {
               </div>
             </div>
             <div className="profiledetailbutton pt-5 px-0 col-6 col-sm-2  mt-5 pb-5">
-              <button className="EditProfile   py-2 px-2"
-               data-bs-toggle="offcanvas"
-               data-bs-target="#Addresscanvas">
+              <button
+                className="EditProfile   py-2 px-2"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#Addresscanvas"
+              >
                 <b>Add Address</b>
               </button>
             </div>
             <div className="offcanvas offcanvas-end" id="Addresscanvas">
               <div className="offcanvas-header">
                 <h4 className="offcanvas-title EditProfileHeading">
-                Add Address
+                  Add Address
                 </h4>
                 <button
                   type="button"
@@ -163,59 +195,59 @@ function Profile() {
               </div>
               <div className="offcanvas-body">
                 <input
-                  name="name"
+                  name="flatno"
                   className="EditProfileinputbox mb-3 ps-2 mt-2"
-                  onChange={HandleEdit}
-                  value=""
+                  onChange={HandleAddAdress}
+                  value={addAddress.flatno}
                   placeholder="Flat No"
                 />
                 <input
-                  name="phone"
+                  name="street"
                   className="EditProfileinputbox mb-3 ps-2"
-                  onChange={HandleEdit}
-                  value=""
+                  onChange={HandleAddAdress}
+                  value={addAddress.street}
                   placeholder="Street"
                 />
-                   <input
-                  name="phone"
+                <input
+                  name="area"
                   className="EditProfileinputbox mb-3 ps-2"
-                  onChange={HandleEdit}
-                  value=""
+                  onChange={HandleAddAdress}
+                  value={addAddress.area}
                   placeholder="Area"
                 />
-                   <input
-                  name="phone"
+                <input
+                  name="city"
                   className="EditProfileinputbox mb-3 ps-2"
-                  onChange={HandleEdit}
-                  value=""
+                  onChange={HandleAddAdress}
+                  value={addAddress.city}
                   placeholder="City"
                 />
-                  <input
-                  name="phone"
+                <input
+                  name="state"
                   className="EditProfileinputbox mb-3 ps-2"
-                  onChange={HandleEdit}
-                  value=""
+                  onChange={HandleAddAdress}
+                  value={addAddress.state}
                   placeholder="State"
                 />
-                   <input
-                  name="phone"
+                <input
+                  name="country"
                   className="EditProfileinputbox mb-3 ps-2"
-                  onChange={HandleEdit}
-                  value=""
+                  onChange={HandleAddAdress}
+                  value={addAddress.country}
                   placeholder="Country"
                 />
-                   <input
-                  name="phone"
+                <input
+                  name="pincode"
                   className="EditProfileinputbox mb-3 ps-2"
-                  onChange={HandleEdit}
-                  value=""
+                  onChange={HandleAddAdress}
+                  value={addAddress.pincode}
                   placeholder="Pincode"
                 />
                 <br />
                 <button
                   className="btn EditProfilecanvasclosebtn"
                   type="button"
-                  onClick={() => SaveEdit()}
+                  onClick={() => AddAddress()}
                 >
                   Add Adress
                 </button>
@@ -223,18 +255,18 @@ function Profile() {
             </div>
           </div>
           <div className="Profilebuttondiv ps-5">
-            <button
-              className={` ${
-                buttonClick === 1
-                  ? "bg-light Profilebuttonclicked"
-                  : "Profilebutton"
-              }`}
-              onClick={() => {
-                setbuttonClick(1);
-              }}
-            >
-              Address
-            </button>
+              <button
+                className={` ${
+                  buttonClick === 1
+                    ? "bg-light Profilebuttonclicked"
+                    : "Profilebutton"
+                }`}
+                onClick={() => {
+                  setbuttonClick(1);
+                }}
+              >
+                Address
+              </button>
             <button
               className={` ${
                 buttonClick === 2
@@ -261,7 +293,7 @@ function Profile() {
         </div>
       </div>
       <div className=" ProfilesecondDiv px-5">
-        {buttonClick === 1 && (
+        {buttonClick === 1 && itemListProfile.address[0] ?(
           <div className="row pt-3">
             {itemListProfile.address.map((data) => {
               return (
@@ -279,7 +311,11 @@ function Profile() {
               );
             })}
           </div>
-        )}
+        ) : (<div className="NoaddressDiv py-3">
+          <img className="" src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_252/NoSavedAddress_ttsdqs"/>
+          <h4 className="py-2 text-secondary">Can't find a door to knock</h4>
+          <p className="text-secondary">You don't have an address to deliver.</p>
+        </div>)}
         {buttonClick === 2 && (
           <div className="row">
             {isLoadingOrders ? (
