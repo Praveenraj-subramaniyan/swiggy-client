@@ -296,8 +296,7 @@ function Profile() {
         </div>
       </div>
       <div className=" ProfilesecondDiv px-5">
-        { itemListProfile.address[0] ?(
-          buttonClick === 1 &&(
+        { buttonClick === 1 && ( itemListProfile.address[0] ?(
           <div className="row pt-3">
             {itemListProfile.address.map((data) => {
               return (
@@ -314,8 +313,8 @@ function Profile() {
                 />
               );
             })}
-          </div>)
-        ) : ( buttonClick === 1 &&(<div className="NoaddressDiv py-3">
+          </div>
+        ) : ( <div className="NoaddressDiv py-3">
           <img className="" src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_252/NoSavedAddress_ttsdqs"/>
           <h4 className="py-2 text-secondary">Can't find a door to knock</h4>
           <p className="text-secondary">You don't have an address to deliver.</p>
