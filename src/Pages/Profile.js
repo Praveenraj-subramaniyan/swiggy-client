@@ -91,7 +91,7 @@ function Profile() {
       <div className="ProfileDiv">
         <div className="containerprofilediv px-3">
           <div className="row ps-5">
-            <div className=" pt-5 profiledetailsdiv col-lg-7 col-sm-12 ">
+            <div className=" pt-5 profiledetailsdiv col-lg-8 col-sm-12 ">
               <h3 className="pt-5 ">{itemListProfile.name}</h3>
               <span className="me-3">{itemListProfile.phone}</span>
               <span className="me-3">.</span>{" "}
@@ -99,7 +99,7 @@ function Profile() {
             </div>
             <div className="profiledetailbutton pt-5 px-0 col-5 col-sm-2  mt-5 ">
               <button
-                className="EditProfile py-2 px-3"
+                className="EditProfile py-2 px-2"
                 type="button"
                 data-bs-toggle="offcanvas"
                 data-bs-target="#EditProfilecanvas"
@@ -143,8 +143,8 @@ function Profile() {
                 </button>
               </div>
             </div>
-            <div className="profiledetailbutton pt-5 px-0 col-6 col-sm-3  mt-5 pb-5">
-              <button className="EditProfile   py-2 px-3"
+            <div className="profiledetailbutton pt-5 px-0 col-6 col-sm-2  mt-5 pb-5">
+              <button className="EditProfile   py-2 px-2"
                data-bs-toggle="offcanvas"
                data-bs-target="#Addresscanvas">
                 <b>Add Address</b>
@@ -222,7 +222,7 @@ function Profile() {
               </div>
             </div>
           </div>
-          <div className="Profilebuttondiv ps-4">
+          <div className="Profilebuttondiv ps-5">
             <button
               className={` ${
                 buttonClick === 1
