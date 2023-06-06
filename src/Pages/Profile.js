@@ -23,6 +23,7 @@ function Profile() {
     country: "",
     pincode: "",
   });
+  const [buttonDisabled, setButtonDisabled] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -101,6 +102,7 @@ function Profile() {
   }
   async function AddAddress() {
     try {
+      setButtonDisabled(true);
       const items = await SaveAddress(addAddress);
       if (items === "login") {
         navigate("/");
@@ -178,6 +180,7 @@ function Profile() {
                 className="EditProfile   py-2 px-2"
                 data-bs-toggle="offcanvas"
                 data-bs-target="#Addresscanvas"
+                disabled={buttonDisabled}
               >
                 <b>Add Address</b>
               </button>
@@ -293,7 +296,8 @@ function Profile() {
         </div>
       </div>
       <div className=" ProfilesecondDiv px-5">
-        {buttonClick === 1 && itemListProfile.address[0] ?(
+        { itemListProfile.address[0] ?(
+          buttonClick === 1 &&(
           <div className="row pt-3">
             {itemListProfile.address.map((data) => {
               return (
@@ -310,16 +314,18 @@ function Profile() {
                 />
               );
             })}
-          </div>
-        ) : (<div className="NoaddressDiv py-3">
+          </div>)
+        ) : ( buttonClick === 1 &&(<div className="NoaddressDiv py-3">
           <img className="" src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_252/NoSavedAddress_ttsdqs"/>
           <h4 className="py-2 text-secondary">Can't find a door to knock</h4>
           <p className="text-secondary">You don't have an address to deliver.</p>
-        </div>)}
+        </div>))}
         {buttonClick === 2 && (
           <div className="row">
             {isLoadingOrders ? (
-              <div className="spinner-border isLoading"></div>
+              <div className="isLoadingOrdes">
+              <div className="spinner-border"></div>
+              </div>
             ) : itemListOrders[0] ? (
               itemListOrders.map((data) => {
                 return (

@@ -61,6 +61,15 @@
 .NoaddressDiv{
   text-align: center;
 }
+.isLoadingOrdes{
+  padding-top: 10%;
+  padding-left: 45%;
+  padding-bottom: 10%;
+  padding-right: 55%;
+  color: #fc8019 !important;
+  background-color: transparent;
+  top: 0;
+}
 @media (min-width: 600px)  and (max-width: 850px) {
   .profiledetailsdiv {
     padding: 0% !important;
