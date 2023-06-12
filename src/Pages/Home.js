@@ -18,6 +18,7 @@ function Home() {
       try {
         const items = await RestaurantCard();
         if (items === "login") {
+          alert("Session Expired");
           navigate("/");
         }
         setItemList(items);
@@ -94,13 +95,15 @@ function Home() {
   const handleFilteritemListChange = (newFilteritemList) => {
     setfilteritemList((prevFilteritemList) =>
       prevFilteritemList.map((data) => {
-        if ( newFilteritemList.res_id === data.res_id &&newFilteritemList.dish_id === data.dish_id) {
+        if (
+          newFilteritemList.res_id === data.res_id &&
+          newFilteritemList.dish_id === data.dish_id
+        ) {
           return {
             ...data,
             quantity: newFilteritemList.quantity,
           };
-        }
-        else{
+        } else {
           return data;
         }
       })
@@ -202,6 +205,7 @@ function Home() {
                   res_id={data.res_id}
                   dish_id={data.dish_id}
                   quantity={data.quantity}
+                  key={data.dish_id}
                   onFilteritemListChange={handleFilteritemListChange}
                 />
               );

@@ -18,6 +18,7 @@ function DetailPage() {
       try {
         const items = await FoodDetailsCard(params.id);
         if (items === "login") {
+          alert("Session Expired");
           navigate("/");
         }
         setdetailList(items.dishes);

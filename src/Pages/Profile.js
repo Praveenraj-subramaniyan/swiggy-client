@@ -31,6 +31,7 @@ function Profile() {
       try {
         const items = await ViewProfile();
         if (items === "login") {
+          alert("Session Expired");
           navigate("/");
         }
         setItemListProfile(items.data);
@@ -52,6 +53,7 @@ function Profile() {
       setIsLoadingOrders(true);
       const item = await ViewOrders();
       if (item === "login") {
+        alert("Session Expired");
         navigate("/");
       }
       setItemListOrders(item.data);
@@ -85,6 +87,7 @@ function Profile() {
       }));
       const items = await EditProfile(editProfile);
       if (items === "login") {
+        alert("Session Expired");
         navigate("/");
       }
     } catch (error) {
@@ -105,6 +108,7 @@ function Profile() {
       setButtonDisabled(true);
       const items = await SaveAddress(addAddress);
       if (items === "login") {
+        alert("Session Expired");
         navigate("/");
       } else {
         window.location.reload();
@@ -310,6 +314,7 @@ function Profile() {
                   pincode={data.pincode}
                   isPrimary={data.isPrimary}
                   id={data.id}
+                  key={data.id}
                 />
               );
             })}
@@ -330,6 +335,7 @@ function Profile() {
                 return (
                   <OrderCard
                     orderDate={data.orderDate}
+                    key={data.id}
                     OrderDetails={data.OrderDetails}
                   />
                 );

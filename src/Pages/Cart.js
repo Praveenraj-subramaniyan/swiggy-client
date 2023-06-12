@@ -12,11 +12,13 @@ function Cart() {
   const navigate = useNavigate();
   const [itemList, setItemList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [buttonDisabled, setButtonDisabled] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
       try {
         const items = await ViewCard();
         if (items === "login") {
+          alert("Session Expired");
           navigate("/");
         }
         setItemList(items);
@@ -28,6 +30,7 @@ function Cart() {
     fetchData();
   }, []);
   async function Checkout() {
+    setButtonDisabled(true);
     await CheckoutCart();
     alert("Order Placed succesfully");
     navigate("/home");
@@ -45,6 +48,7 @@ function Cart() {
             <button
               className="btn btn-outline-danger Checkoutbutton"
               onClick={() => Checkout()}
+              disabled={buttonDisabled}
             >
               Checkout
             </button>
@@ -63,6 +67,7 @@ function Cart() {
                   rating={data.ratting}
                   res_id={data.res_id}
                   dish_id={data.dish_id}
+                  key={data.dish_id}
                   quantity={data.quantity}
                 />
               );

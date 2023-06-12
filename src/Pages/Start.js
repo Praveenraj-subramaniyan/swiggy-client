@@ -36,22 +36,24 @@ function Start() {
     HandleLoginResponse(await LoginAPI(loginData), "login");
   }
   function HandleLoginResponse(response, value) {
-    if (response === "True") {
+    if (response === true) {
       const expiryDate = new Date(Date.now() + 24 * 60 * 60 * 1000);
       Cookies.set("Swiggy_client", JSON.stringify(loginData), {
         expires: expiryDate,
       });
       navigate("/home");
-    } else if (response === "Invalid") {
+    } 
+    // else if (response === "Invalid") {
+    //   setisVisible({
+    //     status: "visually-true",
+    //     message: "Invalid username and password",
+    //     for: value,
+    //   });
+    // } 
+    else if (response === false) {
       setisVisible({
         status: "visually-true",
-        message: "Invalid username and password",
-        for: value,
-      });
-    } else if (response === "False") {
-      setisVisible({
-        status: "visually-true",
-        message: "Invalid password",
+        message: "Invalid password and password",
         for: value,
       });
     }
@@ -88,10 +90,10 @@ function Start() {
     }
   }
   function HandleSignUpResponse(response, value) {
-    if (response === "True") {
+    if (response === true) {
       alert("Registration succesfull");
       SwitchTab("loginDiv");
-    } else if (response === "False") {
+    } else if (response === false) {
       setisVisible({
         status: "visually-true",
         message: "Already registered",

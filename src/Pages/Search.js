@@ -18,6 +18,7 @@ function Search() {
       try {
         const items = await RestaurantCard();
         if (items === "login") {
+          alert("Session Expired");
           navigate("/");
         }
         const dishes = items.flatMap((data) => data.dishes);
