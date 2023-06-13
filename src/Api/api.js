@@ -50,6 +50,17 @@ export const LoginAPI = async (loginData) => {
   }
 };
 
+export const ForgetPasswordApi = async (loginData) => {
+  try {
+    const response = await axios.post(url + "forgetpassword", loginData);
+    responseLoginData = response.data;
+    return responseLoginData;
+  } catch (error) {
+    console.error(error);
+    return responseLoginData;
+  }
+};
+
 export const SignUPAPI = async (loginData) => {
   try {
     const response = await axios.post(url + "signup", loginData);

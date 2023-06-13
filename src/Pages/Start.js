@@ -3,7 +3,7 @@ import "./Css/App.css";
 import React, { useState } from "react";
 import Cookies from "js-cookie";
 import Footer from "../Components/Footer";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { LoginAPI, SignUPAPI } from "../Api/api";
 // require('dotenv').config();
 
@@ -42,14 +42,14 @@ function Start() {
         expires: expiryDate,
       });
       navigate("/home");
-    } 
+    }
     // else if (response === "Invalid") {
     //   setisVisible({
     //     status: "visually-true",
     //     message: "Invalid username and password",
     //     for: value,
     //   });
-    // } 
+    // }
     else if (response === false) {
       setisVisible({
         status: "visually-true",
@@ -62,7 +62,7 @@ function Start() {
   const [signupData, setsignupData] = useState({
     nameSignup: "",
     emailIdSignup: "",
-    phoneSignup:"",
+    phoneSignup: "",
     passwordSignup: "",
     confirmpasswordSignup: "",
   });
@@ -149,7 +149,7 @@ function Start() {
     element.style.visibility = "hidden";
     setsignupData({
       nameSignup: "",
-      phoneSignup:"",
+      phoneSignup: "",
       emailIdSignup: "",
       passwordSignup: "",
       confirmpasswordSignup: "",
@@ -351,8 +351,16 @@ function Start() {
                   </label>
                 </div>
                 <div>
+                  <Link to={`/forgetpassword`}>
+                    <a
+                      href="#"
+                      className="forgrtpasswordlink text-decoration-none"
+                    >
+                      Forget password?
+                    </a>
+                  </Link>
                   <button
-                    className="btn LoginButton mt-4 ms-3 pt-1 pb-2"
+                    className="btn LoginButton mt-2 ms-3 pt-1 pb-2"
                     type="submit"
                   >
                     Login
@@ -407,7 +415,7 @@ function Start() {
                     value={signupData.nameSignup}
                     onChange={HandleSignUpData}
                   />
-                    <input
+                  <input
                     placeholder="Phone"
                     type="text"
                     required

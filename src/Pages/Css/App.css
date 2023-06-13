@@ -184,6 +184,11 @@
 #signupDiv {
   visibility: hidden;
 }
+.forgrtpasswordlink{
+  float: right;
+  margin-top: 2%;
+  margin-right: 11%;
+}
 @media (max-width: 576px) {
   .loginleftDiv {
     display: none;
@@ -223,6 +228,9 @@
   }
   .logo{
     padding-bottom: 6% !important;
+  }
+  .forgrtpasswordlink{
+    margin-right: 18% !important;
   }
 }
 .switchTapButton {
