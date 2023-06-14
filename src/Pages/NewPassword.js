@@ -22,7 +22,7 @@ function NewPassword() {
     if(itemList.newPassword === itemList.confirmPassword){
       const response = await NewPasswordApi(itemList.otp,itemList.newPassword,itemList.confirmPassword);
       if (response === true) {
-        alert("password changed successfully")
+        alert("Password changed successfully")
         navigate("/ ");
       } else {
         setisVisible((prevState) => ({
