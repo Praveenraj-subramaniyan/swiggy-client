@@ -1,18 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Css/ForgetPassword.css";
-import logo from "../images/swiggy.svg";
+import lock from "../images/lock.PNG";
 import { ForgetPasswordApi } from "../Api/api";
 import { useNavigate } from "react-router-dom";
+import ForgetPasswordHeader from "../Components/ForgetPasswordHeader";
 
 function ForgetPassword() {
   const navigate = useNavigate();
+  const [email, SetEmail] = useState("");
   const [isVisible, setisVisible] = useState({
     status: "false",
     message: "Email id is not register",
   });
   async function HandleSubmit(event) {
     event.preventDefault();
-    const response = await ForgetPasswordApi();
+    const response = await ForgetPasswordApi(email);
     if (response === true) {
       navigate("/newpassword");
     } else {
@@ -22,36 +24,58 @@ function ForgetPassword() {
       }));
     }
   }
+
+  function HandleOnChange(event) {
+    const value = event.target.value;
+    SetEmail(value);
+  }
   return (
     <div className="container-fluid">
-      <div className="">
-        <img alt="Logo" className="logo2  mt-2" src={logo} />
-      </div>
-      <div className="container">
-      <i class="fa-solid fa-lock fa-10x"></i>
+      <ForgetPasswordHeader />
+      <div className="container forgetpasswordDiv">
+        <img alt="Logo" className="lock  mt-2" src={lock} />
+        <p>
+          <b>Trouble with logging in?</b>
+        </p>
+        <p className="text-secondary">
+          Enter your email address, phone number or <br /> username, and we'll
+          send you a link to get back <br /> into your account.
+        </p>
         <form action="" onSubmit={HandleSubmit}>
-          <h2>Forget Password</h2>
           <input
             type="email"
             name=""
             placeholder="Email"
-            id="email"
-            value=""
-            onChange=""
+            id="forgetemail"
+            value={email}
+            onChange={HandleOnChange}
+            className="forgetemail py-1 px-2"
             required
           />
           <label
-            htmlFor="emailid"
+            htmlFor="forgetemail"
             className={
               isVisible.status === true ? "visually-true" : "visually-hidden"
             }
           >
             {isVisible.message}
           </label>
-          <button type="submit" className="isloginbtn">
+          <br />
+          <br />
+          <button type="submit" className="forgetemailbtn">
             Send OTP
           </button>
         </form>
+        <br />
+        <div>
+          <h6 className="text-secondary">OR</h6>
+          <button
+            className="mb-5 CreateNewAccountbtn"
+            onClick={() => navigate("/")}
+          >
+            Create New Account
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -2,8 +2,8 @@ import axios from "axios";
 import Cookies from "js-cookie";
 const cookieValue = Cookies.get("Swiggy_client");
 const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
-//const url = "http://localhost:3000/";
-const url = "https://swiggy-server-6c69.onrender.com/";
+const url = "http://localhost:3000/";
+//const url = "https://swiggy-server-6c69.onrender.com/";
 
 let responseData;
 let responseData1;
@@ -30,7 +30,10 @@ export const RestaurantCard = async () => {
 
 export const FoodDetailsCard = async (id) => {
   try {
-    const response = await axios.post(url + "details/" + id, loginDataFromCookie);
+    const response = await axios.post(
+      url + "details/" + id,
+      loginDataFromCookie
+    );
     responseData1 = response.data;
     return responseData1;
   } catch (error) {
@@ -50,11 +53,40 @@ export const LoginAPI = async (loginData) => {
   }
 };
 
-export const ForgetPasswordApi = async (loginData) => {
+export const ForgetPasswordApi = async (email) => {
   try {
-    const response = await axios.post(url + "forgetpassword", loginData);
+    const response = await axios.post(url + "forgetpassword", { email });
     responseLoginData = response.data;
+    if (response.data === true) {
+      const expiryDate = new Date(Date.now() + 24 * 60 * 60 * 1000);
+      Cookies.set("forget_password", JSON.stringify(email), {
+        expires: expiryDate,
+      });
+    }
     return responseLoginData;
+  } catch (error) {
+    console.error(error);
+    return responseLoginData;
+  }
+};
+
+export const NewPasswordApi = async (otp, newPassword, confirmPassword) => {
+  try {
+    const cookieValue = Cookies.get("forget_password");
+    const email = cookieValue ? JSON.parse(cookieValue) : null;
+    if (email === null) {
+      return "login";
+    } else {
+      const PayLoad = {
+        email,
+        otp,
+        newPassword,
+        confirmPassword,
+      };
+      const response = await axios.post(url + "forgetpassword/new", PayLoad);
+      responseLoginData = response.data;
+      return responseLoginData;
+    }
   } catch (error) {
     console.error(error);
     return responseLoginData;
@@ -65,7 +97,7 @@ export const SignUPAPI = async (loginData) => {
   try {
     const response = await axios.post(url + "signup", loginData);
     responseLoginData = response.data;
-    console.log(response.data)
+    console.log(response.data);
     return responseLoginData;
   } catch (error) {
     console.error(error);
@@ -116,10 +148,7 @@ export const CheckoutCart = async () => {
 
 export const ViewOrders = async () => {
   try {
-    const response = await axios.post(
-      url + "orders/view",
-      loginDataFromCookie
-    );
+    const response = await axios.post(url + "orders/view", loginDataFromCookie);
     return response;
   } catch (error) {
     console.error(error);
