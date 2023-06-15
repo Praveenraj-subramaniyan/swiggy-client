@@ -50,7 +50,7 @@ function Start() {
     //     for: value,
     //   });
     // }
-    else  {
+    else {
       setisVisible({
         status: "visually-true",
         message: "Invalid Username or password",
@@ -90,9 +90,9 @@ function Start() {
     }
   }
   function HandleSignUpResponse(response, value) {
-    console.log(response)
+    console.log(response);
     if (response === true) {
-      alert("Registration succesfull");
+      alert("Registration link sent to your mail id");
       SwitchTab("loginDiv");
     } else if (response === false) {
       setisVisible({
@@ -352,13 +352,11 @@ function Start() {
                   </label>
                 </div>
                 <div>
-                  <Link to={`/forgetpassword`}>
-                    <a
-                      href="#"
-                      className="forgrtpasswordlink text-decoration-none"
-                    >
-                      Forget password?
-                    </a>
+                  <Link
+                    to="/forgetpassword"
+                    className="forgrtpasswordlink text-decoration-none"
+                  >
+                    Forget password?
                   </Link>
                   <button
                     className="btn LoginButton mt-2 ms-3 pt-1 pb-2"
@@ -422,6 +420,9 @@ function Start() {
                     required
                     className="pt-3 ps-2 pb-3 mb-3 inputLogin"
                     name="phoneSignup"
+                    pattern="^\d{10}$"
+                    maxLength={10}
+                    title="Max 10 digits is allowed."
                     value={signupData.phoneSignup}
                     onChange={HandleSignUpData}
                   />
@@ -431,6 +432,7 @@ function Start() {
                     required
                     className="pt-3 ps-2 pb-3 mb-3 inputLogin"
                     id="emailidsignup"
+                    title="Enter valid mail id"
                     name="emailIdSignup"
                     value={signupData.emailIdSignup}
                     onChange={HandleSignUpData}
@@ -438,6 +440,7 @@ function Start() {
                   <input
                     placeholder="Password"
                     type="password"
+                    title="password length must between 8 to 15, must have one alphabet,number and special character"
                     required
                     className="pt-3 ps-2 pb-3 inputLogin"
                     name="passwordSignup"
@@ -447,6 +450,7 @@ function Start() {
                   <input
                     placeholder="Confirm password"
                     type="password"
+                    title="password length must between 8 to 15, must have one alphabet,number and special character"
                     required
                     className="mt-3 pt-3 ps-2 pb-3 inputLogin"
                     name="confirmpasswordSignup"

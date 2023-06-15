@@ -19,10 +19,14 @@ function NewPassword() {
 
   async function HandleSubmit(event) {
     event.preventDefault();
-    if(itemList.newPassword === itemList.confirmPassword){
-      const response = await NewPasswordApi(itemList.otp,itemList.newPassword,itemList.confirmPassword);
+    if (itemList.newPassword === itemList.confirmPassword) {
+      const response = await NewPasswordApi(
+        itemList.otp,
+        itemList.newPassword,
+        itemList.confirmPassword
+      );
       if (response === true) {
-        alert("Password changed successfully")
+        alert("Password changed successfully");
         navigate("/ ");
       } else {
         setisVisible((prevState) => ({
@@ -30,15 +34,12 @@ function NewPassword() {
           status: true,
         }));
       }
-    }
-    else{
+    } else {
       setisVisible({
         status: true,
-        message: "Password mismatch"
-      }
-      );
+        message: "Password mismatch",
+      });
     }
-  
   }
 
   function HandleOnChange(event) {
@@ -56,23 +57,27 @@ function NewPassword() {
       <ForgetPasswordHeader />
       <div className="container newpasswordDiv">
         <img alt="Logo" className="lock  mt-2" src={lock} />
-        <br/>
+        <br />
         <h4>Reset Password</h4>
-        <br/><br/>
+        <br />
+        <br />
         <form action="" onSubmit={HandleSubmit}>
           <input
             type="text"
             name="otp"
             placeholder="OTP"
+            pattern="^\d{6}$"
+            title="Only six digit allowed"
             value={itemList.otp}
             onChange={HandleOnChange}
             className="newpassinput OTP py-1 px-2"
             required
             maxLength={6}
           />
-          <br/><br/>
+          <br />
+          <br />
           <input
-            type="text"
+            type="password"
             name="newPassword"
             placeholder="New password"
             value={itemList.newPassword}
@@ -82,9 +87,10 @@ function NewPassword() {
             maxLength={15}
             disabled={!isOtpValid}
           />
-          <br/><br/>
+          <br />
+          <br />
           <input
-            type="text"
+            type="password"
             name="confirmPassword"
             placeholder="Confirm new password"
             value={itemList.confirmPassword}
@@ -94,7 +100,7 @@ function NewPassword() {
             maxLength={15}
             disabled={!isOtpValid}
           />
-            <br />
+          <br />
           <label
             className={
               isVisible.status === true ? "visually-true" : "visually-hidden"
@@ -102,8 +108,13 @@ function NewPassword() {
           >
             {isVisible.message}
           </label>
-          <br /><br />
-          <button  type="submit" className="newpasswordbtn mb-5"  disabled={!isOtpValid}>
+          <br />
+          <br />
+          <button
+            type="submit"
+            className="newpasswordbtn mb-5"
+            disabled={!isOtpValid}
+          >
             Reset Password
           </button>
         </form>
