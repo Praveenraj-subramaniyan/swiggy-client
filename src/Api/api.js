@@ -49,7 +49,7 @@ export const LoginAPI = async (loginData) => {
     return responseLoginData;
   } catch (error) {
     console.error(error);
-    return responseLoginData;
+    return false;
   }
 };
 
@@ -95,7 +95,7 @@ export const NewPasswordApi = async (otp, newPassword, confirmPassword) => {
 
 export const SignUPAPI = async (loginData) => {
   try {
-    const response = await axios.post(url + "signup", loginData);
+    const response = await axios.post(url + "signup/verify", loginData);
     responseLoginData = response.data;
     console.log(response.data);
     return responseLoginData;

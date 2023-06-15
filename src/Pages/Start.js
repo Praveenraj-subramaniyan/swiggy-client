@@ -50,10 +50,10 @@ function Start() {
     //     for: value,
     //   });
     // }
-    else if (response === false) {
+    else  {
       setisVisible({
         status: "visually-true",
-        message: "Invalid password and password",
+        message: "Invalid Username or password",
         for: value,
       });
     }
@@ -90,6 +90,7 @@ function Start() {
     }
   }
   function HandleSignUpResponse(response, value) {
+    console.log(response)
     if (response === true) {
       alert("Registration succesfull");
       SwitchTab("loginDiv");
