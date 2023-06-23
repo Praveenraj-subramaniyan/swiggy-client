@@ -36,26 +36,28 @@ function Start() {
     HandleLoginResponse(await LoginAPI(loginData), "login");
   }
   function HandleLoginResponse(response, value) {
-    if (response === true) {
-      const expiryDate = new Date(Date.now() + 24 * 60 * 60 * 1000);
-      Cookies.set("Swiggy_client", JSON.stringify(loginData), {
-        expires: expiryDate,
-      });
-      navigate("/home");
-    }
-    // else if (response === "Invalid") {
-    //   setisVisible({
-    //     status: "visually-true",
-    //     message: "Invalid username and password",
-    //     for: value,
-    //   });
-    // }
-    else {
+    if (response === false) {
       setisVisible({
         status: "visually-true",
         message: "Invalid Username or password",
         for: value,
       });
+    }
+    else if (response === "Server Busy") {
+      setisVisible({
+        status: "visually-true",
+        message: "Server Busy",
+        for: value,
+      });
+    }
+    else{
+      const expiryDate = new Date(Date.now() + 24 * 60 * 60 * 1000);
+      Cookies.set("auth_token", JSON.stringify(response), {
+        expires: expiryDate,
+        sameSite: "None",
+        secure: true,
+      });
+      navigate("/home");
     }
     setIsLoading(false);
   }

@@ -174,6 +174,7 @@ function Profile() {
                   className="btn EditProfilecanvasclosebtn"
                   type="button"
                   onClick={() => SaveEdit()}
+                  data-bs-dismiss="offcanvas"
                 >
                   Save
                 </button>

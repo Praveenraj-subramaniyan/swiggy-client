@@ -60,7 +60,6 @@ function NewPassword() {
         <br />
         <h4>Reset Password</h4>
         <br />
-        <br />
         <form action="" onSubmit={HandleSubmit}>
           <input
             type="text"
@@ -74,8 +73,7 @@ function NewPassword() {
             required
             maxLength={6}
           />
-          <br />
-          <br />
+          <br /> <br />
           <input
             type="password"
             name="newPassword"
@@ -87,8 +85,7 @@ function NewPassword() {
             maxLength={15}
             disabled={!isOtpValid}
           />
-          <br />
-          <br />
+          <br /> <br />
           <input
             type="password"
             name="confirmPassword"
@@ -100,7 +97,7 @@ function NewPassword() {
             maxLength={15}
             disabled={!isOtpValid}
           />
-          <br />
+          <br /> <br />
           <label
             className={
               isVisible.status === true ? "visually-true" : "visually-hidden"
@@ -108,7 +105,6 @@ function NewPassword() {
           >
             {isVisible.message}
           </label>
-          <br />
           <br />
           <button
             type="submit"

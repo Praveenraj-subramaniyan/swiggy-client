@@ -1,17 +1,20 @@
 import axios from "axios";
 import Cookies from "js-cookie";
-const cookieValue = Cookies.get("Swiggy_client");
+const cookieValue = Cookies.get("auth_token");
 const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
-//const url = "http://localhost:3000/";
-const url = "https://swiggy-server-6c69.onrender.com/";
-
+const url = "http://localhost:3000/";
+//const url = "https://swiggy-server-6c69.onrender.com/";
 let responseData;
 let responseData1;
 let responseLoginData;
 
 export const RestaurantCard = async () => {
   try {
-    const response = await axios.post(url + "home", loginDataFromCookie);
+    const response = await axios.get(url + "home", {
+      headers: {
+        'Authorization': `Bearer ${loginDataFromCookie}`
+      }
+    });
     responseData = response.data.sort((a, b) => {
       if (a.res_name < b.res_name) {
         return -1;
@@ -30,9 +33,13 @@ export const RestaurantCard = async () => {
 
 export const FoodDetailsCard = async (id) => {
   try {
-    const response = await axios.post(
+    const response = await axios.get(
       url + "details/" + id,
-      loginDataFromCookie
+      {
+        headers: {
+          'Authorization': `Bearer ${loginDataFromCookie}`
+        }
+      }
     );
     responseData1 = response.data;
     return responseData1;
@@ -49,7 +56,7 @@ export const LoginAPI = async (loginData) => {
     return responseLoginData;
   } catch (error) {
     console.error(error);
-    return false;
+    return "Server Busy";
   }
 };
 
@@ -107,19 +114,24 @@ export const SignUPAPI = async (loginData) => {
 
 export const CartAPI = async (updatedCartData) => {
   try {
-    const PayLoad = {
-      loginDataFromCookie,
-      updatedCartData,
-    };
-    await axios.post(url + "cart", PayLoad);
+    await axios.post(url + "cart", {updatedCartData},{
+      headers: {
+        'Authorization': `Bearer ${loginDataFromCookie}`
+      }
+    });
   } catch (error) {
     console.error(error);
   }
 };
 
 export const ViewCard = async () => {
+  
   try {
-    const response = await axios.post(url + "cart/view ", loginDataFromCookie);
+    const response = await axios.get(url + "cart/view ",{
+      headers: {
+        'Authorization': `Bearer ${loginDataFromCookie}`
+      }
+    } );
     responseData = response.data.sort((a, b) => {
       if (a.res_name < b.res_name) {
         return -1;
@@ -138,7 +150,11 @@ export const ViewCard = async () => {
 
 export const CheckoutCart = async () => {
   try {
-    await axios.post(url + "orders/checkout", loginDataFromCookie);
+    await axios.get(url + "orders/checkout",{
+      headers: {
+        'Authorization': `Bearer ${loginDataFromCookie}`
+      }
+    });
     return true;
   } catch (error) {
     console.error(error);
@@ -148,7 +164,11 @@ export const CheckoutCart = async () => {
 
 export const ViewOrders = async () => {
   try {
-    const response = await axios.post(url + "orders/view", loginDataFromCookie);
+    const response = await axios.get(url + "orders/view", {
+      headers: {
+        'Authorization': `Bearer ${loginDataFromCookie}`
+      }
+    });
     return response;
   } catch (error) {
     console.error(error);
@@ -157,7 +177,11 @@ export const ViewOrders = async () => {
 };
 export const ViewProfile = async () => {
   try {
-    const response = await axios.post(url + "profile", loginDataFromCookie);
+    const response = await axios.get(url + "profile", {
+      headers: {
+        'Authorization': `Bearer ${loginDataFromCookie}`
+      }
+    });
     return response;
   } catch (error) {
     console.error(error);
@@ -167,11 +191,11 @@ export const ViewProfile = async () => {
 
 export const EditProfile = async (profile) => {
   try {
-    const PayLoad = {
-      loginDataFromCookie,
-      profile,
-    };
-    const response = await axios.post(url + "profile/edit", PayLoad);
+    const response = await axios.post(url + "profile/edit", {profile}, {
+      headers: {
+        'Authorization': `Bearer ${loginDataFromCookie}`
+      }
+    });
     return response;
   } catch (error) {
     console.error(error);
@@ -181,11 +205,11 @@ export const EditProfile = async (profile) => {
 
 export const SaveAddress = async (address) => {
   try {
-    const PayLoad = {
-      loginDataFromCookie,
-      address,
-    };
-    const response = await axios.post(url + "profile/address/save", PayLoad);
+    const response = await axios.post(url + "profile/address/save", {address},{
+      headers: {
+        'Authorization': `Bearer ${loginDataFromCookie}`
+      }
+    });
     return response;
   } catch (error) {
     console.error(error);
