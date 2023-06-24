@@ -210,7 +210,51 @@ export const SaveAddress = async (address) => {
         'Authorization': `Bearer ${loginDataFromCookie}`
       }
     });
-    return response;
+    console.log(response.data)
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return "login";
+  }
+};
+
+export const EditAddressAPI = async (address) => {
+  try {
+    const response = await axios.post(url + "profile/address/edit", {address},{
+      headers: {
+        'Authorization': `Bearer ${loginDataFromCookie}`
+      }
+    });
+    console.log(response.data)
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return "login";
+  }
+};
+
+export const DeleteAdressAPI = async (id) => {
+  try {
+    const response = await axios.post(url + "profile/address/delete", {id},{
+      headers: {
+        'Authorization': `Bearer ${loginDataFromCookie}`
+      }
+    });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return "login";
+  }
+};
+
+export const SetPrimaryAdressAPI = async (id) => {
+  try {
+    const response = await axios.post(url + "profile/address/set/primary", {id},{
+      headers: {
+        'Authorization': `Bearer ${loginDataFromCookie}`
+      }
+    });
+    return response.data;
   } catch (error) {
     console.error(error);
     return "login";

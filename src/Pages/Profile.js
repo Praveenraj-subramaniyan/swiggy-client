@@ -3,7 +3,7 @@ import HomeHeader from "../Components/HomeHeader";
 import Footer from "../Components/Footer";
 import { useNavigate } from "react-router-dom";
 import "./Css/Profile.css";
-import { ViewOrders, ViewProfile, EditProfile, SaveAddress } from "../Api/api";
+import { ViewOrders, ViewProfile, EditProfile, SaveAddress, EditAddressAPI } from "../Api/api";
 import AddressCard from "../Components/AddressCard";
 import OrderCard from "../Components/OrderCard";
 
@@ -106,18 +106,70 @@ function Profile() {
   async function AddAddress() {
     try {
       setButtonDisabled(true);
-      const items = await SaveAddress(addAddress);
-      if (items === "login") {
+      const reponse = await SaveAddress(addAddress);
+      if (reponse === "login") {
         alert("Session Expired");
         navigate("/");
-      } else {
+      }
+      else if (reponse === false) {
+        alert("Unable to add address, Please try again");
+      }  
+      else if (reponse === true) {
+        alert("Address added successfully");
         window.location.reload();
       }
     } catch (error) {
       console.error(error);
+      alert("Session Expired");
+      navigate("/");
     }
   }
+  const [editAddress, seteditAddress] = useState({});
+  function handleAddressEditData(event) {
+    const name = event.target.name;
+    const value = event.target.value;
+    seteditAddress((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  }
 
+  function setEditAddressData(value) {
+    seteditAddress({
+      id:value.id,
+      flatno: value.flatno,
+      street: value.street,
+      area: value.area,
+      city: value.city,
+      state: value.state,
+      country: value.country,
+      pincode: value.pincode,
+      isPrimary:value.isPrimary
+    });
+  }
+
+  async function EditAddres(editAddress) {
+    try {
+      setButtonDisabled(true);
+      const reponse = await EditAddressAPI(editAddress);
+      if (reponse === "login") {
+        alert("Session Expired");
+        navigate("/");
+      }
+      else if (reponse === false) {
+        alert("Unable to set primary address, Please try again");
+      } 
+      else if (reponse === true) {
+        alert("Address edited successfully")
+        window.location.reload();
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Session Expired");
+      navigate("/");
+    }
+  }
+  
   if (isLoading) {
     return <div className="spinner-border  isLoading"></div>;
   }
@@ -263,18 +315,18 @@ function Profile() {
             </div>
           </div>
           <div className="Profilebuttondiv ps-5">
-              <button
-                className={` ${
-                  buttonClick === 1
-                    ? "bg-light Profilebuttonclicked"
-                    : "Profilebutton"
-                }`}
-                onClick={() => {
-                  setbuttonClick(1);
-                }}
-              >
-                Address
-              </button>
+            <button
+              className={` ${
+                buttonClick === 1
+                  ? "bg-light Profilebuttonclicked"
+                  : "Profilebutton"
+              }`}
+              onClick={() => {
+                setbuttonClick(1);
+              }}
+            >
+              Address
+            </button>
             <button
               className={` ${
                 buttonClick === 2
@@ -300,36 +352,118 @@ function Profile() {
           </div>
         </div>
       </div>
+      <div className="offcanvas offcanvas-end" id="EditAddresscanvas">
+        <div className="offcanvas-header">
+          <h4 className="offcanvas-title EditProfileHeading">Edit Address</h4>
+          <button
+            type="button"
+            className="btn-close "
+            data-bs-dismiss="offcanvas"
+          ></button>
+        </div>
+        <div className="offcanvas-body">
+          <input
+            name="flatno"
+            className="EditProfileinputbox mb-3 ps-2 mt-2"
+            onChange={handleAddressEditData}
+            value={editAddress.flatno}
+            placeholder="Flat No"
+          />
+          <input
+            name="street"
+            className="EditProfileinputbox mb-3 ps-2"
+            onChange={handleAddressEditData}
+            value={editAddress.street}
+            placeholder="Street"
+          />
+          <input
+            name="area"
+            className="EditProfileinputbox mb-3 ps-2"
+            onChange={handleAddressEditData}
+            value={editAddress.area}
+            placeholder="Area"
+          />
+          <input
+            name="city"
+            className="EditProfileinputbox mb-3 ps-2"
+            onChange={handleAddressEditData}
+            value={editAddress.city}
+            placeholder="City"
+          />
+          <input
+            name="state"
+            className="EditProfileinputbox mb-3 ps-2"
+            onChange={handleAddressEditData}
+            value={editAddress.state}
+            placeholder="State"
+          />
+          <input
+            name="country"
+            className="EditProfileinputbox mb-3 ps-2"
+            onChange={handleAddressEditData}
+            value={editAddress.country}
+            placeholder="Country"
+          />
+          <input
+            name="pincode"
+            className="EditProfileinputbox mb-3 ps-2"
+            onChange={handleAddressEditData}
+            value={editAddress.pincode}
+            placeholder="Pincode"
+          />
+          <br />
+          <button
+            className="btn EditProfilecanvasclosebtn"
+            type="button"
+            data-bs-dismiss="offcanvas"
+            onClick={()=>EditAddres(editAddress)}
+          >
+            Save Changes
+          </button>
+        </div>
+      </div>
       <div className=" ProfilesecondDiv px-5">
-        { buttonClick === 1 && ( itemListProfile.address[0] ?(
-          <div className="row pt-3">
-            {itemListProfile.address.map((data) => {
-              return (
-                <AddressCard
-                  flatno={data.flatno}
-                  street={data.street}
-                  area={data.area}
-                  city={data.city}
-                  state={data.state}
-                  country={data.country}
-                  pincode={data.pincode}
-                  isPrimary={data.isPrimary}
-                  id={data.id}
-                  key={data.id}
-                />
-              );
-            })}
-          </div>
-        ) : ( <div className="NoaddressDiv py-3">
-          <img className="" src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_252/NoSavedAddress_ttsdqs"/>
-          <h4 className="py-2 text-secondary">Can't find a door to knock</h4>
-          <p className="text-secondary">You don't have an address to deliver.</p>
-        </div>))}
+        {buttonClick === 1 &&
+          (itemListProfile.address[0] ? (
+            <div className="row pt-3">
+              {itemListProfile.address.map((data) => {
+                return (
+                  <AddressCard
+                    flatno={data.flatno}
+                    street={data.street}
+                    area={data.area}
+                    city={data.city}
+                    state={data.state}
+                    country={data.country}
+                    pincode={data.pincode}
+                    isPrimary={data.isPrimary}
+                    id={data._id}
+                    key={data._id}
+                    setEditAddressData={setEditAddressData}
+                  />
+                );
+              })}
+            </div>
+          ) : (
+            <div className="NoaddressDiv py-3">
+              <img
+                alt="image"
+                className=""
+                src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_252/NoSavedAddress_ttsdqs"
+              />
+              <h4 className="py-2 text-secondary">
+                Can't find a door to knock
+              </h4>
+              <p className="text-secondary">
+                You don't have an address to deliver.
+              </p>
+            </div>
+          ))}
         {buttonClick === 2 && (
           <div className="row">
             {isLoadingOrders ? (
               <div className="isLoadingOrdes">
-              <div className="spinner-border"></div>
+                <div className="spinner-border"></div>
               </div>
             ) : itemListOrders[0] ? (
               itemListOrders.map((data) => {
@@ -343,7 +477,10 @@ function Profile() {
               })
             ) : (
               <div className="orderEmpty">
-                <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_262/empty-orders-image_acrbbw" />
+                <img
+                  alt="image"
+                  src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_262/empty-orders-image_acrbbw"
+                />
                 <h6 className="text-secondary">No orders</h6>
                 <p className="text-secondary">
                   You haven't placed any order yet.

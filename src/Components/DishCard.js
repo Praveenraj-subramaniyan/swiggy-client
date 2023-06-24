@@ -3,11 +3,6 @@ import "./Css/DishCard.css";
 import { CartAPI } from "../Api/api";
 function DishCard(data) {
   const [cartData, setCartData] = useState(data);
-
-  useEffect(() => {
-    setCartData(data);
-  }, [data]);
-
   function AddCart(cartData) {
     const updatedCartData = {
       ...cartData,
@@ -15,9 +10,7 @@ function DishCard(data) {
     };
     setCartData(updatedCartData);
     CartAPI(updatedCartData);
-    if (data.onFilteritemListChange) {
-      data.onFilteritemListChange(updatedCartData); 
-    }
+    data.onFilteritemListChange(updatedCartData);
   }
   function MinusCart(cartData) {
     const updatedCartData = {
@@ -26,9 +19,7 @@ function DishCard(data) {
     };
     setCartData(updatedCartData);
     CartAPI(updatedCartData);
-    if (data.onFilteritemListChange) {
-      data.onFilteritemListChange(updatedCartData); 
-    }
+    data.onFilteritemListChange(updatedCartData);
   }
 
   return (
