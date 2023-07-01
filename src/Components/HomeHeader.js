@@ -65,7 +65,7 @@ function HomeHeader(data) {
           >
             <Link to={`/profile`}>
               <i className="fa fa-user  px-2" aria-hidden="true"></i>
-              <span className="">Praveen</span>
+              <span className="">Profile</span>
             </Link>
           </div>
         </div>
