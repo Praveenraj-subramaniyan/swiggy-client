@@ -13,13 +13,13 @@ function Home() {
   const [filteritemList, setfilteritemList] = useState([]);
   const [buttonClick, setbuttonClick] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
- 
+  useEffect(() => {
     const fetchData = async () => {
       try {
         const items = await RestaurantCard();
-        console.log(items)
+        console.log(items);
         if (items === "login") {
-          alert("Session Expired home");
+          alert("Session Expired");
           navigate("/");
         }
         setItemList(items);
@@ -31,6 +31,7 @@ function Home() {
       }
     };
     fetchData();
+  }, []);
 
   function SetItem(data) {
     if (data === "Low") {

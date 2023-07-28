@@ -24,6 +24,7 @@ export const RestaurantCard = async () => {
       }
       return 0;
     });
+    console.log(responseData)
     return responseData;
   } catch (error) {
     console.error(error);
