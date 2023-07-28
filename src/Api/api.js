@@ -9,6 +9,7 @@ let responseData1;
 let responseLoginData;
 
 export const RestaurantCard = async () => {
+  console.log(loginDataFromCookie)
   try {
     const response = await axios.get(url + "home", {
       headers: {
@@ -24,7 +25,7 @@ export const RestaurantCard = async () => {
       }
       return 0;
     });
-    console.log(responseData)
+
     return responseData;
   } catch (error) {
     console.error(error);
