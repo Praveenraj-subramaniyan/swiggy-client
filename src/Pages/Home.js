@@ -17,8 +17,9 @@ function Home() {
     const fetchData = async () => {
       try {
         const items = await RestaurantCard();
+        console.log(items)
         if (items === "login") {
-          alert("Session Expired");
+          alert("Session Expired home");
           navigate("/");
         }
         setItemList(items);
@@ -30,7 +31,6 @@ function Home() {
       }
     };
     fetchData();
-  
 
   function SetItem(data) {
     if (data === "Low") {

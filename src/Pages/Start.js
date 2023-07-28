@@ -5,7 +5,6 @@ import Cookies from "js-cookie";
 import Footer from "../Components/Footer";
 import { Link, useNavigate } from "react-router-dom";
 import { LoginAPI, SignUPAPI } from "../Api/api";
-// require('dotenv').config();
 
 function Start() {
   const navigate = useNavigate();
