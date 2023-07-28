@@ -17,7 +17,7 @@ function Home() {
     const fetchData = async () => {
       try {
         const items = await RestaurantCard();
-        console.log(items);
+        console.log("home",items);
         if (items === "login") {
           alert("Session Expired");
           navigate("/");
