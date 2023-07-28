@@ -13,7 +13,7 @@ function Home() {
   const [filteritemList, setfilteritemList] = useState([]);
   const [buttonClick, setbuttonClick] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
+ 
     const fetchData = async () => {
       try {
         const items = await RestaurantCard();
@@ -30,7 +30,7 @@ function Home() {
       }
     };
     fetchData();
-  }, []);
+  
 
   function SetItem(data) {
     if (data === "Low") {
