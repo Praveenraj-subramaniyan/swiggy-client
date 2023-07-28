@@ -78,6 +78,8 @@ export const ForgetPasswordApi = async (email) => {
 };
 
 export const NewPasswordApi = async (otp, newPassword, confirmPassword) => {
+  const cookieEmailValue = Cookies.get("forget_password");
+  const email = cookieEmailValue ? JSON.parse(cookieEmailValue) : null;
   try {
     if (email === null) {
       return "login";
@@ -102,7 +104,6 @@ export const SignUPAPI = async (loginData) => {
   try {
     const response = await axios.post(url + "signup/verify", loginData);
     responseLoginData = response.data;
-    console.log(response.data);
     return responseLoginData;
   } catch (error) {
     console.error(error);
