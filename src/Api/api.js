@@ -2,7 +2,6 @@ import axios from "axios";
 import Cookies from "js-cookie";
 const cookieValue = Cookies.get("auth_token");
 const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
-//const url = "http://localhost:3000/";
 const url = "https://swiggy-server-6c69.onrender.com/";
 let responseData;
 let responseData1;
