@@ -1,7 +1,5 @@
 import axios from "axios";
 import Cookies from "js-cookie";
-const cookieValue = Cookies.get("auth_token");
-const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
 //const url = "http://localhost:3000/";
 const url = "https://swiggy-server-6c69.onrender.com/";
 let responseData;
@@ -9,12 +7,13 @@ let responseData1;
 let responseLoginData;
 
 export const RestaurantCard = async () => {
-  console.log(loginDataFromCookie)
+  const cookieValue = Cookies.get("auth_token");
+  const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
   try {
     const response = await axios.get(url + "home", {
       headers: {
-        'Authorization': `Bearer ${loginDataFromCookie}`
-      }
+        Authorization: `Bearer ${loginDataFromCookie}`,
+      },
     });
     responseData = response.data.sort((a, b) => {
       if (a.res_name < b.res_name) {
@@ -34,15 +33,14 @@ export const RestaurantCard = async () => {
 };
 
 export const FoodDetailsCard = async (id) => {
+  const cookieValue = Cookies.get("auth_token");
+  const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
   try {
-    const response = await axios.get(
-      url + "details/" + id,
-      {
-        headers: {
-          'Authorization': `Bearer ${loginDataFromCookie}`
-        }
-      }
-    );
+    const response = await axios.get(url + "details/" + id, {
+      headers: {
+        Authorization: `Bearer ${loginDataFromCookie}`,
+      },
+    });
     responseData1 = response.data;
     return responseData1;
   } catch (error) {
@@ -115,25 +113,32 @@ export const SignUPAPI = async (loginData) => {
 };
 
 export const CartAPI = async (updatedCartData) => {
+  const cookieValue = Cookies.get("auth_token");
+  const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
   try {
-    await axios.post(url + "cart", {updatedCartData},{
-      headers: {
-        'Authorization': `Bearer ${loginDataFromCookie}`
+    await axios.post(
+      url + "cart",
+      { updatedCartData },
+      {
+        headers: {
+          Authorization: `Bearer ${loginDataFromCookie}`,
+        },
       }
-    });
+    );
   } catch (error) {
     console.error(error);
   }
 };
 
 export const ViewCard = async () => {
-  
+  const cookieValue = Cookies.get("auth_token");
+  const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
   try {
-    const response = await axios.get(url + "cart/view ",{
+    const response = await axios.get(url + "cart/view ", {
       headers: {
-        'Authorization': `Bearer ${loginDataFromCookie}`
-      }
-    } );
+        Authorization: `Bearer ${loginDataFromCookie}`,
+      },
+    });
     responseData = response.data.sort((a, b) => {
       if (a.res_name < b.res_name) {
         return -1;
@@ -151,11 +156,13 @@ export const ViewCard = async () => {
 };
 
 export const CheckoutCart = async () => {
+  const cookieValue = Cookies.get("auth_token");
+  const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
   try {
-    await axios.get(url + "orders/checkout",{
+    await axios.get(url + "orders/checkout", {
       headers: {
-        'Authorization': `Bearer ${loginDataFromCookie}`
-      }
+        Authorization: `Bearer ${loginDataFromCookie}`,
+      },
     });
     return true;
   } catch (error) {
@@ -165,11 +172,13 @@ export const CheckoutCart = async () => {
 };
 
 export const ViewOrders = async () => {
+  const cookieValue = Cookies.get("auth_token");
+  const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
   try {
     const response = await axios.get(url + "orders/view", {
       headers: {
-        'Authorization': `Bearer ${loginDataFromCookie}`
-      }
+        Authorization: `Bearer ${loginDataFromCookie}`,
+      },
     });
     return response;
   } catch (error) {
@@ -178,11 +187,13 @@ export const ViewOrders = async () => {
   }
 };
 export const ViewProfile = async () => {
+  const cookieValue = Cookies.get("auth_token");
+  const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
   try {
     const response = await axios.get(url + "profile", {
       headers: {
-        'Authorization': `Bearer ${loginDataFromCookie}`
-      }
+        Authorization: `Bearer ${loginDataFromCookie}`,
+      },
     });
     return response;
   } catch (error) {
@@ -193,11 +204,15 @@ export const ViewProfile = async () => {
 
 export const EditProfile = async (profile) => {
   try {
-    const response = await axios.post(url + "profile/edit", {profile}, {
-      headers: {
-        'Authorization': `Bearer ${loginDataFromCookie}`
+    const response = await axios.post(
+      url + "profile/edit",
+      { profile },
+      {
+        headers: {
+          Authorization: `Bearer ${loginDataFromCookie}`,
+        },
       }
-    });
+    );
     return response;
   } catch (error) {
     console.error(error);
@@ -207,12 +222,16 @@ export const EditProfile = async (profile) => {
 
 export const SaveAddress = async (address) => {
   try {
-    const response = await axios.post(url + "profile/address/save", {address},{
-      headers: {
-        'Authorization': `Bearer ${loginDataFromCookie}`
+    const response = await axios.post(
+      url + "profile/address/save",
+      { address },
+      {
+        headers: {
+          Authorization: `Bearer ${loginDataFromCookie}`,
+        },
       }
-    });
-    console.log(response.data)
+    );
+    console.log(response.data);
     return response.data;
   } catch (error) {
     console.error(error);
@@ -222,12 +241,16 @@ export const SaveAddress = async (address) => {
 
 export const EditAddressAPI = async (address) => {
   try {
-    const response = await axios.post(url + "profile/address/edit", {address},{
-      headers: {
-        'Authorization': `Bearer ${loginDataFromCookie}`
+    const response = await axios.post(
+      url + "profile/address/edit",
+      { address },
+      {
+        headers: {
+          Authorization: `Bearer ${loginDataFromCookie}`,
+        },
       }
-    });
-    console.log(response.data)
+    );
+    console.log(response.data);
     return response.data;
   } catch (error) {
     console.error(error);
@@ -237,11 +260,15 @@ export const EditAddressAPI = async (address) => {
 
 export const DeleteAdressAPI = async (id) => {
   try {
-    const response = await axios.post(url + "profile/address/delete", {id},{
-      headers: {
-        'Authorization': `Bearer ${loginDataFromCookie}`
+    const response = await axios.post(
+      url + "profile/address/delete",
+      { id },
+      {
+        headers: {
+          Authorization: `Bearer ${loginDataFromCookie}`,
+        },
       }
-    });
+    );
     return response.data;
   } catch (error) {
     console.error(error);
@@ -251,11 +278,15 @@ export const DeleteAdressAPI = async (id) => {
 
 export const SetPrimaryAdressAPI = async (id) => {
   try {
-    const response = await axios.post(url + "profile/address/set/primary", {id},{
-      headers: {
-        'Authorization': `Bearer ${loginDataFromCookie}`
+    const response = await axios.post(
+      url + "profile/address/set/primary",
+      { id },
+      {
+        headers: {
+          Authorization: `Bearer ${loginDataFromCookie}`,
+        },
       }
-    });
+    );
     return response.data;
   } catch (error) {
     console.error(error);
