@@ -1,19 +1,19 @@
 import axios from "axios";
 import Cookies from "js-cookie";
-const cookieValue = Cookies.get("auth_token");
-const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
 const url = "https://swiggy-server-6c69.onrender.com/";
 let responseData;
 let responseData1;
 let responseLoginData;
 
 export const RestaurantCard = async () => {
-  const cookieValuehome = Cookies.get("auth_token");
-  const loginDataFromCookiehome = cookieValuehome ? JSON.parse(cookieValuehome) : null;
+  const cookieValue = Cookies.get("auth_token");
+  const loginDataFromCookie = cookieValue
+    ? JSON.parse(cookieValue)
+    : null;
   try {
     const response = await axios.get(url + "home", {
       headers: {
-        Authorization: `Bearer ${loginDataFromCookiehome}`,
+        Authorization: `Bearer ${loginDataFromCookie}`,
       },
     });
     responseData = response.data.sort((a, b) => {
@@ -34,6 +34,8 @@ export const RestaurantCard = async () => {
 };
 
 export const FoodDetailsCard = async (id) => {
+  const cookieValue = Cookies.get("auth_token");
+  const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
   try {
     const response = await axios.get(url + "details/" + id, {
       headers: {
@@ -111,6 +113,8 @@ export const SignUPAPI = async (loginData) => {
 };
 
 export const CartAPI = async (updatedCartData) => {
+  const cookieValue = Cookies.get("auth_token");
+  const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
   try {
     await axios.post(
       url + "cart",
@@ -127,6 +131,8 @@ export const CartAPI = async (updatedCartData) => {
 };
 
 export const ViewCard = async () => {
+  const cookieValue = Cookies.get("auth_token");
+  const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
   try {
     const response = await axios.get(url + "cart/view ", {
       headers: {
@@ -150,6 +156,8 @@ export const ViewCard = async () => {
 };
 
 export const CheckoutCart = async () => {
+  const cookieValue = Cookies.get("auth_token");
+  const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
   try {
     await axios.get(url + "orders/checkout", {
       headers: {
@@ -164,6 +172,8 @@ export const CheckoutCart = async () => {
 };
 
 export const ViewOrders = async () => {
+  const cookieValue = Cookies.get("auth_token");
+  const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
   try {
     const response = await axios.get(url + "orders/view", {
       headers: {
@@ -177,6 +187,8 @@ export const ViewOrders = async () => {
   }
 };
 export const ViewProfile = async () => {
+  const cookieValue = Cookies.get("auth_token");
+  const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
   try {
     const response = await axios.get(url + "profile", {
       headers: {
@@ -191,6 +203,8 @@ export const ViewProfile = async () => {
 };
 
 export const EditProfile = async (profile) => {
+  const cookieValue = Cookies.get("auth_token");
+  const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
   try {
     const response = await axios.post(
       url + "profile/edit",
@@ -209,6 +223,8 @@ export const EditProfile = async (profile) => {
 };
 
 export const SaveAddress = async (address) => {
+  const cookieValue = Cookies.get("auth_token");
+  const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
   try {
     const response = await axios.post(
       url + "profile/address/save",
@@ -228,6 +244,8 @@ export const SaveAddress = async (address) => {
 };
 
 export const EditAddressAPI = async (address) => {
+  const cookieValue = Cookies.get("auth_token");
+  const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
   try {
     const response = await axios.post(
       url + "profile/address/edit",
@@ -247,6 +265,8 @@ export const EditAddressAPI = async (address) => {
 };
 
 export const DeleteAdressAPI = async (id) => {
+  const cookieValue = Cookies.get("auth_token");
+  const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
   try {
     const response = await axios.post(
       url + "profile/address/delete",
@@ -265,6 +285,8 @@ export const DeleteAdressAPI = async (id) => {
 };
 
 export const SetPrimaryAdressAPI = async (id) => {
+  const cookieValue = Cookies.get("auth_token");
+  const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
   try {
     const response = await axios.post(
       url + "profile/address/set/primary",
