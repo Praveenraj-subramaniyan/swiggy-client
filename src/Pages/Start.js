@@ -17,8 +17,8 @@ function Start() {
     for: "null",
   });
   const [loginData, setloginData] = useState({
-    emailIdLogin: "",
-    passwordLogin: "",
+    emailIdLogin: "spr887011@gmail.com",
+    passwordLogin: "1234",
   });
   function HandleLoginData(event) {
     const target = event.target;
