@@ -80,7 +80,8 @@ function Start() {
     event.preventDefault();
     setIsLoading(true);
     if (signupData.confirmpasswordSignup === signupData.passwordSignup) {
-      HandleSignUpResponse(await SignUPAPI(signupData), "signup");
+    HandleSignUpResponse(await SignUPAPI(signupData), "signup");
+ 
     } else {
       setisVisible({
         status: "visually-true",
@@ -101,10 +102,11 @@ function Start() {
         message: "Already registered",
         for: value,
       });
-    } else {
+    } 
+    else {
       setisVisible({
         status: "visually-true",
-        message: "Server time out",
+        message: "Invalid email or Server time out",
         for: value,
       });
     }
@@ -155,10 +157,6 @@ function Start() {
       emailIdSignup: "",
       passwordSignup: "",
       confirmpasswordSignup: "",
-    });
-    setloginData({
-      emailIdLogin: "",
-      passwordLogin: "",
     });
     setisVisible((preState) => ({
       ...preState,

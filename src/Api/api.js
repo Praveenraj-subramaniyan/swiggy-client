@@ -1,6 +1,8 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 const url = "https://swiggy-server-6c69.onrender.com/";
+// const url = "http://localhost:3000/";
+
 let responseData;
 let responseData1;
 let responseLoginData;
@@ -51,6 +53,12 @@ export const FoodDetailsCard = async (id) => {
 };
 
 export const LoginAPI = async (loginData) => {
+  const expiryDate = new Date(Date.now() + 24 * 60 * 60 * 1000);
+  Cookies.set("email", loginData.emailIdLogin, {
+    expires: expiryDate,
+    sameSite: "None",
+    secure: true,
+  });
   try {
     const response = await axios.post(url + "login", loginData);
     responseLoginData = response.data;
@@ -155,16 +163,16 @@ export const ViewCard = async () => {
   }
 };
 
-export const CheckoutCart = async () => {
+export const CheckoutCart = async (token) => {
   const cookieValue = Cookies.get("auth_token");
   const loginDataFromCookie = cookieValue ? JSON.parse(cookieValue) : null;
   try {
-    await axios.get(url + "orders/checkout", {
+    const reponse = await axios.post(url + "orders/checkout", {token}, {
       headers: {
         Authorization: `Bearer ${loginDataFromCookie}`,
       },
     });
-    return true;
+    return reponse;
   } catch (error) {
     console.error(error);
     return "login";
