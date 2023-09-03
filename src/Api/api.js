@@ -1,5 +1,6 @@
 import axios from "axios";
 import Cookies from "js-cookie";
+
 const url = "https://swiggy-server-6c69.onrender.com/";
 // const url = "http://localhost:3000/";
 
