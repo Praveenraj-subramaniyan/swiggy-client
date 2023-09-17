@@ -75,9 +75,7 @@
     margin-left: 5% !important;
     width: 100% !important;
   }
-  /* .Relevance .btn{
-    margin-left: 6% !important;
-  } */
+  
 }
 @media (min-width: 600px) and (max-width: 850px) {
   .isLoading {
@@ -87,6 +85,8 @@
   }
   .HeaderRowBorder {
     width: 93%;
+    margin-top: 3% !important;
+    margin-bottom: 5% !important;
   }
 }
 @media (max-width: 600px) {
@@ -98,6 +98,8 @@
   .HeaderRowBorder {
     width: 95%;
     margin-left: 2%;
+    margin-top: 5% !important;
+    margin-bottom: 6% !important;
   }
 }
 .HeaderRow2 a {

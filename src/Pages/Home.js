@@ -169,7 +169,7 @@ function Home() {
       </div>
       <div className="HeaderRowBorder"></div>
       <div className="container">
-        <div className="row">
+        <div className="row d-flex justify-content-center align-items-center">
           {buttonClick <= 2 &&
             itemList[0] &&
             itemList.map((item) => {

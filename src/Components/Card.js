@@ -2,8 +2,10 @@ import "./Css/Card.css";
 import { Link } from "react-router-dom";
 import React, { useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useNavigate } from "react-router-dom";
 
 function Card(data) {
+  const navigate = useNavigate();
   const popoverRef = useRef(null);
   function QuickView() {
     const formattedContent = data.dishes.join("<br/>");
@@ -43,12 +45,18 @@ function Card(data) {
           <button
             ref={popoverRef}
             type="button"
-            className="btn btn-outline-light text-primary Quickview mb-2"
+            className="btn btn-outline-light text-primary Quickview mb-2 desktop"
             title="MENU"
             data-bs-toggle="popover"
             data-bs-content="Some content inside the popover"
             data-bs-trigger="hover"
             onMouseEnter={QuickView}
+          >
+            Quick view
+          </button>
+          <button
+           className="btn btn-outline-light text-primary Quickview mb-2 mobile"
+            onClick={()=>(navigate(`/details/${data.id}`))}
           >
             Quick view
           </button>
