@@ -132,6 +132,7 @@ function Start() {
     var signupDiv;
     var loginDiv;
     if (value === "signupDiv") {
+      alert("Please enter valid email, Otherwise you will not recieve verification link")
       signupDiv = document.getElementById(value);
       signupDiv.style.visibility = "visible";
       loginDiv = document.getElementById("loginDiv");
@@ -196,7 +197,9 @@ function Start() {
                   <button
                     type="button"
                     className="btn btn-dark"
-                    onClick={() => LoginVisible("signupDiv")}
+                    onClick={() => {LoginVisible("signupDiv")
+                    alert("Please enter valid email, Otherwise you will not recieve verification link")
+                  }}
                   >
                     Sign Up
                   </button>
@@ -300,7 +303,7 @@ function Start() {
               <div className="col-5   mt-4  ms-3 pe-0 ps-0">
                 <h3 className="Login">Login</h3>
 
-                <p onClick={() => SwitchTab("signupDiv")}>
+                <p onClick={() => {SwitchTab("signupDiv")}}>
                   or{" "}
                   <button className="btn orangeColour switchTapButton">
                     {" "}
@@ -385,7 +388,7 @@ function Start() {
             <div className="row createAcc">
               <div className="col-5  mt-4  ms-3 pe-0 ps-0">
                 <h3 className="Login">Sign up</h3>
-                <p onClick={() => SwitchTab("loginDiv")}>
+                <p onClick={() => {SwitchTab("loginDiv") }}>
                   or{" "}
                   <button className="btn orangeColour switchTapButton">
                     login into account
