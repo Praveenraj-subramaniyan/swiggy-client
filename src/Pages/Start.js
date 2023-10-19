@@ -476,9 +476,9 @@ function Start() {
                   </button>
                   <p className=" ms-3 mt-1">
                     <span className="text-secondary">
-                      By creating an account, I accept the{" "}
+                     Please enter valid email, {' '}
                     </span>
-                    Terms & Conditions & Privacy Policy
+                    Otherwise you will not recieve verification link
                   </p>
                 </div>
               </div>
