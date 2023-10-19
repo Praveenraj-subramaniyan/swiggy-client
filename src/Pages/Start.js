@@ -474,8 +474,8 @@ function Start() {
                   >
                     Sign up
                   </button>
-                  <p className=" ms-3 mt-1">
-                    <span className="text-secondary">
+                  <p className=" ms-3 mt-1 text-secondary">
+                    <span className="text-danger">
                      Please enter valid email, {' '}
                     </span>
                     Otherwise you will not recieve verification link
